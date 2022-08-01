@@ -356,7 +356,7 @@
                     $('#sel_desa').find('option').not(':first').remove();
                 // Add options
                     $.each(response,function(index,data){
-                        $('#sel_kota').append('<option value="'+data['id']+'">'+data['name']+'</option>');
+                        $('#sel_kota').append('<option value="'+data['id_kota']+'">'+data['kota']+'</option>');
                     });
                 }
             });
@@ -376,7 +376,7 @@
                     $('#sel_desa').find('option').not(':first').remove();
                     // Add options
                     $.each(response,function(index,data){
-                        $('#sel_kec').append('<option value="'+data['id']+'">'+data['name']+'</option>');
+                        $('#sel_kec').append('<option value="'+data['id_kec']+'">'+data['kec']+'</option>');
                     });
                 }
             });
@@ -396,17 +396,13 @@
                 $('#sel_desa').find('option').not(':first').remove();
                     // Add options
                     $.each(response,function(index,data){
-                        $('#sel_desa').append('<option value="'+data['id']+'">'+data['name']+'</option>');
+                        $('#sel_desa').append('<option value="'+data['id_desa']+'">'+data['desa']+'</option>');
                     });
                 }
             });
         });
     });
     //END!!!! PILIH KOTA, KEC, DESA
-
-    //PILIH KOTA, KEC, DESA
-    //END!!!! PILIH KOTA, KEC, DESA
-
 
     $('#tabel thead:nth-child(2) th').each(function(i) {
       var title = $('#tabel thead:nth-child(2) th').eq($(this).index()).text();
@@ -549,20 +545,29 @@
     $(document).on('click', '.btn-update', function(e) {
       e.preventDefault();
       // var id = $(this).attr('data-id');
-      var data = {
-        'edit_id': $('#edit_id').val(),
-        'nama_karyawan': $('#nama_karyawan_edit').val(),
-        'usia': $('#usia_edit').val(),
-        'status_vaksin_1': $('#status_vaksin_1_edit').val(),
-        'status_vaksin_2': $('#status_vaksin_2_edit').val(),
-        'prov' : $('#sel_prov_edit').val(),
-        'kota' : $('#sel_kota_edit').val(),
-        'kec' : $('#sel_kec_edit').val(),
-        'desa' : $('#sel_desa_edit').val(),
-      };
+      var prov = $('#sel_prov_edit').val();
+      if (prov != "") {
+        var data = {
+          'edit_id': $('#edit_id').val(),
+          'nama_karyawan': $('#nama_karyawan_edit').val(),
+          'usia': $('#usia_edit').val(),
+          'status_vaksin_1': $('#status_vaksin_1_edit').val(),
+          'status_vaksin_2': $('#status_vaksin_2_edit').val(),
+          'desa' : $('#sel_desa_edit').val(),
+        };
+      } else {
+        var data = {
+          'edit_id': $('#edit_id').val(),
+          'nama_karyawan': $('#nama_karyawan_edit').val(),
+          'usia': $('#usia_edit').val(),
+          'status_vaksin_1': $('#status_vaksin_1_edit').val(),
+          'status_vaksin_2': $('#status_vaksin_2_edit').val(),
+          'desa' : $('#desa_edit').val(),
+        }
+      }
       $.ajax({
-        method: "post",
-        url: "employee/update",
+        method : "post",
+        url : "employee/update",
         data: data,
         success: function(response) {
           if (response.status == "Data berhasil diupdate") {
