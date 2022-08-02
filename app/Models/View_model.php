@@ -4,9 +4,9 @@ namespace App\Models;
  
 use CodeIgniter\Model;
  
-class Employee_model extends Model
+class View_model extends Model
 {
-    protected $table = 'employees';
+    protected $table = 'tampilan';
     protected $primaryKey = 'id';
     protected $allowedFields = ['nama_karyawan', 'usia', 'status_vaksin_1', 'status_vaksin_2', 'prov', 'kota', 'kec', 'desa'];
  
@@ -19,19 +19,9 @@ class Employee_model extends Model
     // }
     public function getKaryawan($id)
     {
-        return $this->db
-                    ->table('employees')
-                    ->select()
-                    ->where('id', $id)
-                    ->get()
-                    ->getResult();
-        // $builder
-        // $builder->join('villages', 'villages.id_desa = employees.desa');
-        // $builder->join('districts', 'districts.id_kec = villages.district_id');
-        // $builder->join('regencies', 'regencies.id_kec = district.regency_id');
-        // $builder->join('province', 'province.id_kec = regencies.province_id');
-        // $builder->where(['id' => $id]);
-        // return $builder->get()->getResult();
+            $sql = 'SELECT * FROM employees WHERE id ='.$id;
+            $query = $this->db->query($sql);
+            return $query->getResult();
     }
 
     public function getEmployee($id) 

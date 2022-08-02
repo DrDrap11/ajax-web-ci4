@@ -5,6 +5,7 @@ namespace App\Controllers;
 use CodeIgniter\Controller;
 use App\Models\Employee_model;
 use App\Models\WilayahModel;
+use App\Models\View_model;
 
 class Employee extends Controller
 {
@@ -147,7 +148,26 @@ class Employee extends Controller
         );
 
         // $table = "employees"; //langsung dr tabel employees
-        $table = "tampilan"; //dari tabel view tp data tidak otomatis update
+        $table = <<<EOT
+        (
+            SELECT
+            employees.id,
+            employees.nama_karyawan,
+            employees.usia,
+            employees.status_vaksin_1,
+            employees.status_vaksin_2,
+            villages.desa,
+            districts.kec,
+            regencies.kota,
+            provinces.prov
+            FROM employees
+            JOIN villages ON villages.id_desa = employees.desa 
+            JOIN districts ON districts.id_kec = villages.district_id
+            JOIN regencies ON regencies.id_kota = districts.regency_id
+            JOIN provinces ON provinces.id_prov = regencies.province_id
+            WHERE employees.deleted_at is NULL
+        ) temp
+        EOT; //dari tabel view tp data tidak otomatis update
         $primaryKey = "id";
 
         $columns = array(
@@ -234,8 +254,20 @@ class Employee extends Controller
     {
         $model = new Employee_model();
         $id = $this->request->getPost("edit_id");
-        $data['employee'] = $model->find($id);
-        return $this->response->setJSON($data);
+
+        $data['employee'] = $model->getKaryawan($id);
+        // echo json_encode($data);
+        // $data['employee'] = $model->getEmployee($id)->getResult();
+        // return $this->response->setJSON($data);
+
+        // $model = new Employee_model();
+        // $postData = array(
+        //     'id' => $this->request->getPost('edit_id'),
+        // );
+        // // $id = $this->request->getPost("edit_id");
+        // $data['employee'] = $model->getKaryawan($postData);
+        var_dump($data);
+        // return $this->response->setJSON($data);
     }
 
     public function update()

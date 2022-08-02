@@ -479,7 +479,7 @@
 
       // setelah pilih provinsi
       $('#sel_prov_edit').change(function(){
-            var prov = $("#sel_prov_edit option:selected").attr("data"); //id prov dari data
+            var prov = $(this).val(); //id prov dari data
         // AJAX request
             $.ajax({
                 url:'employee/getKota',
@@ -493,14 +493,14 @@
                     $('#sel_desa_edit').find('option').not(':first').remove();
                 // Add options
                     $.each(response,function(index,data){
-                        $('#sel_kota_edit').append('<option data="'+data['id']+'" value="'+data['name']+'">'+data['name']+'</option>');
+                        $('#sel_kota_edit').append('<option value="'+data['id_kota']+'">'+data['kota']+'</option>');
                     });
                 }
             });
         });
         // Setelah pilih kota
         $('#sel_kota_edit').change(function(){
-            var kota = $("#sel_kota_edit option:selected").attr("data");
+            var kota = $(this).val();
             // AJAX request
             $.ajax({
                 url:'employee/getKecamatan',
@@ -513,7 +513,7 @@
                     $('#sel_desa_edit').find('option').not(':first').remove();
                     // Add options
                     $.each(response,function(index,data){
-                        $('#sel_kec_edit').append('<option data="'+data['id']+'" value="'+data['name']+'">'+data['name']+'</option>');
+                        $('#sel_kec_edit').append('<option value="'+data['id_kec']+'">'+data['kec']+'</option>');
                     });
                 }
             });
@@ -521,7 +521,7 @@
 
         //Setelah pilih kecamatan
         $('#sel_kec_edit').change(function(){
-            var kec = $("#sel_kec_edit option:selected").attr("data");
+            var kec = $(this).val();
             // AJAX request
             $.ajax({
                 url:'employee/getDesa',
@@ -533,7 +533,7 @@
                 $('#sel_desa_edit').find('option').not(':first').remove();
                     // Add options
                     $.each(response,function(index,data){
-                        $('#sel_desa_edit').append('<option data="'+data['id']+'" value="'+data['name']+'">'+data['name']+'</option>');
+                        $('#sel_desa_edit').append('<option value="'+data['id_desa']+'">'+data['desa']+'</option>');
                     });
                 }
             });
