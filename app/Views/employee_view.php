@@ -463,6 +463,11 @@
         },
         success: function(response) {
           $.each(response, function(key, value) {
+            $('#sel_kec_edit').find('option').not(':first').remove();
+            $('#sel_kota_edit').find('option').not(':first').remove();
+            $('#sel_desa_edit').find('option').not(':first').remove();
+            // $('#sel_prov_edit').find('option').not(':first').remove();
+
             $('#edit_id').val(value['id']);
             $('#nama_karyawan_edit').val(value['nama_karyawan']);
             $('#usia_edit').val(value['usia']);
@@ -545,26 +550,15 @@
     $(document).on('click', '.btn-update', function(e) {
       e.preventDefault();
       // var id = $(this).attr('data-id');
-      var prov = $('#sel_prov_edit').val();
-      if (prov != "") {
-        var data = {
-          'edit_id': $('#edit_id').val(),
-          'nama_karyawan': $('#nama_karyawan_edit').val(),
-          'usia': $('#usia_edit').val(),
-          'status_vaksin_1': $('#status_vaksin_1_edit').val(),
-          'status_vaksin_2': $('#status_vaksin_2_edit').val(),
-          'desa' : $('#sel_desa_edit').val(),
-        };
-      } else {
-        var data = {
-          'edit_id': $('#edit_id').val(),
-          'nama_karyawan': $('#nama_karyawan_edit').val(),
-          'usia': $('#usia_edit').val(),
-          'status_vaksin_1': $('#status_vaksin_1_edit').val(),
-          'status_vaksin_2': $('#status_vaksin_2_edit').val(),
-          'desa' : $('#desa_edit').val(),
-        }
-      }
+      // var prov = $('#sel_prov_edit').val();
+      var data = {
+        'edit_id': $('#edit_id').val(),
+        'nama_karyawan': $('#nama_karyawan_edit').val(),
+        'usia': $('#usia_edit').val(),
+        'status_vaksin_1': $('#status_vaksin_1_edit').val(),
+        'status_vaksin_2': $('#status_vaksin_2_edit').val(),
+        'desa' : $('#sel_desa_edit').val(),
+      };
       $.ajax({
         method : "post",
         url : "employee/update",

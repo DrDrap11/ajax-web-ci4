@@ -161,10 +161,10 @@ class Employee extends Controller
             regencies.kota,
             provinces.prov
             FROM employees
-            JOIN villages ON villages.id_desa = employees.desa 
-            JOIN districts ON districts.id_kec = villages.district_id
-            JOIN regencies ON regencies.id_kota = districts.regency_id
-            JOIN provinces ON provinces.id_prov = regencies.province_id
+            LEFT JOIN villages ON villages.id_desa = employees.desa 
+            LEFT JOIN districts ON districts.id_kec = villages.district_id
+            LEFT JOIN regencies ON regencies.id_kota = districts.regency_id
+            LEFT JOIN provinces ON provinces.id_prov = regencies.province_id
             WHERE employees.deleted_at is NULL
         ) temp
         EOT; //dari tabel view tp data tidak otomatis update
@@ -258,16 +258,8 @@ class Employee extends Controller
         $data['employee'] = $model->getKaryawan($id);
         // echo json_encode($data);
         // $data['employee'] = $model->getEmployee($id)->getResult();
-        // return $this->response->setJSON($data);
-
-        // $model = new Employee_model();
-        // $postData = array(
-        //     'id' => $this->request->getPost('edit_id'),
-        // );
-        // // $id = $this->request->getPost("edit_id");
-        // $data['employee'] = $model->getKaryawan($postData);
-        var_dump($data);
-        // return $this->response->setJSON($data);
+        return $this->response->setJSON($data);
+        // var_dump($data);
     }
 
     public function update()
@@ -312,9 +304,6 @@ class Employee extends Controller
                 'usia'         => $this->request->getPost('usia'),
                 'status_vaksin_1'  => $this->request->getPost('status_vaksin_1'),
                 'status_vaksin_2'  => $this->request->getPost('status_vaksin_2'),
-                'prov'              => $this->request->getPost('prov'),
-                'kota'              => $this->request->getPost('kota'),
-                'kec'               => $this->request->getPost('kec'),
                 'desa'              => $this->request->getPost('desa')
             ];
             $update = $model->update($id, $data);
