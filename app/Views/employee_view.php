@@ -189,6 +189,7 @@
                 </div>
                 <div class="modal-body">
                     <input type="hidden" id="edit_id">
+                    <input type="hidden" id="alamat">
                       <div class="form-group">
                           <label for="nama_karyawan" class="col-form-label">Nama Karyawan</label>
                           <input type="text" class="form-control nama_karyawan" id="nama_karyawan_edit" name="nama_karyawan" placeholder="Nama harus diisi">
@@ -469,6 +470,7 @@
             // $('#sel_prov_edit').find('option').not(':first').remove();
 
             $('#edit_id').val(value['id']);
+            $('#alamat').val(value['alamat']);
             $('#nama_karyawan_edit').val(value['nama_karyawan']);
             $('#usia_edit').val(value['usia']);
             $('#status_vaksin_1_edit').val(value['status_vaksin_1']);
@@ -549,20 +551,29 @@
     //Update data
     $(document).on('click', '.btn-update', function(e) {
       e.preventDefault();
-      // var id = $(this).attr('data-id');
-      // var prov = $('#sel_prov_edit').val();
-      var data = {
+      
+      var data1 = {
         'edit_id': $('#edit_id').val(),
         'nama_karyawan': $('#nama_karyawan_edit').val(),
         'usia': $('#usia_edit').val(),
         'status_vaksin_1': $('#status_vaksin_1_edit').val(),
         'status_vaksin_2': $('#status_vaksin_2_edit').val(),
-        'desa' : $('#sel_desa_edit').val(),
+        'alamat' : $('#sel_desa_edit').val(),
       };
+
+      var data2 = {
+        'edit_id': $('#edit_id').val(),
+        'nama_karyawan': $('#nama_karyawan_edit').val(),
+        'usia': $('#usia_edit').val(),
+        'status_vaksin_1': $('#status_vaksin_1_edit').val(),
+        'status_vaksin_2': $('#status_vaksin_2_edit').val(),
+        'alamat' : $('#alamat').val(),
+      };
+      var id_kota = $('#sel_desa_edit').val();
       $.ajax({
         method : "post",
         url : "employee/update",
-        data: data,
+        data: (id_kota != "") ? data1 : data2,
         success: function(response) {
           if (response.status == "Data berhasil diupdate") {
             $('#editModal').modal('hide');
