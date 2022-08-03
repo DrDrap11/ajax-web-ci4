@@ -8,7 +8,7 @@ class Employee_model extends Model
 {
     protected $table = 'employees';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['nama_karyawan', 'usia', 'status_vaksin_1', 'status_vaksin_2', 'prov', 'kota', 'kec', 'desa'];
+    protected $allowedFields = ['nama_karyawan', 'usia', 'status_vaksin_1', 'status_vaksin_2', 'alamat'];
  
     // public function getKaryawan($id = false)
     // {
@@ -21,25 +21,12 @@ class Employee_model extends Model
     {
         
         $builder = $this->db->table($this->table);
-        $builder->join('villages', 'villages.id_desa = employees.desa', 'LEFT');
+        $builder->join('villages', 'villages.id_desa = employees.alamat', 'LEFT');
         $builder->join('districts', 'districts.id_kec = villages.district_id', 'LEFT');
-        // $builder->join('regencies', 'regencies.id_kota = district.regency_id', 'LEFT');
-        // $builder->join('provinces', 'province.id_kec = regencies.province_id', 'LEFT');
+        $builder->join('regencies', 'regencies.id_kota = districts.regency_id', 'LEFT');
+        $builder->join('provinces', 'provinces.id_prov = regencies.province_id', 'LEFT');
         $query = $builder->getWhere(['id' => $id]);
         return $query->getRow();
-    }
-
-    public function getEmployee($id) 
-    {
-        $builder = $this->db->table($this->table);
-        $builder->select('id', 'nama_karyawan', 'usia', 'status_vaksin_1', 'status_vaksin_2');
-        $builder->join('villages', 'villages.id_desa = employees.desa');
-        $builder->join('districts', 'districts.id_kec = villages.district_id');
-        $builder->join('regencies', 'regencies.id_kec = district.regency_id');
-        $builder->join('province', 'province.id_kec = regencies.province_id');
-        $builder->where(['id' => $id]);
-
-        return $builder->get();
     }
  
     // public function saveKaryawan($data)

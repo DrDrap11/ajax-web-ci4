@@ -161,7 +161,7 @@ class Employee extends Controller
             regencies.kota,
             provinces.prov
             FROM employees
-            LEFT JOIN villages ON villages.id_desa = employees.desa 
+            LEFT JOIN villages ON villages.id_desa = employees.alamat 
             LEFT JOIN districts ON districts.id_kec = villages.district_id
             LEFT JOIN regencies ON regencies.id_kota = districts.regency_id
             LEFT JOIN provinces ON provinces.id_prov = regencies.province_id
@@ -304,7 +304,7 @@ class Employee extends Controller
                 'usia'         => $this->request->getPost('usia'),
                 'status_vaksin_1'  => $this->request->getPost('status_vaksin_1'),
                 'status_vaksin_2'  => $this->request->getPost('status_vaksin_2'),
-                'desa'              => $this->request->getPost('desa')
+                'alamat'              => $this->request->getPost('alamat')
             ];
             $update = $model->update($id, $data);
 
