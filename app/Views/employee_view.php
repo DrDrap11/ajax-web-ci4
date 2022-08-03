@@ -1,4 +1,4 @@
-<div class="container pt-5">
+<div class="container-fluid pt-5">
     <div class="text-right">
         <a href="#" class="btn btn-primary" id="tambah" data-bs-toggle="modal" data-bs-target="#exampleModal">Tambah Data</a>
         <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#importModal">Import Data</a>
@@ -25,6 +25,7 @@
                             <th class="text-center">Kota</th>
                             <th class="text-center">Provinsi</th>
                             <th class="text-center">Aksi</th>
+                            <th class="text-center">Desa</th>
                         </tr>
                     </thead>
                     <thead>
@@ -412,19 +413,38 @@
 
     //Menampilkan data ke tabel
     var table = $('#tabel').DataTable({
-      // orderCellsTop: true,
-      // fixedHeader: false,
+         // orderCellsTop: true,
+      fixedHeader: false,
       scrollY: "600px",
-      // scrollX: true,
+      'autoWidth': false,
+      'scrollX': true,
       scrollCollapse: true,
-      // fixedColumns: true,
+      fixedColumns: true,
       "processing": true,
       "serverSide": true,
       "ajax": "<?= route_to('get.all.employee'); ?>",
-      "dom": "lBfrtip",
+      "dom": "lBfrtp",
       buttons: [
-        'csv',
-        'excel',
+        // {
+          // extend: "collection",
+          // text: "Export",
+          // buttons: [
+            {
+              extend: 'csv',
+              text: "Export CSV",
+              exportOptions: {
+                columns: [0,1,2,3,4,5,6,7,8,9]
+              },
+            },
+            {
+              extend: 'excel',
+              text: "Export Excel",
+              exportOptions: {
+                columns: [0,1,2,3,4,6,7,8,9]
+              },
+            }
+          // ]
+        // }
       ],
       stateSave: true,
       info: true,
@@ -442,6 +462,8 @@
         "targets": 0
       }]
     });
+    // table.column( 5 ).visible( false );
+
 
     // Filter event handler
     $(table.table().container()).on('keyup', 'thead:nth-child(2) input', function() {
