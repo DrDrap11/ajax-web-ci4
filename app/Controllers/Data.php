@@ -21,15 +21,15 @@ class Data extends Controller
         $session = session();
         $uname['user_name'] = $session->get('user_name');
 
-        // $model = new WilayahModel();
-        // $wil['prov'] = $model->getprovinsi();
+        $model = new WilayahModel();
+        $wil['area'] = $model->getarea();
 
         // $model = new Employee_model;
         // $data['title']     = 'Data Vaksin Karyawan';
         // $data['getKaryawan'] = $model->getKaryawan();
 
         echo view('header', $uname);
-        echo view('data_view');
+        echo view('data_view', $wil);
         echo view('footer');
     }
 
@@ -100,7 +100,7 @@ class Data extends Controller
         $model = new WilayahModel();
  
         $postData = array(
-            'prov' => $this->request->getPost('prov'),
+            'area' => $this->request->getPost('area'),
         );
  
         $data = $model->getkota($postData);

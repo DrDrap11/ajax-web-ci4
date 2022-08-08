@@ -224,12 +224,13 @@
                     </div>
                     <div class="col-lg-6 mb-2">
                       <div class="form-group">
-                          <label for="provinsi" class="col-form-label">Provinsi</label>
-                          <select class="form-control form-select" id="sel_prov" name="prov">
-                              <option value="">---Pilih provinsi---</option>
-                                  
-                              <option value=""></option>"
-                                 
+                          <label for="area" class="col-form-label">Area</label>
+                          <select class="form-control form-select" id="sel_area" name="area">
+                              <option value="">---Pilih Area---</option>
+                              <option value="1">SURABAYA</option>
+                              <option value="2">MALANG</option>
+                              <option value="3">MADIUN</option>
+                              <option value="4">JEMBER</option>
                           </select>
                       </div>
                       <div class="form-group">
@@ -428,13 +429,13 @@
     //PILIH KOTA, KEC, DESA
     $("#tambah").click(function(){
         // setelah pilih provinsi
-        $('#sel_prov').change(function(){
-            var prov = $(this).val(); //id prov dari data
+        $('#sel_area').change(function(){
+            var area = $(this).val(); //id area dari value
         // AJAX request
             $.ajax({
-                url:'employee/getKota',
+                url:'data/getKota',
                 method: 'post',
-                data: {prov: prov},
+                data: {area: area},
                 dataType: 'json',
                 success: function(response){
                 // Remove options 
@@ -453,7 +454,7 @@
             var kota = $(this).val();
             // AJAX request
             $.ajax({
-                url:'employee/getKecamatan',
+                url:'data/getKecamatan',
                 method: 'post',
                 data: {kota: kota},
                 dataType: 'json',
@@ -474,7 +475,7 @@
             var kec = $(this).val();
             // AJAX request
             $.ajax({
-                url:'employee/getDesa',
+                url:'data/getDesa',
                 method: 'post',
                 data: {kec: kec},
                 dataType: 'json',

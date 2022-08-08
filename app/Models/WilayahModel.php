@@ -9,15 +9,9 @@ class WilayahModel extends Model{
         parent::__construct();
         $db = \Config\Database::connect();
     }
-
-    public function getprovinsi() {
- 
-        $query = $this->db->query('SELECT * FROM provinces');
-        return $query->getResult();
-    }
     
     public function getkota($postData) {
-        $sql = 'SELECT * FROM regencies where province_id ='.$postData['prov'] ;
+        $sql = 'SELECT * FROM regencies where province_id ='.$postData['area'] ;
         $query =  $this->db->query($sql);
          
         return $query->getResult();
