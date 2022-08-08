@@ -3,11 +3,11 @@
 namespace App\Controllers;
 
 use CodeIgniter\Controller;
-use App\Models\Employee_model;
+use App\Models\Data_model;
 use App\Models\WilayahModel;
 use App\Models\View_model;
 
-class Employee extends Controller
+class Data extends Controller
 {
 
     public function __construct()
@@ -21,15 +21,15 @@ class Employee extends Controller
         $session = session();
         $uname['user_name'] = $session->get('user_name');
 
-        $model = new WilayahModel();
-        $wil['prov'] = $model->getprovinsi();
+        // $model = new WilayahModel();
+        // $wil['prov'] = $model->getprovinsi();
 
         // $model = new Employee_model;
         // $data['title']     = 'Data Vaksin Karyawan';
         // $data['getKaryawan'] = $model->getKaryawan();
 
         echo view('header', $uname);
-        echo view('employee_view', $wil);
+        echo view('data_view');
         echo view('footer');
     }
 
@@ -137,7 +137,7 @@ class Employee extends Controller
         echo json_encode($data);
     }    
 
-    public function getAllEmployee()
+    public function getAllData()
     {
         //DB Details
         $dbDetails = array(
@@ -148,68 +148,66 @@ class Employee extends Controller
         );
 
         // $table = "employees"; //langsung dr tabel employees
-        $table = <<<EOT
-        (
-            SELECT
-            employees.id,
-            employees.nama_karyawan,
-            employees.usia,
-            employees.status_vaksin_1,
-            employees.status_vaksin_2,
-            villages.desa,
-            districts.kec,
-            regencies.kota,
-            provinces.prov
-            FROM employees
-            LEFT JOIN villages ON villages.id_desa = employees.alamat 
-            LEFT JOIN districts ON districts.id_kec = villages.district_id
-            LEFT JOIN regencies ON regencies.id_kota = districts.regency_id
-            LEFT JOIN provinces ON provinces.id_prov = regencies.province_id
-            WHERE employees.deleted_at is NULL
-        ) temp
-        EOT; //dari tabel view tp data tidak otomatis update
+        $table = 'data';//dari tabel view tp data tidak otomatis update
         $primaryKey = "id";
 
         $columns = array(
+            array("db" => "id",                     "dt" => 0),
+            array("db" => "tipe_project",           "dt" => 1),
+            array("db" => "nama_cluster",           "dt" => 2),
+            array("db" => "tipe_cluster",           "dt" => 3),
+            array("db" => "area",                   "dt" => 4),
+            array("db" => "kabupaten",              "dt" => 5),
+            array("db" => "kecamatan",              "dt" => 6),
+            array("db" => "kelurahan",              "dt" => 7),
+            array("db" => "olt",                    "dt" => 8),
+            array("db" => "longi_lati",             "dt" => 9),
+            array("db" => "perizinan",              "dt" => 10),
+            array("db" => "kompetitor",             "dt" => 11),
+            array("db" => "lokal_operator",         "dt" => 12),
+            array("db" => "tiang_listrik",          "dt" => 13),
+            array("db" => "jumlah_rumah",           "dt" => 14),
+            array("db" => "rumah_kosong",           "dt" => 15),
+            array("db" => "fasil_umum",             "dt" => 16),
+            array("db" => "rata_daya",              "dt" => 17),
+            array("db" => "anak_kecil",             "dt" => 18),
+            array("db" => "kendaraan",              "dt" => 19),
+            array("db" => "ac",                     "dt" => 20),
+            array("db" => "internet_bisnis",        "dt" => 21),
+            array("db" => "jumlah_peminat",         "dt" => 22),
+            array("db" => "harga_iconnet",          "dt" => 23),
+            array("db" => "penggunaan_internet",    "dt" => 24),
+            array("db" => "jml_perangkat",          "dt" => 25),
+            array("db" => "alokasi_budget",         "dt" => 26),
+            array("db" => "sampling_minat",         "dt" => 27),
+            array("db" => "harga_iconnet_2",        "dt" => 28),
+            array("db" => "penggunaan_internet_2",  "dt" => 29),
+            array("db" => "jml_perangkat_2",        "dt" => 30),
+            array("db" => "alokasi_budget_2",       "dt" => 31),
+            array("db" => "sampling_minat_2",       "dt" => 32),
+            array("db" => "harga_iconnet_3",        "dt" => 33),
+            array("db" => "penggunaan_internet_3",  "dt" => 34),
+            array("db" => "jml_perangkat_3",        "dt" => 35),
+            array("db" => "alokasi_budget_3",       "dt" => 36),
+            array("db" => "sampling_minat_3",       "dt" => 37),
+            array("db" => "jumlah_fat",             "dt" => 38),
+            array("db" => "daftar_fat",             "dt" => 39),
+            array("db" => "ket",                    "dt" => 40),
+            array("db" => "nilai_roi",              "dt" => 41),
+            array("db" => "score",                  "dt" => 42),
+            array("db" => "kelayakan",              "dt" => 43),
+            array("db" => "status_drawing",         "dt" => 44),
+            array("db" => "maps",                   "dt" => 45),
+            array("db" => "jml_fat_ploating",       "dt" => 46),
+            array("db" => "home_pass",              "dt" => 47),
+            array("db" => "approval",               "dt" => 48),
+            array("db" => "no_pa",                  "dt" => 49),
+            array("db" => "status_pembangunan",     "dt" => 50),
+            array("db" => "plan_pembangunan",       "dt" => 51),
+            array("db" => "created_at",              "dt" => 52),
             array(
                 "db" => "id",
-                "dt" => 0,
-            ),
-            array(
-                "db" => "nama_karyawan",
-                "dt" => 1,
-            ),
-            array(
-                "db" => "usia",
-                "dt" => 2,
-            ),
-            array(
-                "db" => "status_vaksin_1",
-                "dt" => 3,
-            ),
-            array(
-                "db" => "status_vaksin_2",
-                "dt" => 4,
-            ),
-            array(
-                "db" => "desa",
-                "dt" => 5,
-            ),
-            array(
-                "db" => "kec",
-                "dt" => 6,
-            ),
-            array(
-                "db" => "kota",
-                "dt" => 7,
-            ),
-            array(
-                "db" => "prov",
-                "dt" => 8,
-            ),
-            array(
-                "db" => "id",
-                "dt" => 9,
+                "dt" => 53,
                 "formatter" => function ($d, $row) {
                     return "<div class='btn-group'>
                                   <a class='btn btn-success btn-edit kota' data-id='" . $row['id'] . "' data-bs-toggle='modal' data-bs-target='#editModal' id='updateBtn' style='margin-right: 10px'><i class='ti ti-edit'></i></a>

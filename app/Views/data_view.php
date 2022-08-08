@@ -16,30 +16,116 @@
                     <thead>
                         <tr>
                             <th class="text-center">No.</th>
-                            <th class="text-center">Nama Karyawan</th>
-                            <th class="text-center">Usia</th>
-                            <th class="text-center">Status Vaksin 1</th>
-                            <th class="text-center">Status Vaksin 2</th>
-                            <th class="text-center">Desa</th>
+                            <th class="text-center">Tipe Project</th>
+                            <th class="text-center">Nama Cluster</th>
+                            <th class="text-center">Tipe Cluster</th>
+                            <th class="text-center">Area</th>
+                            <th class="text-center">Kabupaten</th>
                             <th class="text-center">Kecamatan</th>
-                            <th class="text-center">Kota</th>
-                            <th class="text-center">Provinsi</th>
+                            <th class="text-center">Kelurahan</th>
+                            <th class="text-center">OLT</th>
+                            <th class="text-center">Longitude&Latitude</th>
+                            <th class="text-center">Perizinan</th>
+                            <th class="text-center">Kompetitor</th>
+                            <th class="text-center">Lokal Operator</th>
+                            <th class="text-center">Tiang Listrik</th>
+                            <th class="text-center">Jumlah Rumah</th>
+                            <th class="text-center">Rumah Kosong</th>
+                            <th class="text-center">Fasilitas Umum</th>
+                            <th class="text-center">Rata-rata Daya</th>
+                            <th class="text-center">Anak Kecil</th>
+                            <th class="text-center">Kendaraan</th>
+                            <th class="text-center">Air Conditioner(AC)</th>
+                            <th class="text-center">Penggunaan Internet Bisnis</th>
+                            <th class="text-center">Jumlah Peminat Awal</th>
+                            <th class="text-center">Harga ICONNET Menurut Warga(1)</th>
+                            <th class="text-center">Penggunaan Internet(1)</th>
+                            <th class="text-center">Jumlah Perangkat/Rumah(1)</th>
+                            <th class="text-center">Alokasi Budget(1)</th>
+                            <th class="text-center">Sampling Minat(1)</th>
+                            <th class="text-center">Harga ICONNET Menurut Warga(2)</th>
+                            <th class="text-center">Penggunaan Internet(2)</th>
+                            <th class="text-center">Jumlah Perangkat/Rumah(2)</th>
+                            <th class="text-center">Alokasi Budget(2)</th>
+                            <th class="text-center">Sampling Minat(2)</th>
+                            <th class="text-center">Harga ICONNET Menurut Warga(3)</th>
+                            <th class="text-center">Penggunaan Internet(3)</th>
+                            <th class="text-center">Jumlah Perangkat/Rumah(3)</th>
+                            <th class="text-center">Alokasi Budget(3)</th>
+                            <th class="text-center">Sampling Minat(3)</th>
+                            <th class="text-center">Jumlah FAT</th>
+                            <th class="text-center">Daftar FAT</th>
+                            <th class="text-center">Keterangan</th>
+                            <th class="text-center">Nilai ROI</th>
+                            <th class="text-center">Score</th>
+                            <th class="text-center">Kelayakan</th>
+                            <th class="text-center">Status Drawing</th>
+                            <th class="text-center">Link Maps</th>
+                            <th class="text-center">Jumlah FAT Ploating</th>
+                            <th class="text-center">Home Pass</th>
+                            <th class="text-center">Approval Pembangunan</th>
+                            <th class="text-center">No PA/Project</th>
+                            <th class="text-center">Status Pembangunan</th>
+                            <th class="text-center">Plan Pembangunan</th>
+                            <th class="text-center">Create Date</th>
                             <th class="text-center">Aksi</th>
-                            <th class="text-center">Desa</th>
                         </tr>
                     </thead>
                     <thead>
                         <tr>
                             <th>No.</th>
-                            <th>Nama Karyawan</th>
-                            <th>Usia</th>
-                            <th>Status Vaksin 1</th>
-                            <th>Status Vaksin 2</th>
-                            <th>Desa</th>
+                            <th>Tipe Project</th>
+                            <th>Nama Cluster</th>
+                            <th>Tipe Cluster</th>
+                            <th>Area</th>
+                            <th>Kabupaten</th>
                             <th>Kecamatan</th>
-                            <th>Kota</th>
-                            <th>Provinsi</th>
-                            <th>Aksi</th>
+                            <th>Kelurahan</th>
+                            <th>OLT</th>
+                            <th>Longitude&Latitude</th>
+                            <th>Perizinan</th>
+                            <th>Kompetitor</th>
+                            <th>Lokal Operator</th>
+                            <th>Tiang Listrik</th>
+                            <th>Jumlah Rumah</th>
+                            <th>Rumah Kosong</th>
+                            <th>Fasilitas Umum</th>
+                            <th>Rata-rata Daya</th>
+                            <th>Anak Kecil</th>
+                            <th>Kendaraan</th>
+                            <th>Air Conditioner(AC)</th>
+                            <th>Penggunaan Internet Bisnis</th>
+                            <th>Jumlah Peminat Awal</th>
+                            <th>Harga ICONNET Menurut Warga(1)</th>
+                            <th>Penggunaan Internet(1)</th>
+                            <th>Jumlah Perangat/Rumah(1)</th>
+                            <th>Alokasi Budget(1)</th>
+                            <th>Sampling Minat(1)</th>
+                            <th>Harga ICONNET Menurut Warga(2)</th>
+                            <th>Penggunaan Internet(2)</th>
+                            <th>Jumlah Perangat/Rumah(2)</th>
+                            <th>Alokasi Budget(2)</th>
+                            <th>Sampling Minat(2)</th>
+                            <th>Harga ICONNET Menurut Warga(3)</th>
+                            <th>Penggunaan Internet(3)</th>
+                            <th>Jumlah Perangat/Rumah(3)</th>
+                            <th>Alokasi Budget(3)</th>
+                            <th>Sampling Minat(3)</th>
+                            <th>Jumlah FAT</th>
+                            <th>Daftar FAT</th>
+                            <th>Keterangan</th>
+                            <th>Nilai ROI</th>
+                            <th>Score</th>
+                            <th>Kelayakan</th>
+                            <th>Status Drawing</th>
+                            <th>Link Maps</th>
+                            <th>Jumlah FAT Ploating</th>
+                            <th>Home Pass</th>
+                            <th>Approval Pembangunan</th>
+                            <th>No PA/Project</th>
+                            <th>Status Pembangunan</th>
+                            <th>Plan Pembangunan</th>
+                            <th>Create Date</th>
                         </tr>
                     </thead>
 
@@ -141,9 +227,9 @@
                           <label for="provinsi" class="col-form-label">Provinsi</label>
                           <select class="form-control form-select" id="sel_prov" name="prov">
                               <option value="">---Pilih provinsi---</option>
-                                  <?php foreach($prov as $provinsi){?>
-                              <option value="<?php echo $provinsi->id_prov;?>"><?php echo $provinsi->prov;?></option>"
-                                  <?php }?>
+                                  
+                              <option value=""></option>"
+                                 
                           </select>
                       </div>
                       <div class="form-group">
@@ -249,9 +335,8 @@
                             <label for="provinsi" class="col-form-label">&nbsp</label>
                             <select class="form-control form-select" id="sel_prov_edit" name="prov">
                                 <option value="">---Pilih provinsi---</option>
-                                    <?php foreach($prov as $provinsi){?>
-                                <option value="<?php echo $provinsi->id_prov;?>"><?php echo $provinsi->prov;?></option>"
-                                    <?php }?>
+                                <option value=""></option>"
+                                  
                             </select>
                         </div>
                         <div class="form-group">
@@ -422,7 +507,7 @@
       fixedColumns: true,
       "processing": true,
       "serverSide": true,
-      "ajax": "<?= route_to('get.all.employee'); ?>",
+      "ajax": "<?= route_to('getAllData'); ?>",
       "dom": "lBfrtp",
       buttons: [
         // {

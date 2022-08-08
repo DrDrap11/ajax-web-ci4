@@ -119,7 +119,7 @@
               data: $('#form').serialize(),
               success: function(response) {
                 if (response.status == "Berhasil") {
-                  window.location.href = 'employee';
+                  window.location.href = 'data';
                 } else if (response.status == "Password salah") {
                   toastr.error(response.status);
                 } else {

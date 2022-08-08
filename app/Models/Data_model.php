@@ -4,11 +4,11 @@ namespace App\Models;
  
 use CodeIgniter\Model;
  
-class Employee_model extends Model
+class Data_model extends Model
 {
-    protected $table = 'employees';
+    protected $table = 'data';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['nama_karyawan', 'usia', 'status_vaksin_1', 'status_vaksin_2', 'alamat'];
+    protected $allowedFields = ['id', 'tipe_project', 'nama_cluster', 'tipe_cluster', 'area', 'kabupaten', 'kecamatan',	'kelurahan', 'olt', 'longi_lati', 'perizinan', 'kompetitor', 'lokal_operator', 'tiang_listrik', 'jumlah_rumah',	'rumah_kosong',	'fasil_umum', 'rata_daya', 'anak_kecil', 'kendaraan', 'ac', 'internet_bisnis', 'jumlah_peminat', 'harga_iconnet', 'penggunaan_internet', 'jml_perangkat', 'alokasi_budget', 'sampling_minat', 'harga_iconnet_2', 'penggunaan_internet_2', 'jml_perangkat_2', 'alokasi_budget_2', 'sampling_minat_2', 'harga_iconnet_3', 'penggunaan_internet_3', 'jml_perangkat_3', 'alokasi_budget_3', 'sampling_minat_3', 'jumlah_fat',	'daftar_fat', 'ket', 'nilai_roi', 'score', 'kelayakan', 'status_drawing', 'maps', 'jml_fat_ploating', 'home_pass', 'approval', 'no_pa', 'status_pembangunan', 'plan_pembangunan', 'create_date'];
  
     // public function getKaryawan($id = false)
     // {
