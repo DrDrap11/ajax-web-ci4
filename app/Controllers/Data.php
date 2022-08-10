@@ -4,8 +4,7 @@ namespace App\Controllers;
 
 use CodeIgniter\Controller;
 use App\Models\Data_model;
-use App\Models\WilayahModel;
-use App\Models\View_model;
+use App\Models\Dropdown_model;
 
 class Data extends Controller
 {
@@ -21,22 +20,31 @@ class Data extends Controller
         $session = session();
         $uname['user_name'] = $session->get('user_name');
 
-        $model = new WilayahModel();
-        $wil['area'] = $model->getarea();
+        $model = new Dropdown_model();
+        $data['area'] = $model->getarea();
+        $data['daya'] = $model->getdaya();
+        $data['olt'] = $model->getolt();
+        $data['tipe_project'] = $model->get_tipe_project();
+        $data['tipe_cluster'] = $model->get_tipe_cluster();
+        $data['survey_harga'] = $model->get_survey_harga();
+        $data['survey_net'] = $model->get_survey_net();
+        $data['survey_budget'] = $model->get_survey_budget();
+        $data['survey_minat'] = $model->get_survey_minat();
+        $data['status_drawing'] = $model->get_status_drawing();
 
         // $model = new Employee_model;
         // $data['title']     = 'Data Vaksin Karyawan';
         // $data['getKaryawan'] = $model->getKaryawan();
 
         echo view('header', $uname);
-        echo view('data_view', $wil);
+        echo view('data_view', $data);
         echo view('footer');
     }
 
     public function addEmployee()
     {
-        $employeeModel = new \App\Models\Employee_model();
-        $wilayahModel = new \App\Models\WilayahModel();
+        $employeeModel = new \App\Models\Data_model();
+        $wilayahModel = new \App\Models\Dropdown_model();
 
         $validation = \Config\Services::validation();
         $this->validate([
@@ -97,7 +105,7 @@ class Data extends Controller
 
     public function getKota() {
  
-        $model = new WilayahModel();
+        $model = new Dropdown_model();
  
         $postData = array(
             'area' => $this->request->getPost('area'),
@@ -111,7 +119,7 @@ class Data extends Controller
 
     public function getKecamatan() {
  
-        $model = new WilayahModel();
+        $model = new Dropdown_model();
  
         $postData = array(
             'kota' => $this->request->getPost('kota'),
@@ -125,7 +133,7 @@ class Data extends Controller
 
     public function getDesa() {
  
-        $model = new WilayahModel();
+        $model = new Dropdown_model();
  
         $postData = array(
             'kec' => $this->request->getPost('kec'),

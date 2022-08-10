@@ -33,6 +33,7 @@
 <!-- Tabler Core -->
 <script src="Assets/js/tabler.min.js"></script>
 <script src="Assets/js/demo.min.js"></script>
+<script src="Assets/js/litepicker.js"></script>
 <!-- ----- -->
 
 <!-- Specific Page Vendor -->
