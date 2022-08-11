@@ -43,9 +43,9 @@ class Data extends Controller
         echo view('footer');
     }
 
-    public function addEmployee()
+    public function addData()
     {
-        $employeeModel = new \App\Models\Data_model();
+        $dataModel = new \App\Models\Data_model();
         $wilayahModel = new \App\Models\Dropdown_model();
 
         $validation = \Config\Services::validation();
@@ -77,10 +77,7 @@ class Data extends Controller
             ]
         ]);
 
-        if ($validation->run() == FALSE) {
-            $errors = $validation->getErrors();
-            echo json_encode(['code' => 0, 'error' => $errors]);
-        } else {
+        
             // $prov = array(
             //     'prov' => $this->request->getPost('prov'),
             // );
@@ -88,21 +85,64 @@ class Data extends Controller
 
             //Insert data into db
             $data = [
-                'nama_karyawan'     => $this->request->getPost('nama_karyawan'),
-                'usia'              => $this->request->getPost('usia'),
-                'status_vaksin_1'   => $this->request->getPost('status_vaksin_1'),
-                'status_vaksin_2'   => $this->request->getPost('status_vaksin_2'),
-                'desa'              => $this->request->getPost('desa')
-
+                'tipe_project'          => $this->request->getPost('tp_project'),
+                'nama_cluster'          => $this->request->getPost('nama'),
+                'tipe_cluster'          => $this->request->getPost('tipe_cluster'),
+                'kelurahan'             => $this->request->getPost('desa'),
+                'olt'                   => $this->request->getPost('olt'),
+                'longi_lati'            => $this->request->getPost('ll'),
+                'perizinan'             => $this->request->getPost('izin'),
+                'kompetitor'            => $this->request->getPost('kompetitor'),
+                'lokal_operator'        => $this->request->getPost('operator'),
+                'tiang_listrik'         => $this->request->getPost('tiang'),
+                'jumlah_rumah'          => $this->request->getPost('jml_rumah'),
+                'rumah_kosong'          => $this->request->getPost('rmh_kosong'),
+                'fasil_umum'            => $this->request->getPost('fasil'),
+                'rata_daya'             => $this->request->getPost('daya'),
+                'anak_kecil'            => $this->request->getPost('anak'),
+                'kendaraan'             => $this->request->getPost('kendaraan'),
+                'ac'                    => $this->request->getPost('ac'),
+                'internet_bisnis'       => $this->request->getPost('bisnis'),
+                'jumlah_peminat'        => $this->request->getPost('peminat'),
+                'harga_iconnet'         => $this->request->getPost('harga'),
+                'penggunaan_internet'   => $this->request->getPost('internet'),
+                'jml_perangkat'         => $this->request->getPost('perangkat'),
+                'alokasi_budget'        => $this->request->getPost('budget'),
+                'sampling_minat'        => $this->request->getPost('minat'),
+                'harga_iconnet_2'       => $this->request->getPost('harga2'),
+                'penggunaan_internet_2' => $this->request->getPost('internet2'),
+                'jml_perangkat_2'       => $this->request->getPost('perangkat2'),
+                'alokasi_budget_2'      => $this->request->getPost('budget2'),
+                'sampling_minat_2'      => $this->request->getPost('minat2'),
+                'harga_iconnet_3'       => $this->request->getPost('harga3'),
+                'penggunaan_internet_3' => $this->request->getPost('internet3'),
+                'jml_perangkat_3'       => $this->request->getPost('perangkat3'),
+                'alokasi_budget_3'      => $this->request->getPost('budget3'),
+                'sampling_minat_3'      => $this->request->getPost('minat3'),
+                'jumlah_fat'            => $this->request->getPost('fat'),
+                'daftar_fat'            => $this->request->getPost('daftar_fat'),
+                'ket'                   => $this->request->getPost('ket'),
+                'nilai_roi'             => $this->request->getPost('roi'),
+                'score'                 => $this->request->getPost('score'),
+                'kelayakan'             => $this->request->getPost('layak'),
+                'status_drawing'        => $this->request->getPost('drawing'),
+                'maps'                  => $this->request->getPost('maps'),
+                'jml_fat_ploating'      => $this->request->getPost('ploating'),
+                'home_pass'             => $this->request->getPost('home_pass'),
+                'approval'              => $this->request->getPost('approval'),
+                'no_pa'                 => $this->request->getPost('no_pa'),
+                'status_pembangunan'    => $this->request->getPost('stts_pembangunan'),
+                'plan_pembangunan'      => $this->request->getPost('planbangun'),
+                
             ];
             
-            $query = $employeeModel->insert($data);
+            $query = $dataModel->insert($data);
             if ($query) {
-                echo json_encode(['code' => 1, 'msg' => 'Data karyawan behasil ditambahkan']);
+                echo json_encode(['code' => 1, 'msg' => 'Data berhasil ditambahkan']);
             } else {
-                echo json_encode(['code' => 0, 'msg' => 'Data karyawan gagal ditambahkan']);
+                echo json_encode(['code' => 0, 'msg' => 'Data gagal ditambahkan']);
             }
-        }
+        
     }
 
     public function getKota() {

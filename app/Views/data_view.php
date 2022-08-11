@@ -177,7 +177,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
         <div class="modal-body">
-         <form action="<?= route_to('add.employee'); ?>" method="post" id="add-employee-form" autocomplete="off">
+         <form action="addData" method="post" id="add-data-form" autocomplete="off">
           <div class="row">
             <div class="col-lg-12 mb-2">
               <h2>Informasi Cluster</h2>
@@ -348,7 +348,7 @@
               </div>
               <div class="form-group">
                   <label for="jml_rumah" class="col-form-label">Jumlah Rumah</label>
-                  <input type="number" class="form-control" id="jml_rumah" name="jml-rumah" step="50" min="0" max="1000">
+                  <input type="number" class="form-control" id="jml_rumah" name="jml_rumah" step="50" min="0" max="1000">
                   <span class="text-danger error-text jml_rumah_error"></span>
               </div>
               <div class="form-group">
@@ -602,94 +602,94 @@
               <h2 class="pt-4">Survey Sampling Warga 2</h2>
               <div class="form-group">
                   <label for="harga" class="col-form-label">Harga ICONNET Menurut Warga</label>
-                  <select class="form-control form-select" name="harga">
+                  <select class="form-control form-select" name="harga2">
                     <option value="">---Pilih Harga ICONNET Menurut Warga---</option>
                       <?php foreach($survey_harga as $sh){?>
                     <option value="<?php echo $sh->sh_id;?>"><?php echo $sh->sh_jenis;?></option>"
                       <?php }?>
                   </select>
-                  <span class="text-danger error-text harga_error"></span>
+                  <span class="text-danger error-text harga2_error"></span>
               </div>
               <div class="form-group">
                   <label for="internet" class="col-form-label">Penggunaan Internet</label>
-                  <select class="form-control form-select" name="internet">
+                  <select class="form-control form-select" name="internet2">
                     <option value="">---Pilih Penggunaan Internet---</option>
                       <?php foreach($survey_net as $sn){?>
                     <option value="<?php echo $sn->sn_id;?>"><?php echo $sn->sn_jenis;?></option>"
                       <?php }?>
                   </select>
-                  <span class="text-danger error-text internet_error"></span>
+                  <span class="text-danger error-text internet2_error"></span>
               </div>
               <div class="form-group">
                   <label for="perangkat" class="col-form-label">Jumlah Perangkat / Rumah</label>
                   <input type="number" class="form-control" id="perangkat2" name="perangkat2" min="0" max="1000">
-                  <span class="text-danger error-text perangkat_error"></span>
+                  <span class="text-danger error-text perangkat2_error"></span>
               </div>
               <div class="form-group">
                   <label for="budget" class="col-form-label">Alokasi Budget untuk Internet</label>
-                  <select class="form-control form-select" name="budget">
+                  <select class="form-control form-select" name="budget2">
                     <option value="">---Pilih Alokasi Budget---</option>
                       <?php foreach($survey_budget as $sb){?>
                     <option value="<?php echo $sb->sb_id;?>"><?php echo $sb->sb_jenis;?></option>"
                       <?php }?>
                   </select>
-                  <span class="text-danger error-text budget_error"></span>
+                  <span class="text-danger error-text budget2_error"></span>
               </div>
               <div class="form-group">
                   <label for="minat" class="col-form-label">Sampling Minat</label>
-                  <select class="form-control form-select" name="minat">
+                  <select class="form-control form-select" name="minat2">
                     <option value="">---Pilih Sampling Minat---</option>
                       <?php foreach($survey_minat as $sm){?>
                     <option value="<?php echo $sm->sm_id;?>"><?php echo $sm->sm_jenis;?></option>"
                       <?php }?>
                   </select>
-                  <span class="text-danger error-text minat_error"></span>
+                  <span class="text-danger error-text minat2_error"></span>
               </div>
               <h2 class="pt-4">Survey Sampling Warga 3</h2>
               <div class="form-group">
                   <label for="harga" class="col-form-label">Harga ICONNET Menurut Warga</label>
-                  <select class="form-control form-select" name="harga">
+                  <select class="form-control form-select" name="harga3">
                     <option value="">---Pilih Harga ICONNET Menurut Warga---</option>
                       <?php foreach($survey_harga as $sh){?>
                     <option value="<?php echo $sh->sh_id;?>"><?php echo $sh->sh_jenis;?></option>"
                       <?php }?>
                   </select>
-                  <span class="text-danger error-text harga_error"></span>
+                  <span class="text-danger error-text harga3_error"></span>
               </div>
               <div class="form-group">
                   <label for="internet" class="col-form-label">Penggunaan Internet</label>
-                  <select class="form-control form-select" name="internet">
+                  <select class="form-control form-select" name="internet3">
                     <option value="">---Pilih Penggunaan Internet---</option>
                       <?php foreach($survey_net as $sn){?>
                     <option value="<?php echo $sn->sn_id;?>"><?php echo $sn->sn_jenis;?></option>"
                       <?php }?>
                   </select>
-                  <span class="text-danger error-text internet_error"></span>
+                  <span class="text-danger error-text internet3_error"></span>
               </div>
               <div class="form-group">
                   <label for="perangkat" class="col-form-label">Jumlah Perangkat / Rumah</label>
                   <input type="number" class="form-control" id="perangkat3" name="perangkat3" min="0" max="1000">
-                  <span class="text-danger error-text perangkat_error"></span>
+                  <span class="text-danger error-text perangkat3_error"></span>
               </div>
               <div class="form-group">
                   <label for="budget" class="col-form-label">Alokasi Budget untuk Internet</label>
-                  <select class="form-control form-select" name="budget">
+                  <select class="form-control form-select" name="budget3">
                     <option value="">---Pilih Alokasi Budget---</option>
                       <?php foreach($survey_budget as $sb){?>
                     <option value="<?php echo $sb->sb_id;?>"><?php echo $sb->sb_jenis;?></option>"
                       <?php }?>
                   </select>
-                  <span class="text-danger error-text budget_error"></span>
+                  <span class="text-danger error-text budget3_error"></span>
               </div>
               <div class="form-group">
                   <label for="minat" class="col-form-label">Sampling Minat</label>
-                  <select class="form-control form-select" name="minat">
+                  <select class="form-control form-select" name="minat3">
                     <option value="">---Pilih Sampling Minat---</option>
                       <?php foreach($survey_minat as $sm){?>
                     <option value="<?php echo $sm->sm_id;?>"><?php echo $sm->sm_jenis;?></option>"
                       <?php }?>
                   </select>
-                  <span class="text-danger error-text minat_error"></span>
+                  <span class="text-danger error-text minat3_error"></span>
               </div>
               <h2 class="pt-4">Informasi Tambahan</h2>
               <div class="form-group">
@@ -981,7 +981,7 @@
 <script>
   $(document).ready(function() {
 
-    $('#add-employee-form').submit(function(e) {
+    $('#add-data-form').submit(function(e) {
       e.preventDefault();
       var form = this;
       $.ajax({
@@ -1002,7 +1002,7 @@
               $('#exampleModal').modal('hide');
               Swal.fire(
                 'Berhasil!',
-                'Data karyawan berhasil ditambahkan.',
+                'Data berhasil ditambahkan.',
                 'success'
               )
               $('#tabel').DataTable().ajax.reload(null, false);
