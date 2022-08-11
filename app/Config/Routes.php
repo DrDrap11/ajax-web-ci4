@@ -47,7 +47,7 @@ $routes->set404Override();
 //  $routes->post('getEmployeeInfo','Employee::getEmployeeInfo',['as'=>'get.country.employee']);
  $routes->get('getAllData','Data::getAllData');
  $routes->post('updateEmployee','Employee::updateEmployee',['as'=>'update.employee']);
- $routes->post('deleteEmployee','Employee::deleteEmployee',['as'=>'delete.employee']);
+ $routes->post('deleteData','Data::deleteData',['as'=>'delete.data']);
 
  // Admin routes
 $routes->group("admin", ["filter" => "auth"], function ($routes) {

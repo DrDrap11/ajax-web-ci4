@@ -1302,9 +1302,9 @@
       e.preventDefault();
     });
 
-    $(document).on('click', '#deleteEmployeeBtn', function() {
-      var employee_id = $(this).data('id');
-      var url = "<?= route_to('delete.employee'); ?>";
+    $(document).on('click', '#deleteDataBtn', function() {
+      var id = $(this).data('id');
+      var url = "<?= route_to('delete.data'); ?>";
 
       swal.fire({
 
@@ -1320,12 +1320,12 @@
         if (result.value) {
 
           $.post(url, {
-            employee_id: employee_id
+            id: id
           }, function(data) {
             if (data.code == 1) {
               Swal.fire(
                 'Deleted!',
-                'Data karyawan berhasil dihapus.',
+                'Data berhasil dihapus.',
                 'success'
               )
               $('#tabel').DataTable().ajax.reload(null, false);

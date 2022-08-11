@@ -220,7 +220,7 @@ class Data extends Controller
                 "formatter" => function ($d, $row) {
                     return "<div class='btn-group'>
                                   <a class='btn btn-success btn-edit kota' data-id='" . $row['id'] . "' data-bs-toggle='modal' data-bs-target='#editModal' id='updateBtn' style='margin-right: 10px'><i class='ti ti-edit'></i></a>
-                                  <button class='btn btn btn-danger' data-id='" . $row['id'] . "' id='deleteEmployeeBtn'> <i class='ti ti-trash'></i></button>
+                                  <button class='btn btn btn-danger' data-id='" . $row['id'] . "' id='deleteDataBtn'> <i class='ti ti-trash'></i></button>
                              </div>";
                 }
             ),
@@ -244,16 +244,16 @@ class Data extends Controller
     //     }
     // }
 
-    public function deleteEmployee()
+    public function deleteData()
     {
-        $employeeModel = new \App\Models\Employee_model();
-        $employee_id = $this->request->getPost('employee_id');
-        $query = $employeeModel->delete($employee_id);
+        $dataModel = new \App\Models\Data_model();
+        $data_id = $this->request->getPost('id');
+        $query = $dataModel->delete($data_id);
 
         if ($query) {
-            echo json_encode(['code' => 1, 'msg' => 'Data karyawan behasil dihapus']);
+            echo json_encode(['code' => 1, 'msg' => 'Data behasil dihapus']);
         } else {
-            echo json_encode(['code' => 0, 'msg' => 'Data karyawan gagal dihapus']);
+            echo json_encode(['code' => 0, 'msg' => 'Data gagal dihapus']);
         }
     }
 
