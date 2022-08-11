@@ -123,7 +123,7 @@
               <span class="avatar avatar-sm" style="background-image: url(<?= base_url('') . '/Assets' ?>/static/avatars/000m.jpg)"></span>
               <div class="d-none d-xl-block ps-2">
                 <div><?= $user_name; ?></div>
-                <div class="mt-1 small text-muted">User</div>
+                <div class="mt-1 small text-muted"><?= $role; ?></div>
               </div>
             </a>
             <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">

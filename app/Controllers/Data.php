@@ -19,6 +19,7 @@ class Data extends Controller
     {
         $session = session();
         $uname['user_name'] = $session->get('user_name');
+        $uname['role'] = $session->get('role');
 
         $model = new Dropdown_model();
         $data['area'] = $model->getarea();
@@ -157,63 +158,116 @@ class Data extends Controller
         );
 
         // $table = "employees"; //langsung dr tabel employees
-        $table = 'data';//dari tabel view tp data tidak otomatis update
+        $table = <<<EOT
+        (
+            SELECT data.id, data.user_id, data.tipe_project, data.nama_cluster, data.tipe_cluster, data.area, data.kabupaten, data.kecamatan, data.kelurahan,
+            data.olt, data.longi_lati, data.kompetitor, data.jumlah_rumah,
+            data.rata_daya, data.jumlah_peminat, data.harga_iconnet, data.penggunaan_internet, data.jml_perangkat,
+            data.alokasi_budget, data.sampling_minat, data.harga_iconnet_2, data.penggunaan_internet_2, data.jml_perangkat_2, data.alokasi_budget_2, data.sampling_minat_2,
+            data.harga_iconnet_3, data.penggunaan_internet_3, data.jml_perangkat_3, data.alokasi_budget_3, data.sampling_minat_3, data.jumlah_fat, data.daftar_fat, data.ket,
+            data.nilai_roi, data.score, data.status_drawing, data.maps, data.jml_fat_ploating, data.home_pass, data.no_pa,data.status_pembangunan,
+            data.plan_pembangunan, data.created_at, data.deleted_at, villages.desa, districts.kec, regencies.kota, area.area_nama, tipe_project.tp_jenis, tipe_cluster.tc_jenis, 
+            olt.olt_nama, rata_daya.rd_jenis, sh.sh_jenis, sn.sn_jenis, sb.sb_jenis, sm.sm_jenis, status_drawing.sd_jenis, status_pembangunan.sp_jenis,
+            sh2.sh_jenis AS sh_jenis2,
+            sn2.sn_jenis AS sn_jenis2,
+            sb2.sb_jenis AS sb_jenis2,
+            sm2.sm_jenis  AS sm_jenis2,
+            sh3.sh_jenis AS sh_jenis3,
+            sn3.sn_jenis AS sn_jenis3,
+            sb3.sb_jenis AS sb_jenis3,
+            sm3.sm_jenis  AS sm_jenis3,
+            data.perizinan, IF(data.perizinan = 1, 'Mudah', 'Sulit') AS izin,
+            data.lokal_operator, IF(data.lokal_operator = 1, 'Ada', 'Tidak Ada') AS lo,
+            data.tiang_listrik, IF(data.tiang_listrik = 1, 'Ada', 'Tidak Ada') AS tl,
+            data.rumah_kosong, IF(data.rumah_kosong = 1, 'Sedikit <10', 'Banyak >10') AS rk,
+            data.fasil_umum, IF(data.fasil_umum = 1, 'Ada', 'Tidak Ada') AS fu,
+            data.anak_kecil, IF(data.anak_kecil = 1, 'Ada', 'Tidak Ada') AS ak,
+            data.kendaraan, IF(data.kendaraan = 1, 'Mobil', 'Motor') AS kndrn,
+            data.ac, IF(data.ac = 1, 'Ada', 'Tidak Ada') AS airc,
+            data.internet_bisnis, IF(data.internet_bisnis = 1, 'Ada', 'Tidak Ada') AS ib,
+            data.kelayakan, IF(data.kelayakan = 1, 'Layak', 'Tidak Layak') AS layak,
+            data.approval, IF(data.approval = 1, 'Setuju', 'Tidak Setuju') AS approv
+            FROM data
+            LEFT JOIN villages ON villages.id_desa = data.kelurahan
+            LEFT JOIN districts ON districts.id_kec = villages.district_id
+            LEFT JOIN regencies ON regencies.id_kota = districts.regency_id
+            LEFT JOIN area ON area.id_area = regencies.area_id
+            LEFT JOIN tipe_project ON tipe_project.tp_id = data.tipe_project
+            LEFT JOIN tipe_cluster ON tipe_cluster.tc_id = data.tipe_cluster
+            LEFT JOIN olt ON olt.olt_id = data.olt
+            LEFT JOIN rata_daya ON rata_daya.rd_id = data.rata_daya
+            LEFT JOIN survey_harga sh ON sh.sh_id = data.harga_iconnet
+            LEFT JOIN survey_net sn ON sn.sn_id = data.penggunaan_internet
+            LEFT JOIN survey_budget sb ON sb.sb_id = data.alokasi_budget
+            LEFT JOIN survey_minat sm ON sm.sm_id = data.sampling_minat
+            LEFT JOIN survey_harga sh2 ON sh2.sh_id = data.harga_iconnet_2
+            LEFT JOIN survey_net sn2 ON sn2.sn_id = data.penggunaan_internet_2
+            LEFT JOIN survey_budget sb2 ON sb2.sb_id = data.alokasi_budget_2
+            LEFT JOIN survey_minat sm2 ON sm2.sm_id = data.sampling_minat_2
+            LEFT JOIN survey_harga sh3 ON sh3.sh_id = data.harga_iconnet_3
+            LEFT JOIN survey_net sn3 ON sn3.sn_id = data.penggunaan_internet_3
+            LEFT JOIN survey_budget sb3 ON sb3.sb_id = data.alokasi_budget_3
+            LEFT JOIN survey_minat sm3 ON sm3.sm_id = data.sampling_minat_3
+            LEFT JOIN status_drawing ON status_drawing.sd_id = data.status_drawing
+            LEFT JOIN status_pembangunan ON status_pembangunan.sp_id = data.status_pembangunan
+        ) temp
+        EOT;//dari tabel view tp data tidak otomatis update
         $primaryKey = "id";
 
         $columns = array(
             array("db" => "id",                     "dt" => 0),
-            array("db" => "tipe_project",           "dt" => 1),
+            array("db" => "tp_jenis",               "dt" => 1),
             array("db" => "nama_cluster",           "dt" => 2),
-            array("db" => "tipe_cluster",           "dt" => 3),
-            array("db" => "area",                   "dt" => 4),
-            array("db" => "kabupaten",              "dt" => 5),
-            array("db" => "kecamatan",              "dt" => 6),
-            array("db" => "kelurahan",              "dt" => 7),
-            array("db" => "olt",                    "dt" => 8),
+            array("db" => "tc_jenis",               "dt" => 3),
+            array("db" => "area_nama",              "dt" => 4),
+            array("db" => "kota",                   "dt" => 5),
+            array("db" => "kec",                    "dt" => 6),
+            array("db" => "desa",                   "dt" => 7),
+            array("db" => "olt_nama",               "dt" => 8),
             array("db" => "longi_lati",             "dt" => 9),
-            array("db" => "perizinan",              "dt" => 10),
+            array("db" => "izin",                   "dt" => 10),
             array("db" => "kompetitor",             "dt" => 11),
-            array("db" => "lokal_operator",         "dt" => 12),
-            array("db" => "tiang_listrik",          "dt" => 13),
+            array("db" => "lo",                     "dt" => 12),
+            array("db" => "tl",                     "dt" => 13),
             array("db" => "jumlah_rumah",           "dt" => 14),
-            array("db" => "rumah_kosong",           "dt" => 15),
-            array("db" => "fasil_umum",             "dt" => 16),
-            array("db" => "rata_daya",              "dt" => 17),
-            array("db" => "anak_kecil",             "dt" => 18),
-            array("db" => "kendaraan",              "dt" => 19),
-            array("db" => "ac",                     "dt" => 20),
-            array("db" => "internet_bisnis",        "dt" => 21),
+            array("db" => "rk",                     "dt" => 15),
+            array("db" => "fu",                     "dt" => 16),
+            array("db" => "rd_jenis",               "dt" => 17),
+            array("db" => "ak",                     "dt" => 18),
+            array("db" => "kndrn",                  "dt" => 19),
+            array("db" => "airc",                   "dt" => 20),
+            array("db" => "ib",                     "dt" => 21),
             array("db" => "jumlah_peminat",         "dt" => 22),
-            array("db" => "harga_iconnet",          "dt" => 23),
-            array("db" => "penggunaan_internet",    "dt" => 24),
+            array("db" => "sh_jenis",               "dt" => 23),
+            array("db" => "sn_jenis",               "dt" => 24),
             array("db" => "jml_perangkat",          "dt" => 25),
-            array("db" => "alokasi_budget",         "dt" => 26),
-            array("db" => "sampling_minat",         "dt" => 27),
-            array("db" => "harga_iconnet_2",        "dt" => 28),
-            array("db" => "penggunaan_internet_2",  "dt" => 29),
+            array("db" => "sb_jenis",               "dt" => 26),
+            array("db" => "sm_jenis",               "dt" => 27),
+            array("db" => "sh_jenis2",              "dt" => 28),
+            array("db" => "sn_jenis2",              "dt" => 29),
             array("db" => "jml_perangkat_2",        "dt" => 30),
-            array("db" => "alokasi_budget_2",       "dt" => 31),
-            array("db" => "sampling_minat_2",       "dt" => 32),
-            array("db" => "harga_iconnet_3",        "dt" => 33),
-            array("db" => "penggunaan_internet_3",  "dt" => 34),
+            array("db" => "sb_jenis2",              "dt" => 31),
+            array("db" => "sm_jenis2",              "dt" => 32),
+            array("db" => "sh_jenis3",              "dt" => 33),
+            array("db" => "sn_jenis3",              "dt" => 34),
             array("db" => "jml_perangkat_3",        "dt" => 35),
-            array("db" => "alokasi_budget_3",       "dt" => 36),
-            array("db" => "sampling_minat_3",       "dt" => 37),
+            array("db" => "sb_jenis3",              "dt" => 36),
+            array("db" => "sm_jenis3",              "dt" => 37),
             array("db" => "jumlah_fat",             "dt" => 38),
             array("db" => "daftar_fat",             "dt" => 39),
             array("db" => "ket",                    "dt" => 40),
             array("db" => "nilai_roi",              "dt" => 41),
             array("db" => "score",                  "dt" => 42),
-            array("db" => "kelayakan",              "dt" => 43),
-            array("db" => "status_drawing",         "dt" => 44),
+            array("db" => "layak",                  "dt" => 43),
+            array("db" => "sd_jenis",               "dt" => 44),
             array("db" => "maps",                   "dt" => 45),
             array("db" => "jml_fat_ploating",       "dt" => 46),
             array("db" => "home_pass",              "dt" => 47),
-            array("db" => "approval",               "dt" => 48),
+            array("db" => "approv",                 "dt" => 48),
             array("db" => "no_pa",                  "dt" => 49),
-            array("db" => "status_pembangunan",     "dt" => 50),
+            array("db" => "sp_jenis",               "dt" => 50),
             array("db" => "plan_pembangunan",       "dt" => 51),
-            array("db" => "created_at",              "dt" => 52),
+            array("db" => "created_at",             "dt" => 52),
             array(
                 "db" => "id",
                 "dt" => 53,
@@ -225,10 +279,19 @@ class Data extends Controller
                 }
             ),
         );
+        $session = session();
+        $user_id = $_SESSION["user_id"];
+        $role = $_SESSION["role"];
 
-        echo json_encode(
-            \SSP::simple($_GET, $dbDetails, $table, $primaryKey, $columns)
-        );
+        if($role === "Admin") {
+            echo json_encode(
+                \SSP::simple($_GET, $dbDetails, $table, $primaryKey, $columns, null, "deleted_at IS NULL")
+            );
+        } else {
+            echo json_encode(
+                \SSP::simple($_GET, $dbDetails, $table, $primaryKey, $columns, null, "user_id = '$user_id' AND deleted_at IS NULL")
+            );
+        }
     }
 
     //menampilkan data ke modal edit berdasarkan id 
