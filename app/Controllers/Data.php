@@ -31,6 +31,7 @@ class Data extends Controller
         $data['survey_budget'] = $model->get_survey_budget();
         $data['survey_minat'] = $model->get_survey_minat();
         $data['status_drawing'] = $model->get_status_drawing();
+        $data['status_pembangunan'] = $model->get_status_pembangunan();
 
         // $model = new Employee_model;
         // $data['title']     = 'Data Vaksin Karyawan';

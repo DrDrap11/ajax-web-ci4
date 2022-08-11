@@ -185,6 +185,9 @@
                 <label for="tp_project" class="col-form-label">Tipe Project</label>
                 <select class="form-control form-select" id="sel_tp_project" name="tp_project">
                   <option style="color:#cbd5e1;" value="">---Pilih Tipe Project---</option>
+                    <?php foreach($tipe_project as $tp){?>
+                  <option value="<?php echo $tp->tp_id;?>"><?php echo $tp->tp_jenis;?></option>"
+                    <?php }?>
                 </select>
               </div>   
               <div class="form-group">
@@ -195,18 +198,20 @@
               <div class="form-group">
                   <label for="tipe_cluster" class="col-form-label">Tipe Cluster</label>
                   <select class="form-control form-select" name="tipe_cluster">
-                      <option value="">---Pilih Tipe Cluster---</option>
+                    <option value="">---Pilih Tipe Cluster---</option>
+                      <?php foreach($tipe_cluster as $tc){?>
+                    <option value="<?php echo $tc->tc_id;?>"><?php echo $tc->tc_jenis;?></option>"
+                      <?php }?>
                   </select>
                   <span class="text-danger error-text tipe_cluster_error"></span>
               </div>
               <div class="form-group">
                   <label for="area" class="col-form-label">Area</label>
                   <select class="form-control form-select" id="sel_area" name="area">
-                      <option value="">---Pilih Area---</option>
-                      <option value="1">SURABAYA</option>
-                      <option value="2">MALANG</option>
-                      <option value="3">MADIUN</option>
-                      <option value="4">JEMBER</option>
+                    <option value="">---Pilih Area---</option>
+                      <?php foreach($area as $area){?>
+                    <option value="<?php echo $area->id_area;?>"><?php echo $area->area_nama;?></option>"
+                      <?php }?>
                   </select>
               </div>
               <div class="form-group">
@@ -230,7 +235,10 @@
               <div class="form-group">
                   <label for="olt" class="col-form-label">OLT</label>
                   <select class="form-control form-select" name="olt">
-                      <option value="">---Pilih OLT---</option>
+                    <option value="">---Pilih OLT---</option>
+                      <?php foreach($olt as $olt){?>
+                    <option value="<?php echo $olt->olt_id;?>"><?php echo $olt->olt_nama;?></option>"
+                      <?php }?>
                   </select>
                   <span class="text-danger error-text olt_error"></span>
               </div>
@@ -409,7 +417,10 @@
               <div class="form-group">
                   <label for="daya" class="col-form-label">Rata-rata Daya</label>
                   <select class="form-control form-select" name="daya">
-                      <option value="">---Pilih Rata-rata Daya---</option>
+                    <option value="">---Pilih Rata-rata Daya---</option>
+                      <?php foreach($daya as $rd){?>
+                    <option value="<?php echo $rd->rd_id;?>"><?php echo $rd->rd_jenis;?></option>"
+                      <?php }?>
                   </select>
                   <span class="text-danger error-text daya_error"></span>
               </div>
@@ -546,14 +557,20 @@
               <div class="form-group">
                   <label for="harga" class="col-form-label">Harga ICONNET Menurut Warga</label>
                   <select class="form-control form-select" name="harga">
-                      <option value="">---Pilih Harga ICONNET Menurut Warga---</option>
+                    <option value="">---Pilih Harga ICONNET Menurut Warga---</option>
+                      <?php foreach($survey_harga as $sh){?>
+                    <option value="<?php echo $sh->sh_id;?>"><?php echo $sh->sh_jenis;?></option>"
+                      <?php }?>
                   </select>
                   <span class="text-danger error-text harga_error"></span>
               </div>
               <div class="form-group">
                   <label for="internet" class="col-form-label">Penggunaan Internet</label>
                   <select class="form-control form-select" name="internet">
-                      <option value="">---Pilih Penggunaan Internet---</option>
+                    <option value="">---Pilih Penggunaan Internet---</option>
+                      <?php foreach($survey_net as $sn){?>
+                    <option value="<?php echo $sn->sn_id;?>"><?php echo $sn->sn_jenis;?></option>"
+                      <?php }?>
                   </select>
                   <span class="text-danger error-text internet_error"></span>
               </div>
@@ -565,14 +582,20 @@
               <div class="form-group">
                   <label for="budget" class="col-form-label">Alokasi Budget untuk Internet</label>
                   <select class="form-control form-select" name="budget">
-                      <option value="">---Pilih Alokasi Budget---</option>
+                    <option value="">---Pilih Alokasi Budget---</option>
+                      <?php foreach($survey_budget as $sb){?>
+                    <option value="<?php echo $sb->sb_id;?>"><?php echo $sb->sb_jenis;?></option>"
+                      <?php }?>
                   </select>
                   <span class="text-danger error-text budget_error"></span>
               </div>
               <div class="form-group">
                   <label for="minat" class="col-form-label">Sampling Minat</label>
                   <select class="form-control form-select" name="minat">
-                      <option value="">---Pilih Sampling Minat---</option>
+                    <option value="">---Pilih Sampling Minat---</option>
+                      <?php foreach($survey_minat as $sm){?>
+                    <option value="<?php echo $sm->sm_id;?>"><?php echo $sm->sm_jenis;?></option>"
+                      <?php }?>
                   </select>
                   <span class="text-danger error-text minat_error"></span>
               </div>
@@ -580,14 +603,20 @@
               <div class="form-group">
                   <label for="harga" class="col-form-label">Harga ICONNET Menurut Warga</label>
                   <select class="form-control form-select" name="harga">
-                      <option value="">---Pilih Harga ICONNET Menurut Warga---</option>
+                    <option value="">---Pilih Harga ICONNET Menurut Warga---</option>
+                      <?php foreach($survey_harga as $sh){?>
+                    <option value="<?php echo $sh->sh_id;?>"><?php echo $sh->sh_jenis;?></option>"
+                      <?php }?>
                   </select>
                   <span class="text-danger error-text harga_error"></span>
               </div>
               <div class="form-group">
                   <label for="internet" class="col-form-label">Penggunaan Internet</label>
                   <select class="form-control form-select" name="internet">
-                      <option value="">---Pilih Penggunaan Internet---</option>
+                    <option value="">---Pilih Penggunaan Internet---</option>
+                      <?php foreach($survey_net as $sn){?>
+                    <option value="<?php echo $sn->sn_id;?>"><?php echo $sn->sn_jenis;?></option>"
+                      <?php }?>
                   </select>
                   <span class="text-danger error-text internet_error"></span>
               </div>
@@ -599,14 +628,20 @@
               <div class="form-group">
                   <label for="budget" class="col-form-label">Alokasi Budget untuk Internet</label>
                   <select class="form-control form-select" name="budget">
-                      <option value="">---Pilih Alokasi Budget---</option>
+                    <option value="">---Pilih Alokasi Budget---</option>
+                      <?php foreach($survey_budget as $sb){?>
+                    <option value="<?php echo $sb->sb_id;?>"><?php echo $sb->sb_jenis;?></option>"
+                      <?php }?>
                   </select>
                   <span class="text-danger error-text budget_error"></span>
               </div>
               <div class="form-group">
                   <label for="minat" class="col-form-label">Sampling Minat</label>
                   <select class="form-control form-select" name="minat">
-                      <option value="">---Pilih Sampling Minat---</option>
+                    <option value="">---Pilih Sampling Minat---</option>
+                      <?php foreach($survey_minat as $sm){?>
+                    <option value="<?php echo $sm->sm_id;?>"><?php echo $sm->sm_jenis;?></option>"
+                      <?php }?>
                   </select>
                   <span class="text-danger error-text minat_error"></span>
               </div>
@@ -614,14 +649,20 @@
               <div class="form-group">
                   <label for="harga" class="col-form-label">Harga ICONNET Menurut Warga</label>
                   <select class="form-control form-select" name="harga">
-                      <option value="">---Pilih Harga ICONNET Menurut Warga---</option>
+                    <option value="">---Pilih Harga ICONNET Menurut Warga---</option>
+                      <?php foreach($survey_harga as $sh){?>
+                    <option value="<?php echo $sh->sh_id;?>"><?php echo $sh->sh_jenis;?></option>"
+                      <?php }?>
                   </select>
                   <span class="text-danger error-text harga_error"></span>
               </div>
               <div class="form-group">
                   <label for="internet" class="col-form-label">Penggunaan Internet</label>
                   <select class="form-control form-select" name="internet">
-                      <option value="">---Pilih Penggunaan Internet---</option>
+                    <option value="">---Pilih Penggunaan Internet---</option>
+                      <?php foreach($survey_net as $sn){?>
+                    <option value="<?php echo $sn->sn_id;?>"><?php echo $sn->sn_jenis;?></option>"
+                      <?php }?>
                   </select>
                   <span class="text-danger error-text internet_error"></span>
               </div>
@@ -633,14 +674,20 @@
               <div class="form-group">
                   <label for="budget" class="col-form-label">Alokasi Budget untuk Internet</label>
                   <select class="form-control form-select" name="budget">
-                      <option value="">---Pilih Alokasi Budget---</option>
+                    <option value="">---Pilih Alokasi Budget---</option>
+                      <?php foreach($survey_budget as $sb){?>
+                    <option value="<?php echo $sb->sb_id;?>"><?php echo $sb->sb_jenis;?></option>"
+                      <?php }?>
                   </select>
                   <span class="text-danger error-text budget_error"></span>
               </div>
               <div class="form-group">
                   <label for="minat" class="col-form-label">Sampling Minat</label>
                   <select class="form-control form-select" name="minat">
-                      <option value="">---Pilih Sampling Minat---</option>
+                    <option value="">---Pilih Sampling Minat---</option>
+                      <?php foreach($survey_minat as $sm){?>
+                    <option value="<?php echo $sm->sm_id;?>"><?php echo $sm->sm_jenis;?></option>"
+                      <?php }?>
                   </select>
                   <span class="text-danger error-text minat_error"></span>
               </div>
@@ -706,7 +753,10 @@
               <div class="form-group">
                   <label for="drawing" class="col-form-label">Status Drawing</label>
                   <select class="form-control form-select" name="drawing">
-                      <option value="">---Pilih Status Drawing---</option>
+                    <option value="">---Pilih Status Drawing---</option>
+                      <?php foreach($status_drawing as $sd){?>
+                    <option value="<?php echo $sd->sd_id;?>"><?php echo $sd->sd_jenis;?></option>"
+                      <?php }?>
                   </select>
                   <span class="text-danger error-text drawing_error"></span>
               </div>
@@ -773,7 +823,10 @@
               <div class="form-group">
                   <label for="stts_pembangunan" class="col-form-label">Status Pembangunan</label>
                   <select class="form-control form-select" name="stts_pembangunan">
-                      <option value="">---Pilih Status Pembangunan---</option>
+                    <option value="">---Pilih Status Pembangunan---</option>
+                      <?php foreach($status_pembangunan as $sp){?>
+                    <option value="<?php echo $sp->sp_id;?>"><?php echo $sp->sp_jenis;?></option>"
+                      <?php }?>
                   </select>
                   <span class="text-danger error-text stts_pembangunan_error"></span>
               </div>
@@ -973,13 +1026,13 @@
     //PILIH KOTA, KEC, DESA
     $("#tambah").click(function(){
         // setelah pilih provinsi
-        $('#sel_prov').change(function(){
-            var prov = $(this).val(); //id prov dari data
+        $('#sel_area').change(function(){
+            var area = $(this).val(); //id prov dari data
         // AJAX request
             $.ajax({
-                url:'employee/getKota',
+                url:'data/getKota',
                 method: 'post',
-                data: {prov: prov},
+                data: {area: area},
                 dataType: 'json',
                 success: function(response){
                 // Remove options 
@@ -998,7 +1051,7 @@
             var kota = $(this).val();
             // AJAX request
             $.ajax({
-                url:'employee/getKecamatan',
+                url:'data/getKecamatan',
                 method: 'post',
                 data: {kota: kota},
                 dataType: 'json',
@@ -1019,7 +1072,7 @@
             var kec = $(this).val();
             // AJAX request
             $.ajax({
-                url:'employee/getDesa',
+                url:'data/getDesa',
                 method: 'post',
                 data: {kec: kec},
                 dataType: 'json',

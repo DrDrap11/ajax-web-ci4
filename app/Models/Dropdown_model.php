@@ -98,4 +98,11 @@ class Dropdown_model extends Model{
          
         return $query->getResult();
     }
+
+    public function get_status_pembangunan() {
+        $sql = 'SELECT * FROM status_pembangunan';
+        $query =  $this->db->query($sql);
+         
+        return $query->getResult();
+    }
 }
