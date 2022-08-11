@@ -177,7 +177,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
         <div class="modal-body">
-         <form action="addData" method="post" id="add-data-form" autocomplete="off">
+         <form action="data/addData" method="post" id="add-data-form" autocomplete="off">
           <div class="row">
             <div class="col-lg-12 mb-2">
               <h2>Informasi Cluster</h2>
@@ -809,7 +809,7 @@
               <div class="form-group">
                 <label for="planbangun" class="col-form-label">Plan Pembangunan</label>
                 <div class="input-icon mb-2">
-                  <input class="form-control"  name="planbangun" placeholder="Select a date" id="datepicker-icon" value="2022-06-20"/>
+                  <input class="form-control"  name="planbangun" placeholder="Select a date" id="datepicker-icon"/>
                   <span class="input-icon-addon"><!-- Download SVG icon from http://tabler-icons.io/i/calendar -->
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="4" y="5" width="16" height="16" rx="2" /><line x1="16" y1="3" x2="16" y2="7" /><line x1="8" y1="3" x2="8" y2="7" /><line x1="4" y1="11" x2="20" y2="11" /><line x1="11" y1="15" x2="12" y2="15" /><line x1="12" y1="15" x2="12" y2="18" /></svg>
                   </span>
@@ -1007,11 +1007,11 @@
               )
               $('#tabel').DataTable().ajax.reload(null, false);
             } else {
-              // Swal.fire(
-              //   'Gagal',
-              //   'Semua data harus diisi',
-              //   'error'
-              // );
+              Swal.fire(
+                'Gagal',
+                'Ooopss',
+                'error'
+              );
             }
           } else {
             $.each(data.error, function(prefix, val) {
