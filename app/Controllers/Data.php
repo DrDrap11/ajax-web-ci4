@@ -47,6 +47,8 @@ class Data extends Controller
     {
         $dataModel = new \App\Models\Data_model();
         $wilayahModel = new \App\Models\Dropdown_model();
+        $db      = \Config\Database::connect();
+        $builder = $db->table('data');
 
         $validation = \Config\Services::validation();
         // $this->validate([
@@ -82,7 +84,17 @@ class Data extends Controller
             //     'prov' => $this->request->getPost('prov'),
             // );
             // $nameprov = $wilayahModel->getnamaprov($prov);
+        $session = session();
+        //$user_id['user_id'] = $session->get('user_id');
+        $user_id = $_SESSION['user_id'];
+        //$user_id = $_SESSION['user_id'];
+        //$autoload['libraries'] = array('session');
 
+        //Insert data into db
+
+        $array = [
+            'user_id'   => $user_id,
+        ];
             //Insert data into db
         $data = [
             'tipe_project'          => $this->request->getPost('tp_project'),
@@ -136,11 +148,14 @@ class Data extends Controller
             
         ];
         
-        $query = $dataModel->insert($data);
+        $builder->set($array);
+        $builder->set($data);
+        //$query = $employeeModel->insert($data);
+        $query = $builder->insert();
         if ($query) {
-            echo json_encode(['code' => 1, 'msg' => 'Data berhasil ditambahkan']);
+            echo json_encode(['code' => 1, 'msg' => $user_id]);
         } else {
-            echo json_encode(['code' => 0, 'msg' => 'Data gagal ditambahkan']);
+            echo json_encode(['code' => 0, 'msg' => 'Data karyawan gagal ditambahkan']);
         }
         
     }

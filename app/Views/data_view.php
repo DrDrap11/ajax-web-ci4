@@ -177,7 +177,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
         <div class="modal-body">
-         <form action="data/addData" method="post" id="add-data-form" autocomplete="off">
+         <form action="<?= route_to('add.data'); ?>" method="post" id="add-data-form" autocomplete="off">
           <div class="row">
             <div class="col-lg-12 mb-2">
               <h2>Informasi Cluster</h2>
@@ -424,7 +424,7 @@
                   </select>
                   <span class="text-danger error-text daya_error"></span>
               </div>
-            <div class="form-group">
+              <div class="form-group">
                 <label for="anak" class="col-form-label">Anak Kecil</label>
                 <div class="row">
                   <div class="col-lg-6">
