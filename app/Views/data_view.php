@@ -1051,7 +1051,7 @@
       fixedColumns: true,
       "processing": true,
       "serverSide": true,
-      "ajax": "<?= route_to('get.all.employee'); ?>",
+      "ajax": "getAllData",
       "dom": "lBfrtp",
       buttons: [
         // {
