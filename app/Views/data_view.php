@@ -424,7 +424,7 @@
                   </select>
                   <span class="text-danger error-text daya_error"></span>
               </div>
-              <div class="form-group">
+            <div class="form-group">
                 <label for="anak" class="col-form-label">Anak Kecil</label>
                 <div class="row">
                   <div class="col-lg-6">
@@ -805,6 +805,7 @@
                     </label>
                   </div>
                 </div>
+                <input type="hidden" name="approval" value="NULL">
               </div>
               <div class="form-group">
                 <label for="planbangun" class="col-form-label">Plan Pembangunan</label>
