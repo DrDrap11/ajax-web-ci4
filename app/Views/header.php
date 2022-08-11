@@ -29,6 +29,24 @@
   <link rel="stylesheet" href="https://unpkg.com/@tabler/icons@latest/iconfont/tabler-icons.min.css">
 
   <style>
+    .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current{
+      color: white ! important;
+      background-color: #467fd0;
+      border: #467fd0 1p radius;
+      border-radius: 5px;
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button:hover{
+      color: #467fd0 !important;
+      border: 1px solid white;
+      background: rgba(76, 175, 80, 0); 
+      background: -webkit-linear-gradient(white 0%, white 0%, white 0%);
+      background: -moz-linear-gradient(white 0%, white 0%, white 0%);
+      background: -ms-linear-gradient(white 0%, white 0%, white 0%%);
+      background: -o-linear-gradient(white 0%, white 0%, white 0%);
+      background: linear-gradient(to white 0%, white 0%, white 0%);
+    }
+
     .markdown>table> :not(caption)>*>*,
     .table> :not(caption)>*>* {
       border: none;
