@@ -16,14 +16,14 @@ class Data_model extends Model
     protected $updatedField     = 'updated_at';
     protected $deletedField     = 'deleted_at';
 
-    public function getKaryawan($id)
+    public function getData($id)
     {
         
         $builder = $this->db->table($this->table);
-        $builder->join('villages', 'villages.id_desa = employees.alamat', 'LEFT');
+        $builder->join('villages', 'villages.id_desa = data.kelurahan', 'LEFT');
         $builder->join('districts', 'districts.id_kec = villages.district_id', 'LEFT');
         $builder->join('regencies', 'regencies.id_kota = districts.regency_id', 'LEFT');
-        $builder->join('provinces', 'provinces.id_prov = regencies.province_id', 'LEFT');
+        $builder->join('area', 'area.id_area = regencies.area_id', 'LEFT');
         $query = $builder->getWhere(['id' => $id]);
         return $query->getRow();
     }

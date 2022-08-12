@@ -70,7 +70,7 @@
       width: 90%;
     }
 
-    thead:nth-child(2) tr th:last-child {
+    thead:nth-child(2) tr th:first-child {
       pointer-events: none;
     }
 

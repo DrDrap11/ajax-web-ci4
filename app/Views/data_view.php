@@ -12,7 +12,8 @@
                 <table id="tabel" class="table card-table table-vcenter text-nowrap datatable stripe hover">
                 <thead>
                   <tr>
-                    <th class="text-center">No</th>
+                    <th class="text-center">Aksi</th>
+                    <th class="text-center">ID</th>
                     <th class="text-center">Tipe Project</th>
                     <th class="text-center">Nama Cluster</th>
                     <th class="text-center">Tipe Cluster</th>
@@ -65,12 +66,12 @@
                     <th class="text-center">Status Pembangunan</th> 
                     <th class="text-center">Plan Pembangunan</th> 
                     <th class="text-center">Created Date</th> 
-                    <th class="text-center">Aksi</th>
                   </tr>
                 </thead>
                 <thead>
                   <tr>
-                    <th>No</th>
+                    <th>Aksi</th>
+                    <th>ID</th>
                     <th>Tipe Project</th>
                     <th>Nama Cluster</th>
                     <th>Tipe Cluster</th>
@@ -123,7 +124,6 @@
                     <th>Status Pembangunan</th> 
                     <th>Plan Pembangunan</th> 
                     <th>Created Date</th> 
-                    <th>Aksi</th>
                   </tr>
                 </thead>
 
@@ -805,7 +805,7 @@
                     </label>
                   </div>
                 </div>
-                <input type="hidden" name="approval" value="NULL">
+                <input type="hidden" name="approval" value="2">
               </div>
               <div class="form-group">
                 <label for="planbangun" class="col-form-label">Plan Pembangunan</label>
@@ -846,106 +846,854 @@
 </div>
 
 <!-- Modal Edit Data -->
-<div class="modal modal-blur fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <form action="#" method="post" autocomplete="off">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Edit Data Karyawan</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <input type="hidden" id="edit_id">
-                    <input type="hidden" id="alamat">
-                    <div class="form-group">
-                        <label for="nama_karyawan" class="col-form-label">Nama Karyawan</label>
-                        <input type="text" class="form-control nama_karyawan" id="nama_karyawan_edit" name="nama_karyawan" placeholder="Nama harus diisi">
-                        <span id="error_nama" class="text-danger"></span>
-                        <span class="text-danger error-text nama_karyawan_error"></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="usia" class="col-form-label">Usia</label>
-                        <input type="number" class="form-control usia" id="usia_edit" name="usia" placeholder="Usia harus diisi">
-                        <span id="error_usia" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="status_vaksin_1" class="col-form-label">Status Vaksin 1</label>
-                        <select class="form-control form-select status_vaksin_1" id="status_vaksin_1_edit">
-                            <option value="">---Pilih Status Vaksin---</option>
-                            <option value="belum">Belum Vaksin</option>
-                            <option value="sudah">Sudah Vaksin</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="status_vaksin_2" class="col-form-label">Status Vaksin 2</label>
-                        <select class="form-control form-select status_vaksin_2" id="status_vaksin_2_edit">
-                            <option value="">---Pilih Status Vaksin---</option>
-                            <option value="belum">Belum Vaksin</option>
-                            <option value="sudah">Sudah Vaksin</option>
-                        </select>
-                    </div>
+<div class="modal modal-blur fade" id="editModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edit Data </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+        <div class="modal-body">
+         <form action="" method="post" id="add-employee-form" autocomplete="off">
+          <div class="row">
+            <div class="col-lg-12 mb-2">
+              <h2>Informasi Cluster</h2>
+                <div class="form-group">
+                  <label for="tp_project" class="col-form-label">Tipe Project</label>
                     <div class="row">
-                      <div class="col-lg-6 mb-2">
-                        <div class="form-group">
-                            <label for="prov" class="col-form-label">Provinsi</label>
-                            <input type="text" class="form-control prov" id="prov_edit" name="prov" readonly >
-                          <span id="error_nama" class="text-danger"></span>
-                            <span class="text-danger error-text prov_error"></span>
+                      <div class="col-lg-6 ">
+                         <input type="text" class="form-control tp_project" id="tp_project_edit" name="tp_project" readonly>
+                         <span id="error_nama" class="text-danger"></span>
+                         <span class="text-danger error-text tp_project_error"></span>
+                      </div>
+                      <div class="col-lg-6 ">
+                        <select class="form-control form-select" id="sel_tp_project_edit" name="tp_project">
+                          <option style="color:#cbd5e1;" value="">---Pilih Tipe Project---</option>
+                            <?php foreach($tipe_project as $tp){?>
+                          <option value="<?php echo $tp->tp_id;?>"><?php echo $tp->tp_jenis;?></option>"
+                            <?php }?>
+                        </select>
+                      </div>
+                    </div>
+                </div>   
+                <div class="form-group">
+                    <label for="nama" class="col-form-label">Nama Cluster</label>
+                    <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Cluster">
+                    <span class="text-danger error-text nama"></span>
+                </div>
+                <div class="form-group">
+                  <label for="tipe_cluster" class="col-form-label">Tipe Cluster</label>
+                  <div class="row">
+                    <div class="col-lg-6 ">
+                      <input type="text" class="form-control tipe_cluster" id="tipe_cluster_edit" name="tipe_cluster" readonly>
+                      <span id="error_nama" class="text-danger"></span>
+                      <span class="text-danger error-text tipe_cluster_error"></span>
+                    </div>
+                    <div class="col-lg-6 ">
+                      <select class="form-control form-select" name="tipe_cluster">
+                        <option value="">---Pilih Tipe Cluster---</option>
+                          <?php foreach($tipe_cluster as $tc){?>
+                        <option value="<?php echo $tc->tc_id;?>"><?php echo $tc->tc_jenis;?></option>"
+                          <?php }?>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="area" class="col-form-label">Area</label>
+                  <div class="row">
+                    <div class="col-lg-6 ">
+                      <input type="text" class="form-control area" id="area_edit" name="area" readonly>
+                      <span id="error_nama" class="text-danger"></span>
+                      <span class="text-danger error-text area_error"></span>
+                    </div>
+                    <div class="col-lg-6 ">
+                      <select class="form-control form-select" id="sel_area" name="area">
+                        <option value="">---Pilih Area---</option>
+                          
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="kota" class="col-form-label">Kabupaten/Kota</label>
+                  <div class="row">
+                    <div class="col-lg-6 ">
+                      <input type="text" class="form-control kota" id="kota_edit" name="kota" readonly>
+                      <span id="error_nama" class="text-danger"></span>
+                      <span class="text-danger error-text kota_error"></span>
+                    </div>
+                    <div class="col-lg-6 ">
+                      <select class="form-control form-select" id="sel_kota_edit" name="kota">
+                        <option value="">---Pilih Kabupaten/Kota---</option>
+                      </select>
+                    </div>
+                  </div>
+                </div> 
+                <div class="form-group">
+                  <label for="kec" class="col-form-label">Kecamatan</label>
+                  <div class="row">
+                    <div class="col-lg-6 ">
+                      <input type="text" class="form-control kec" id="kec_edit" name="kec" readonly>
+                      <span id="error_nama" class="text-danger"></span>
+                      <span class="text-danger error-text kec_error"></span>
+                    </div>
+                    <div class="col-lg-6 ">
+                      <select class="form-control form-select" id="sel_kec_edit" name="kec">
+                        <option value="">---Pilih Kecamatan---</option>
+                      </select>
+                    </div>
+                  </div>
+               </div>
+              <div class="form-group">
+                  <label for="desa" class="col-form-label">Desa/Kelurahan</label>
+                  <div class="row">
+                    <div class="col-lg-6 ">
+                      <input type="text" class="form-control desa" id="desa_edit" name="desa" readonly>
+                      <span id="error_nama" class="text-danger"></span>
+                      <span class="text-danger error-text desa_error"></span>
+                    </div>
+                    <div class="col-lg-6 ">
+                      <select class="form-control form-select" id="sel_desa_edit" name="desa">
+                        <option value="">---Pilih Desa/Kelurahan---</option>
+                      </select>
+                    </div>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label for="olt" class="col-form-label">OLT</label>
+                  <div class="row">
+                    <div class="col-lg-6 ">
+                      <input type="text" class="form-control olt" id="olt_edit" name="olt" readonly>
+                      <span id="error_nama" class="text-danger"></span>
+                      <span class="text-danger error-text olt_error"></span>
+                    </div>
+                    <div class="col-lg-6 ">
+                      <select class="form-control form-select" name="olt">
+                        <option value="">---Pilih OLT---</option>
+                          
+                      </select>
+                    </div>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label for="ll" class="col-form-label">Longitude & Latitude</label>
+                  <input type="text" class="form-control" id="ll" name="ll" placeholder="Longitude & Latitude">
+                  <span class="text-danger error-text ll_error"></span>
+              </div>
+              <h2 class="pt-4">Survey Secara Umum</h2>
+              <div class="form-group">
+                  <label for="izin" class="col-form-label">Perizinan</label>
+                  <div class="row">
+                  <div class="col-lg-6 ">
+                    <label class="form-selectgroup-item flex-fill">
+                      <input type="radio" name="izin" id="izin1" value="1" class="form-selectgroup-input" >
+                      <div class="form-selectgroup-label d-flex align-items-center">
+                        <div class="me-4">
+                          <span class="form-selectgroup-check"></span>
                         </div>
-                        <div class="form-group">
-                            <label for="kota" class="col-form-label">Kabupaten/Kota</label>
-                            <input type="text" class="form-control kota" id="kota_edit" name="kota" readonly >
-                            <span id="error_kota" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="kec" class="col-form-label">Kecamatan</label>
-                            <input type="text" class="form-control kec" id="kec_edit" name="kec" readonly >
-                          <span id="error_nama" class="text-danger"></span>
-                            <span class="text-danger error-text kec_error"></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="desa" class="col-form-label">Desa/Kelurahan</label>
-                            <input type="text" class="form-control desa" id="desa_edit" name="desa" readonly>
-                            <span id="error_desa" class="text-danger"></span>
+                        <div>
+                          <span>Mudah</span>
                         </div>
                       </div>
-                      <div class="col-lg-6 mb-2">
-                        <div class="form-group">
-                            <label for="provinsi" class="col-form-label">&nbsp</label>
-                            <select class="form-control form-select" id="sel_prov_edit" name="prov">
-                                <option value="">---Pilih provinsi---</option>
-                            </select>
+                    </label>
+                  </div>
+                  <div class="col-lg-6 ">
+                    <label class="form-selectgroup-item flex-fill">
+                      <input type="radio" name="izin" id="izin2" value="0" class="form-selectgroup-input">
+                      <div class="form-selectgroup-label d-flex align-items-center">
+                        <div class="me-4">
+                          <span class="form-selectgroup-check"></span>
                         </div>
-                        <div class="form-group">
-                            <label for="kota" class="col-form-label">&nbsp</label>
-                            <select class="form-control form-select" id="sel_kota_edit" name="kota">
-                              <option value="">---Pilih Kabupaten/Kota---</option>
-                            </select>
-                        </div>                        
-                        <div class="form-group">
-                            <label for="kecamatan" class="col-form-label">&nbsp</label>
-                            <select class="form-control form-select" id="sel_kec_edit" name="kec">
-                              <option value="">---Pilih Kecamatan---</option>
-                            </select>
+                        <div>
+                          <span>Sulit</span>
                         </div>
-                        <div class="form-group">
-                            <label for="desa" class="col-form-label">&nbsp</label>
-                            <select class="form-control form-select" id="sel_desa_edit" name="desa">
-                              <option value="">---Pilih Desa/Kelurahan---</option>
-                            </select>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                  <label for="kompetitor" class="col-form-label">Kompetitor</label>
+                  <input type="number" class="form-control" id="kompetitor" name="kompetitor" min="0" max="10">
+                  <span class="text-danger error-text kompetitor_error"></span>
+              </div>
+              <div class="form-group">
+                <label for="operator" class="col-form-label">Lokal Operator</label>
+                <div class="row">
+                  <div class="col-lg-6 ">
+                    <label class="form-selectgroup-item flex-fill">
+                      <input type="radio" name="operator" id="operator1" value="1" class="form-selectgroup-input" >
+                      <div class="form-selectgroup-label d-flex align-items-center">
+                        <div class="me-4">
+                          <span class="form-selectgroup-check"></span>
                         </div>
+                        <div>
+                          <span>Ada</span>
+                        </div>
+                      </div>
+                    </label>
+                  </div>
+                  <div class="col-lg-6 ">
+                    <label class="form-selectgroup-item flex-fill">
+                      <input type="radio" name="operator" id="operator2" value="0" class="form-selectgroup-input">
+                      <div class="form-selectgroup-label d-flex align-items-center">
+                        <div class="me-4">
+                          <span class="form-selectgroup-check"></span>
+                        </div>
+                        <div>
+                          <span>Tidak ada</span>
+                        </div>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="operator" class="col-form-label">Tiang Listrik</label>
+                <div class="row">
+                  <div class="col-lg-6  ">
+                    <label class="form-selectgroup-item flex-fill">
+                      <input type="radio" name="tiang" id="tiang1" value="1" class="form-selectgroup-input" >
+                      <div class="form-selectgroup-label d-flex align-items-center">
+                        <div class="me-4">
+                          <span class="form-selectgroup-check"></span>
+                        </div>
+                        <div>
+                          <span>Ada</span>
+                        </div>
+                      </div>
+                    </label>
+                  </div>
+                  <div class="col-lg-6  ">
+                    <label class="form-selectgroup-item flex-fill">
+                      <input type="radio" name="tiang" id="tiang2" value="0" class="form-selectgroup-input">
+                      <div class="form-selectgroup-label d-flex align-items-center">
+                        <div class="me-4">
+                          <span class="form-selectgroup-check"></span>
+                        </div>
+                        <div>
+                          <span>Tidak Ada</span>
+                        </div>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                  <label for="jml_rumah" class="col-form-label">Jumlah Rumah</label>
+                  <input type="number" class="form-control" id="jml_rumah" name="jml-rumah" step="50" min="0" max="1000">
+                  <span class="text-danger error-text jml_rumah_error"></span>
+              </div>
+              <div class="form-group">
+                  <label for="rmh_kosong" class="col-form-label">Rumah Kosong</label>
+                  <div class="row">
+                  <div class="col-lg-6">
+                    <label class="form-selectgroup-item flex-fill">
+                      <input type="radio" name="rmh_kosong" id="rmh_kosong1" value="1" class="form-selectgroup-input" >
+                      <div class="form-selectgroup-label d-flex align-items-center">
+                        <div class="me-4">
+                          <span class="form-selectgroup-check"></span>
+                        </div>
+                        <div>
+                          <span>Sedikit <10</span>
+                        </div>
+                      </div>
+                    </label>
+                  </div>
+                  <div class="col-lg-6 ">
+                    <label class="form-selectgroup-item flex-fill">
+                      <input type="radio" name="rmh_kosong" id="rmh_kosong2" value="0" class="form-selectgroup-input">
+                      <div class="form-selectgroup-label d-flex align-items-center">
+                        <div class="me-4">
+                          <span class="form-selectgroup-check"></span>
+                        </div>
+                        <div>
+                          <span>Banyak >10</span>
+                        </div>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <!-- Fasilitas umum -->
+              <div class="form-group">
+                <label for="fasil" class="col-form-label">Fasilitas Umum</label>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <label class="form-selectgroup-item flex-fill">
+                      <input type="radio" name="fasil" id="fasil1" value="1" class="form-selectgroup-input" >
+                      <div class="form-selectgroup-label d-flex align-items-center">
+                        <div class="me-4">
+                          <span class="form-selectgroup-check"></span>
+                        </div>
+                        <div>
+                          <span>Ada</span>
+                        </div>
+                      </div>
+                    </label>
+                  </div>
+                  <div class="col-lg-6 ">
+                    <label class="form-selectgroup-item flex-fill">
+                      <input type="radio" name="fasil" id="fasil2" value="0" class="form-selectgroup-input">
+                      <div class="form-selectgroup-label d-flex align-items-center">
+                        <div class="me-4">
+                          <span class="form-selectgroup-check"></span>
+                        </div>
+                        <div>
+                          <span>Tidak ada</span>
+                        </div>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                  <label for="daya" class="col-form-label">Rata-rata Daya</label>
+                  <div class="row">
+                    <div class="col-lg-6 ">
+                      <input type="text" class="form-control daya" id="daya_edit" name="daya" readonly>
+                      <span id="error_nama" class="text-danger"></span>
+                      <span class="text-danger error-text daya_error"></span>
+                    </div>
+                    <div class="col-lg-6 ">
+                      <select class="form-control form-select" name="daya">
+                        <option value="">---Pilih Rata-rata Daya---</option>
+                          <?php foreach($daya as $rd){?>
+                        <option value="<?php echo $rd->rd_id;?>"><?php echo $rd->rd_jenis;?></option>"
+                          <?php }?>
+                      </select>
+                    </div>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label for="anak" class="col-form-label">Anak Kecil</label>
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <label class="form-selectgroup-item flex-fill">
+                        <input type="radio" name="anak" id="anak1" value="1" class="form-selectgroup-input" >
+                        <div class="form-selectgroup-label d-flex align-items-center">
+                          <div class="me-4">
+                            <span class="form-selectgroup-check"></span>
+                          </div>
+                          <div>
+                            <span>Ada</span></span>
+                          </div>
+                        </div>
+                      </label>
+                    </div>
+                    <div class="col-lg-6">
+                      <label class="form-selectgroup-item flex-fill">
+                        <input type="radio" name="anak" id="anak2" value="0" class="form-selectgroup-input">
+                        <div class="form-selectgroup-label d-flex align-items-center">
+                          <div class="me-4">
+                            <span class="form-selectgroup-check"></span>
+                          </div>
+                          <div>
+                            <span>Tidak ada</span>
+                          </div>
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="kendaraan" class="col-form-label">Kendaraan</label>
+                  <div class="row">
+                    <div class="col-lg-6 ">
+                      <label class="form-selectgroup-item flex-fill">
+                        <input type="radio" name="kendaraan" id="kendaraan1" value="1" class="form-selectgroup-input" >
+                        <div class="form-selectgroup-label d-flex align-items-center">
+                          <div class="me-4">
+                            <span class="form-selectgroup-check"></span>
+                          </div>
+                          <div>
+                            <span>Mobil</span>
+                          </div>
+                        </div>
+                      </label>
+                    </div>
+                    <div class="col-lg-6 ">
+                      <label class="form-selectgroup-item flex-fill">
+                        <input type="radio" name="kendaraan" id="kendaraan2" value="0" class="form-selectgroup-input">
+                        <div class="form-selectgroup-label d-flex align-items-center">
+                          <div class="me-4">
+                            <span class="form-selectgroup-check"></span>
+                          </div>
+                          <div>
+                            <span>Motor</span>
+                          </div>
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="AC" class="col-form-label">Air Conditioner</label>
+                  <div class="row">
+                    <div class="col-lg-6 ">
+                      <label class="form-selectgroup-item flex-fill">
+                        <input type="radio" name="ac" id="ac1" value="1" class="form-selectgroup-input" >
+                        <div class="form-selectgroup-label d-flex align-items-center">
+                          <div class="me-4">
+                            <span class="form-selectgroup-check"></span>
+                          </div>
+                          <div>
+                            <span>Ada</span>
+                          </div>
+                        </div>
+                      </label>
+                    </div>
+                    <div class="col-lg-6 ">
+                      <label class="form-selectgroup-item flex-fill">
+                        <input type="radio" name="ac" id="ac2" value="0" class="form-selectgroup-input">
+                        <div class="form-selectgroup-label d-flex align-items-center">
+                          <div class="me-4">
+                            <span class="form-selectgroup-check"></span>
+                          </div>
+                          <div>
+                            <span>Tidak ada</span>
+                          </div>
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="bisnis" class="col-form-label">Penggunaan Internet Untuk Bisnis</label>
+                  <div class="row">
+                    <div class="col-lg-6 ">
+                      <label class="form-selectgroup-item flex-fill">
+                        <input type="radio" name="bisnis" id="bisnis1" value="1" class="form-selectgroup-input" >
+                        <div class="form-selectgroup-label d-flex align-items-center">
+                          <div class="me-4">
+                            <span class="form-selectgroup-check"></span>
+                          </div>
+                          <div>
+                            <span>Ada</span>
+                          </div>
+                        </div>
+                      </label>
+                    </div>
+                    <div class="col-lg-6 ">
+                      <label class="form-selectgroup-item flex-fill">
+                        <input type="radio" name="bisnis" id="bisnis2" value="0" class="form-selectgroup-input">
+                        <div class="form-selectgroup-label d-flex align-items-center">
+                          <div class="me-4">
+                            <span class="form-selectgroup-check"></span>
+                          </div>
+                          <div>
+                            <span>Tidak ada</span>
+                          </div>
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                    <label for="peminat" class="col-form-label">Jumlah Peminat Awal</label>
+                    <input type="number" class="form-control" id="peminat" name="peminat" min="0" max="1000">
+                    <span class="text-danger error-text peminat_error"></span>
+                </div>
+                <h2 class="pt-4">Survey Sampling Warga 1</h2>
+                <div class="form-group">
+                    <label for="harga" class="col-form-label">Harga ICONNET Menurut Warga</label>
+                    <div class="row">
+                    <div class="col-lg-6 ">
+                      <input type="text" class="form-control harga" id="harga_edit" name="harga" readonly>
+                      <span id="error_nama" class="text-danger"></span>
+                      <span class="text-danger error-text harga_error"></span>
+                    </div>
+                    <div class="col-lg-6 ">
+                      <select class="form-control form-select" name="harga">
+                        <option value="">---Pilih Harga ICONNET Menurut Warga---</option>
+                          <?php foreach($survey_harga as $sh){?>
+                        <option value="<?php echo $sh->sh_id;?>"><?php echo $sh->sh_jenis;?></option>"
+                          <?php }?>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                    <label for="internet" class="col-form-label">Penggunaan Internet</label>
+                    <div class="row">
+                      <div class="col-lg-6 ">
+                        <input type="text" class="form-control internet" id="internet_edit" name="internet" readonly>
+                        <span id="error_nama" class="text-danger"></span>
+                        <span class="text-danger error-text internet_error"></span>
+                      </div>
+                      <div class="col-lg-6 ">
+                        <select class="form-control form-select" name="internet">
+                          <option value="">---Pilih Penggunaan Internet---</option>
+                            <?php foreach($survey_net as $sn){?>
+                          <option value="<?php echo $sn->sn_id;?>"><?php echo $sn->sn_jenis;?></option>"
+                            <?php }?>
+                        </select>
                       </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn me-auto" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary btn-update">Update</button>
+                <div class="form-group">
+                    <label for="perangkat" class="col-form-label">Jumlah Perangkat / Rumah</label>
+                    <input type="number" class="form-control" id="perangkat" name="perangkat" min="0" max="1000">
+                    <span class="text-danger error-text perangkat_error"></span>
                 </div>
-            </form>
+                <div class="form-group">
+                    <label for="budget" class="col-form-label">Alokasi Budget untuk Internet</label>
+                    <div class="row">
+                      <div class="col-lg-6 ">
+                        <input type="text" class="form-control budget" id="budget_edit" name="budget" readonly>
+                        <span id="error_nama" class="text-danger"></span>
+                        <span class="text-danger error-text budget_error"></span>
+                      </div>
+                      <div class="col-lg-6 ">
+                        <select class="form-control form-select" name="budget">
+                          <option value="">---Pilih Alokasi Budget---</option>
+                            <?php foreach($survey_budget as $sb){?>
+                          <option value="<?php echo $sb->sb_id;?>"><?php echo $sb->sb_jenis;?></option>"
+                            <?php }?>
+                       </select>
+                      </div>
+                    </div>    
+                </div>
+                <div class="form-group">
+                    <label for="minat" class="col-form-label">Sampling Minat</label>
+                    <div class="row">
+                      <div class="col-lg-6 ">
+                        <input type="text" class="form-control minat" id="minat_edit" name="minat" readonly>
+                        <span id="error_nama" class="text-danger"></span>
+                        <span class="text-danger error-text minat_error"></span>
+                      </div>
+                      <div class="col-lg-6 ">
+                        <select class="form-control form-select" name="minat">
+                          <option value="">---Pilih Sampling Minat---</option>
+                            <?php foreach($survey_minat as $sm){?>
+                          <option value="<?php echo $sm->sm_id;?>"><?php echo $sm->sm_jenis;?></option>"
+                            <?php }?>
+                        </select>
+                      </div>
+                    </div>    
+                </div>
+                <h2 class="pt-4">Survey Sampling Warga 2</h2>
+                <div class="form-group">
+                    <label for="harga" class="col-form-label">Harga ICONNET Menurut Warga</label>
+                    <div class="row">
+                      <div class="col-lg-6 ">
+                        <input type="text" class="form-control harga" id="harga_edit" name="harga" readonly>
+                        <span id="error_nama" class="text-danger"></span>
+                        <span class="text-danger error-text harga_error"></span>
+                      </div>
+                      <div class="col-lg-6 ">
+                        <select class="form-control form-select" name="harga">
+                          <option value="">---Pilih Harga ICONNET Menurut Warga---</option>
+                            <?php foreach($survey_harga as $sh){?>
+                          <option value="<?php echo $sh->sh_id;?>"><?php echo $sh->sh_jenis;?></option>"
+                            <?php }?>
+                        </select>
+                      </div>
+                    </div>    
+                </div>
+                <div class="form-group">
+                    <label for="internet" class="col-form-label">Penggunaan Internet</label>
+                    <div class="row">
+                      <div class="col-lg-6 ">
+                        <input type="text" class="form-control internet" id="internet_edit" name="internet" readonly>
+                        <span id="error_nama" class="text-danger"></span>
+                        <span class="text-danger error-text internet_error"></span>
+                      </div>
+                      <div class="col-lg-6 ">
+                        <select class="form-control form-select" name="internet">
+                          <option value="">---Pilih Penggunaan Internet---</option>
+                            <?php foreach($survey_net as $sn){?>
+                          <option value="<?php echo $sn->sn_id;?>"><?php echo $sn->sn_jenis;?></option>"
+                            <?php }?>
+                        </select>
+                      </div>
+                    </div>    
+                </div>
+                <div class="form-group">
+                    <label for="perangkat" class="col-form-label">Jumlah Perangkat / Rumah</label>
+                    <input type="number" class="form-control" id="perangkat2" name="perangkat2" min="0" max="1000">
+                    <span class="text-danger error-text perangkat_error"></span>
+                </div>
+                <div class="form-group">
+                    <label for="budget" class="col-form-label">Alokasi Budget untuk Internet</label>
+                    <div class="row">
+                      <div class="col-lg-6 ">
+                        <input type="text" class="form-control budget" id="budget_edit" name="budget" readonly>
+                        <span id="error_nama" class="text-danger"></span>
+                        <span class="text-danger error-text budget_error"></span>
+                      </div>
+                      <div class="col-lg-6 ">
+                        <select class="form-control form-select" name="budget">
+                          <option value="">---Pilih Alokasi Budget---</option>
+                            <?php foreach($survey_budget as $sb){?>
+                          <option value="<?php echo $sb->sb_id;?>"><?php echo $sb->sb_jenis;?></option>"
+                            <?php }?>
+                        </select>
+                      </div>
+                    </div>     
+                </div>
+                <div class="form-group">
+                    <label for="minat" class="col-form-label">Sampling Minat</label>
+                    <div class="row">
+                      <div class="col-lg-6 ">
+                        <input type="text" class="form-control minat" id="minat_edit" name="minat" readonly>
+                        <span id="error_nama" class="text-danger"></span>
+                        <span class="text-danger error-text minat_error"></span>
+                      </div>
+                      <div class="col-lg-6 ">
+                        <select class="form-control form-select" name="minat">
+                          <option value="">---Pilih Sampling Minat---</option>
+                            <?php foreach($survey_minat as $sm){?>
+                          <option value="<?php echo $sm->sm_id;?>"><?php echo $sm->sm_jenis;?></option>"
+                            <?php }?>
+                        </select>
+                      </div>
+                    </div>   
+                </div>
+                <h2 class="pt-4">Survey Sampling Warga 3</h2>
+                <div class="form-group">
+                    <label for="harga" class="col-form-label">Harga ICONNET Menurut Warga</label>
+                    <div class="row">
+                      <div class="col-lg-6 ">
+                        <input type="text" class="form-control harga" id="harga_edit" name="harga" readonly>
+                        <span id="error_nama" class="text-danger"></span>
+                        <span class="text-danger error-text harga_error"></span>
+                      </div>
+                      <div class="col-lg-6 ">
+                        <select class="form-control form-select" name="harga">
+                          <option value="">---Pilih Harga ICONNET Menurut Warga---</option>
+                            <?php foreach($survey_harga as $sh){?>
+                          <option value="<?php echo $sh->sh_id;?>"><?php echo $sh->sh_jenis;?></option>"
+                            <?php }?>
+                        </select>
+                      </div>
+                    </div>  
+                </div>
+                <div class="form-group">
+                    <label for="internet" class="col-form-label">Penggunaan Internet</label>
+                    <div class="row">
+                      <div class="col-lg-6 ">
+                        <input type="text" class="form-control internet" id="internet_edit" name="internet" readonly>
+                        <span id="error_nama" class="text-danger"></span>
+                        <span class="text-danger error-text internet_error"></span>
+                      </div>
+                      <div class="col-lg-6 ">
+                        <select class="form-control form-select" name="internet">
+                          <option value="">---Pilih Penggunaan Internet---</option>
+                            <?php foreach($survey_net as $sn){?>
+                          <option value="<?php echo $sn->sn_id;?>"><?php echo $sn->sn_jenis;?></option>"
+                            <?php }?>
+                        </select>
+                      </div>
+                    </div>  
+                </div>
+                <div class="form-group">
+                    <label for="perangkat" class="col-form-label">Jumlah Perangkat / Rumah</label>
+                    <input type="number" class="form-control" id="perangkat3" name="perangkat3" min="0" max="1000">
+                    <span class="text-danger error-text perangkat_error"></span>
+                </div>
+                <div class="form-group">
+                    <label for="budget" class="col-form-label">Alokasi Budget untuk Internet</label>
+                    <div class="row">
+                      <div class="col-lg-6 ">
+                        <input type="text" class="form-control budget" id="budget_edit" name="budget" readonly>
+                        <span id="error_nama" class="text-danger"></span>
+                        <span class="text-danger error-text budget_error"></span>
+                      </div>
+                      <div class="col-lg-6 ">
+                        <select class="form-control form-select" name="budget">
+                          <option value="">---Pilih Alokasi Budget---</option>
+                            <?php foreach($survey_budget as $sb){?>
+                          <option value="<?php echo $sb->sb_id;?>"><?php echo $sb->sb_jenis;?></option>"
+                            <?php }?>
+                        </select>
+                      </div>
+                    </div>  
+                </div>
+                <div class="form-group">
+                    <label for="minat" class="col-form-label">Sampling Minat</label>
+                    <div class="row">
+                      <div class="col-lg-6 ">
+                        <input type="text" class="form-control minat" id="minat_edit" name="minat" readonly>
+                        <span id="error_nama" class="text-danger"></span>
+                        <span class="text-danger error-text minat_error"></span>
+                      </div>
+                      <div class="col-lg-6 ">
+                        <select class="form-control form-select" name="minat">
+                          <option value="">---Pilih Sampling Minat---</option>
+                            <?php foreach($survey_minat as $sm){?>
+                          <option value="<?php echo $sm->sm_id;?>"><?php echo $sm->sm_jenis;?></option>"
+                            <?php }?>
+                        </select>
+                      </div>
+                    </div>  
+                </div>
+                <h2 class="pt-4">Informasi Tambahan</h2>
+                <div class="form-group">
+                    <label for="fat" class="col-form-label">Jumlah FAT</label>
+                    <input type="number" class="form-control" id="fat" name="fat" min="0" max="1000">
+                    <span class="text-danger error-text fat_error"></span>
+                </div>
+                <div class="form-group">
+                    <label for="daftar_fat" class="col-form-label">Daftar FAT</label>
+                    <textarea name="daftar_fat" id="daftar_fat" cols="57" rows="4"></textarea>
+                    <span class="text-danger error-text daftar_fat_error"></span>
+                </div>
+                <div class="form-group">
+                    <label for="ket" class="col-form-label">Keterangan</label>
+                    <textarea name="ket" id="ket" cols="57" rows="4"></textarea>
+                    <span class="text-danger error-text ket_error"></span>
+                </div>
+                <h2 class="pt-4">Penilaian</h2>
+                <div class="form-group">
+                    <label for="roi" class="col-form-label">Nilai ROI</label>
+                    <input type="number" class="form-control" id="roi" name="roi" step="0.1" min="0" max="100">
+                    <span class="text-danger error-text roi_error"></span>
+                </div>
+                <div class="form-group">
+                    <label for="score" class="col-form-label">Score</label>
+                    <input type="number" class="form-control" id="score" name="score" min="0" max="100">
+                    <span class="text-danger error-text score_error"></span>
+                </div>
+                <div class="form-group">
+                  <label for="layak" class="col-form-label">Kelayakan</label>
+                  <div class="row">
+                    <div class="col-lg-6 ">
+                      <label class="form-selectgroup-item flex-fill">
+                        <input type="radio" name="layak" id="layak1" value="1" class="form-selectgroup-input" >
+                        <div class="form-selectgroup-label d-flex align-items-center">
+                          <div class="me-4">
+                            <span class="form-selectgroup-check"></span>
+                          </div>
+                          <div>
+                            <span>Layak</span>
+                          </div>
+                        </div>
+                      </label>
+                    </div>
+                    <div class="col-lg-6 ">
+                      <label class="form-selectgroup-item flex-fill">
+                        <input type="radio" name="layak" id="layak2" value="0" class="form-selectgroup-input">
+                        <div class="form-selectgroup-label d-flex align-items-center">
+                          <div class="me-4">
+                            <span class="form-selectgroup-check"></span>
+                          </div>
+                          <div>
+                            <span>Tidak Layak</span>
+                          </div>
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <h2 class="pt-4">Pembangunan</h2>
+                <div class="form-group">
+                    <label for="drawing" class="col-form-label">Status Drawing</label>
+                    <div class="row">
+                      <div class="col-lg-6 ">
+                        <input type="text" class="form-control drawing" id="drawing_edit" name="drawing" readonly>
+                        <span id="error_nama" class="text-danger"></span>
+                        <span class="text-danger error-text drawing_error"></span>
+                      </div>
+                      <div class="col-lg-6 ">
+                        <select class="form-control form-select" name="drawing">
+                          <option value="">---Pilih Status Drawing---</option>
+                            <?php foreach($status_drawing as $sd){?>
+                          <option value="<?php echo $sd->sd_id;?>"><?php echo $sd->sd_jenis;?></option>"
+                            <?php }?>
+                        </select>
+                      </div>
+                    </div>  
+                </div>
+                <div class="form-group">
+                    <label for="score" class="col-form-label">Link Maps</label>
+                    <input type="text" class="form-control" id="maps" name="maps">
+                    <span class="text-danger error-text score_error"></span>
+                </div>
+                <div class="form-group">
+                    <label for="ploating" class="col-form-label">Jumlah FAT Ploating</label>
+                    <input type="number" class="form-control" id="ploating" name="ploating" min="0" max="60">
+                    <span class="text-danger error-text ploating_error"></span>
+                </div>
+                <div class="form-group">
+                    <label for="home_pass" class="col-form-label">Home Pass</label>
+                    <input type="number" class="form-control" id="home_pass" name="home_pass" min="0" max="512">
+                    <span class="text-danger error-text home_pass_error"></span>
+                </div>
+                <div class="form-group">
+                  <label for="approval" class="col-form-label">Approval Pembangunan</label>
+                  <div class="row">
+                    <div class="col-lg-6 ">
+                      <label class="form-selectgroup-item flex-fill">
+                        <input type="radio" name="approval" id="approval1" value="1" class="form-selectgroup-input" >
+                        <div class="form-selectgroup-label d-flex align-items-center">
+                          <div class="me-4">
+                            <span class="form-selectgroup-check"></span>
+                          </div>
+                          <div>
+                            <span>Setuju</span>
+                          </div>
+                        </div>
+                      </label>
+                    </div>
+                    <div class="col-lg-6 ">
+                      <label class="form-selectgroup-item flex-fill">
+                        <input type="radio" name="approval" id="approval2" value="0" class="form-selectgroup-input">
+                        <div class="form-selectgroup-label d-flex align-items-center">
+                          <div class="me-4">
+                            <span class="form-selectgroup-check"></span>
+                          </div>
+                          <div>
+                            <span>Tidak Setuju </span>
+                          </div>
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="planbangun_edit" class="col-form-label">Plan Pembangunan</label>
+                  <div class="input-icon mb-2">
+                    <input class="form-control"  name="planbangun_edit" placeholder="Select a date" id="datepicker-icon_edit" value="2022-06-20"/>
+                    <span class="input-icon-addon"><!-- Download SVG icon from http://tabler-icons.io/i/calendar -->
+                      <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="4" y="5" width="16" height="16" rx="2" /><line x1="16" y1="3" x2="16" y2="7" /><line x1="8" y1="3" x2="8" y2="7" /><line x1="4" y1="11" x2="20" y2="11" /><line x1="11" y1="15" x2="12" y2="15" /><line x1="12" y1="15" x2="12" y2="18" /></svg>
+                    </span>
+                  </div>
+                </div>
+                <div class="form-group">
+                    <label for="no_pa" class="form-label">No PA/Project</label>
+                    <input type="text" class="form-control" id="no_pa" name="no_pa">
+                    <span class="text-danger error-text no_pa_error"></span>
+                </div>
+                <div class="form-group">
+                    <label for="stts_pembangunan" class="col-form-label">Status Pembangunan</label>
+                    <div class="row">
+                      <div class="col-lg-6 ">
+                        <input type="text" class="form-control stts_pembangunan" id="stts_pembangunan_edit" name="stts_pembangunan" readonly>
+                        <span id="error_nama" class="text-danger"></span>
+                        <span class="text-danger error-text stts_pembangunan_error"></span>
+                      </div>
+                      <div class="col-lg-6 ">
+                        <select class="form-control form-select" name="stts_pembangunan">
+                          <option value="">---Pilih Status Pembangunan---</option>
+                            <?php foreach($status_pembangunan as $sp){?>
+                          <option value="<?php echo $sp->sp_id;?>"><?php echo $sp->sp_jenis;?></option>"
+                            <?php }?>
+                        </select>
+                      </div>
+                    </div>  
+                </div>   
+            </div> 
+          </div> 
         </div>
+        <div class="modal-footer">
+            <button type="button" class="btn me-auto" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary btn-update">Update</button>
+        </div>
+      </form>
     </div>
+  </div>
 </div>
 </body>
 
@@ -1134,12 +1882,12 @@
       "iDisplayLength": 5,
       "pageLength": 5,
       "aLengthMenu": [
-        [5, 10, 25, 50, -1],
-        [5, 10, 25, 50, "All"]
+        [10, 25, 50, -1],
+        [10, 25, 50, "All"]
       ],
-      "fnCreatedRow": function(row, data, index) {
-        $('td', row).eq(0).html(index + 1);
-      },
+      // "fnCreatedRow": function(row, data, index) {
+      //   $('td', row).eq(0).html(index + 1);
+      // },
       "columnDefs": [{
         "width": "10%",
         "targets": 0
@@ -1161,7 +1909,7 @@
       var edit_id = $(this).attr('data-id');
       $.ajax({
         method: "post",
-        url: "employee/edit",
+        url: "data/edit",
         data: {
           'edit_id': edit_id
         },
