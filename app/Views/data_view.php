@@ -209,8 +209,8 @@
                   <label for="area" class="col-form-label">Area</label>
                   <select class="form-control form-select" id="sel_area" name="area">
                     <option value="">---Pilih Area---</option>
-                      <?php foreach($area as $area){?>
-                    <option value="<?php echo $area->id_area;?>"><?php echo $area->area_nama;?></option>"
+                      <?php foreach($area as $areas){?>
+                    <option value="<?php echo $areas->id_area;?>"><?php echo $areas->area_nama;?></option>"
                       <?php }?>
                   </select>
               </div>
@@ -236,8 +236,8 @@
                   <label for="olt" class="col-form-label">OLT</label>
                   <select class="form-control form-select" name="olt">
                     <option value="">---Pilih OLT---</option>
-                      <?php foreach($olt as $olt){?>
-                    <option value="<?php echo $olt->olt_id;?>"><?php echo $olt->olt_nama;?></option>"
+                      <?php foreach($olt as $olts){?>
+                    <option value="<?php echo $olts->olt_id;?>"><?php echo $olts->olt_nama;?></option>"
                       <?php }?>
                   </select>
                   <span class="text-danger error-text olt_error"></span>
@@ -862,7 +862,7 @@
                   <label for="tp_project" class="col-form-label">Tipe Project</label>
                     <div class="row">
                       <div class="col-lg-6 ">
-                         <input type="text" class="form-control tp_project" id="tp_project_edit" name="tp_project" readonly>
+                         <input type="text" class="form-control tp_project" id="tipe_project_edit" name="tp_project" readonly>
                          <span id="error_nama" class="text-danger"></span>
                          <span class="text-danger error-text tp_project_error"></span>
                       </div>
@@ -878,7 +878,7 @@
                 </div>   
                 <div class="form-group">
                     <label for="nama" class="col-form-label">Nama Cluster</label>
-                    <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Cluster">
+                    <input type="text" class="form-control" id="nama_edit" name="nama" placeholder="Nama Cluster">
                     <span class="text-danger error-text nama"></span>
                 </div>
                 <div class="form-group">
@@ -910,7 +910,9 @@
                     <div class="col-lg-6 ">
                       <select class="form-control form-select" id="sel_area" name="area">
                         <option value="">---Pilih Area---</option>
-                          
+                          <?php foreach($area as $areas){?>
+                        <option value="<?php echo $areas->id_area;?>"><?php echo $areas->area_nama;?></option>"
+                          <?php }?>
                       </select>
                     </div>
                   </div>
@@ -971,14 +973,16 @@
                     <div class="col-lg-6 ">
                       <select class="form-control form-select" name="olt">
                         <option value="">---Pilih OLT---</option>
-                          
+                          <?php foreach($olt as $olts){?>
+                        <option value="<?php echo $olts->olt_id;?>"><?php echo $olts->olt_nama;?></option>"
+                          <?php }?>
                       </select>
                     </div>
                   </div>
               </div>
               <div class="form-group">
                   <label for="ll" class="col-form-label">Longitude & Latitude</label>
-                  <input type="text" class="form-control" id="ll" name="ll" placeholder="Longitude & Latitude">
+                  <input type="text" class="form-control" id="ll_edit" name="ll" placeholder="Longitude & Latitude">
                   <span class="text-danger error-text ll_error"></span>
               </div>
               <h2 class="pt-4">Survey Secara Umum</h2>
@@ -1015,7 +1019,7 @@
               </div>
               <div class="form-group">
                   <label for="kompetitor" class="col-form-label">Kompetitor</label>
-                  <input type="number" class="form-control" id="kompetitor" name="kompetitor" min="0" max="10">
+                  <input type="number" class="form-control" id="kompetitor_edit" name="kompetitor" min="0" max="10">
                   <span class="text-danger error-text kompetitor_error"></span>
               </div>
               <div class="form-group">
@@ -1082,7 +1086,7 @@
               </div>
               <div class="form-group">
                   <label for="jml_rumah" class="col-form-label">Jumlah Rumah</label>
-                  <input type="number" class="form-control" id="jml_rumah" name="jml-rumah" step="50" min="0" max="1000">
+                  <input type="number" class="form-control" id="jml_rumah_edit" name="jml-rumah" step="50" min="0" max="1000">
                   <span class="text-danger error-text jml_rumah_error"></span>
               </div>
               <div class="form-group">
@@ -1292,7 +1296,7 @@
                 </div>
                 <div class="form-group">
                     <label for="peminat" class="col-form-label">Jumlah Peminat Awal</label>
-                    <input type="number" class="form-control" id="peminat" name="peminat" min="0" max="1000">
+                    <input type="number" class="form-control" id="peminat_edit" name="peminat" min="0" max="1000">
                     <span class="text-danger error-text peminat_error"></span>
                 </div>
                 <h2 class="pt-4">Survey Sampling Warga 1</h2>
@@ -1334,7 +1338,7 @@
                 </div>
                 <div class="form-group">
                     <label for="perangkat" class="col-form-label">Jumlah Perangkat / Rumah</label>
-                    <input type="number" class="form-control" id="perangkat" name="perangkat" min="0" max="1000">
+                    <input type="number" class="form-control" id="perangkat_edit" name="perangkat" min="0" max="1000">
                     <span class="text-danger error-text perangkat_error"></span>
                 </div>
                 <div class="form-group">
@@ -1378,7 +1382,7 @@
                     <label for="harga" class="col-form-label">Harga ICONNET Menurut Warga</label>
                     <div class="row">
                       <div class="col-lg-6 ">
-                        <input type="text" class="form-control harga" id="harga_edit" name="harga" readonly>
+                        <input type="text" class="form-control harga" id="harga_edit_2" name="harga" readonly>
                         <span id="error_nama" class="text-danger"></span>
                         <span class="text-danger error-text harga_error"></span>
                       </div>
@@ -1396,7 +1400,7 @@
                     <label for="internet" class="col-form-label">Penggunaan Internet</label>
                     <div class="row">
                       <div class="col-lg-6 ">
-                        <input type="text" class="form-control internet" id="internet_edit" name="internet" readonly>
+                        <input type="text" class="form-control internet" id="internet_edit_2" name="internet" readonly>
                         <span id="error_nama" class="text-danger"></span>
                         <span class="text-danger error-text internet_error"></span>
                       </div>
@@ -1412,14 +1416,14 @@
                 </div>
                 <div class="form-group">
                     <label for="perangkat" class="col-form-label">Jumlah Perangkat / Rumah</label>
-                    <input type="number" class="form-control" id="perangkat2" name="perangkat2" min="0" max="1000">
+                    <input type="number" class="form-control" id="perangkat2_edit" name="perangkat2" min="0" max="1000">
                     <span class="text-danger error-text perangkat_error"></span>
                 </div>
                 <div class="form-group">
                     <label for="budget" class="col-form-label">Alokasi Budget untuk Internet</label>
                     <div class="row">
                       <div class="col-lg-6 ">
-                        <input type="text" class="form-control budget" id="budget_edit" name="budget" readonly>
+                        <input type="text" class="form-control budget" id="budget_edit_2" name="budget" readonly>
                         <span id="error_nama" class="text-danger"></span>
                         <span class="text-danger error-text budget_error"></span>
                       </div>
@@ -1437,7 +1441,7 @@
                     <label for="minat" class="col-form-label">Sampling Minat</label>
                     <div class="row">
                       <div class="col-lg-6 ">
-                        <input type="text" class="form-control minat" id="minat_edit" name="minat" readonly>
+                        <input type="text" class="form-control minat" id="minat_edit_2" name="minat" readonly>
                         <span id="error_nama" class="text-danger"></span>
                         <span class="text-danger error-text minat_error"></span>
                       </div>
@@ -1456,7 +1460,7 @@
                     <label for="harga" class="col-form-label">Harga ICONNET Menurut Warga</label>
                     <div class="row">
                       <div class="col-lg-6 ">
-                        <input type="text" class="form-control harga" id="harga_edit" name="harga" readonly>
+                        <input type="text" class="form-control harga" id="harga_edit_3" name="harga" readonly>
                         <span id="error_nama" class="text-danger"></span>
                         <span class="text-danger error-text harga_error"></span>
                       </div>
@@ -1474,7 +1478,7 @@
                     <label for="internet" class="col-form-label">Penggunaan Internet</label>
                     <div class="row">
                       <div class="col-lg-6 ">
-                        <input type="text" class="form-control internet" id="internet_edit" name="internet" readonly>
+                        <input type="text" class="form-control internet" id="internet_edit_3" name="internet" readonly>
                         <span id="error_nama" class="text-danger"></span>
                         <span class="text-danger error-text internet_error"></span>
                       </div>
@@ -1490,14 +1494,14 @@
                 </div>
                 <div class="form-group">
                     <label for="perangkat" class="col-form-label">Jumlah Perangkat / Rumah</label>
-                    <input type="number" class="form-control" id="perangkat3" name="perangkat3" min="0" max="1000">
+                    <input type="number" class="form-control" id="perangkat3_edit" name="perangkat3" min="0" max="1000">
                     <span class="text-danger error-text perangkat_error"></span>
                 </div>
                 <div class="form-group">
                     <label for="budget" class="col-form-label">Alokasi Budget untuk Internet</label>
                     <div class="row">
                       <div class="col-lg-6 ">
-                        <input type="text" class="form-control budget" id="budget_edit" name="budget" readonly>
+                        <input type="text" class="form-control budget" id="budget_edit_3" name="budget" readonly>
                         <span id="error_nama" class="text-danger"></span>
                         <span class="text-danger error-text budget_error"></span>
                       </div>
@@ -1515,7 +1519,7 @@
                     <label for="minat" class="col-form-label">Sampling Minat</label>
                     <div class="row">
                       <div class="col-lg-6 ">
-                        <input type="text" class="form-control minat" id="minat_edit" name="minat" readonly>
+                        <input type="text" class="form-control minat" id="minat_edit_3" name="minat" readonly>
                         <span id="error_nama" class="text-danger"></span>
                         <span class="text-danger error-text minat_error"></span>
                       </div>
@@ -1532,28 +1536,28 @@
                 <h2 class="pt-4">Informasi Tambahan</h2>
                 <div class="form-group">
                     <label for="fat" class="col-form-label">Jumlah FAT</label>
-                    <input type="number" class="form-control" id="fat" name="fat" min="0" max="1000">
+                    <input type="number" class="form-control" id="fat_edit" name="fat" min="0" max="1000">
                     <span class="text-danger error-text fat_error"></span>
                 </div>
                 <div class="form-group">
                     <label for="daftar_fat" class="col-form-label">Daftar FAT</label>
-                    <textarea name="daftar_fat" id="daftar_fat" cols="57" rows="4"></textarea>
+                    <textarea name="daftar_fat" id="daftar_fat_edit" cols="57" rows="4"></textarea>
                     <span class="text-danger error-text daftar_fat_error"></span>
                 </div>
                 <div class="form-group">
                     <label for="ket" class="col-form-label">Keterangan</label>
-                    <textarea name="ket" id="ket" cols="57" rows="4"></textarea>
+                    <textarea name="ket" id="ket_id" cols="57" rows="4"></textarea>
                     <span class="text-danger error-text ket_error"></span>
                 </div>
                 <h2 class="pt-4">Penilaian</h2>
                 <div class="form-group">
                     <label for="roi" class="col-form-label">Nilai ROI</label>
-                    <input type="number" class="form-control" id="roi" name="roi" step="0.1" min="0" max="100">
+                    <input type="number" class="form-control" id="roi_edit" name="roi" step="0.1" min="0" max="100">
                     <span class="text-danger error-text roi_error"></span>
                 </div>
                 <div class="form-group">
                     <label for="score" class="col-form-label">Score</label>
-                    <input type="number" class="form-control" id="score" name="score" min="0" max="100">
+                    <input type="number" class="form-control" id="score_edit" name="score" min="0" max="100">
                     <span class="text-danger error-text score_error"></span>
                 </div>
                 <div class="form-group">
@@ -1608,17 +1612,17 @@
                 </div>
                 <div class="form-group">
                     <label for="score" class="col-form-label">Link Maps</label>
-                    <input type="text" class="form-control" id="maps" name="maps">
+                    <input type="text" class="form-control" id="maps_edit" name="maps">
                     <span class="text-danger error-text score_error"></span>
                 </div>
                 <div class="form-group">
                     <label for="ploating" class="col-form-label">Jumlah FAT Ploating</label>
-                    <input type="number" class="form-control" id="ploating" name="ploating" min="0" max="60">
+                    <input type="number" class="form-control" id="ploating_edit" name="ploating" min="0" max="60">
                     <span class="text-danger error-text ploating_error"></span>
                 </div>
                 <div class="form-group">
                     <label for="home_pass" class="col-form-label">Home Pass</label>
-                    <input type="number" class="form-control" id="home_pass" name="home_pass" min="0" max="512">
+                    <input type="number" class="form-control" id="home_pass_edit" name="home_pass" min="0" max="512">
                     <span class="text-danger error-text home_pass_error"></span>
                 </div>
                 <div class="form-group">
@@ -1663,14 +1667,14 @@
                 </div>
                 <div class="form-group">
                     <label for="no_pa" class="form-label">No PA/Project</label>
-                    <input type="text" class="form-control" id="no_pa" name="no_pa">
+                    <input type="text" class="form-control" id="no_pa_edit" name="no_pa">
                     <span class="text-danger error-text no_pa_error"></span>
                 </div>
                 <div class="form-group">
                     <label for="stts_pembangunan" class="col-form-label">Status Pembangunan</label>
                     <div class="row">
                       <div class="col-lg-6 ">
-                        <input type="text" class="form-control stts_pembangunan" id="stts_pembangunan_edit" name="stts_pembangunan" readonly>
+                        <input type="text" class="form-control stts_pembangunan" id="stts_bangun_edit" name="stts_pembangunan" readonly>
                         <span id="error_nama" class="text-danger"></span>
                         <span class="text-danger error-text stts_pembangunan_error"></span>
                       </div>
@@ -1921,15 +1925,46 @@
             // $('#sel_prov_edit').find('option').not(':first').remove();
             
             $('#edit_id').val(value['id']);
-            $('#alamat').val(value['alamat']);
-            $('#nama_karyawan_edit').val(value['nama_karyawan']);
-            $('#usia_edit').val(value['usia']);
-            $('#status_vaksin_1_edit').val(value['status_vaksin_1']);
-            $('#status_vaksin_2_edit').val(value['status_vaksin_2']);
-            $('#prov_edit').val(value['prov']);
+            $('#tipe_project_edit').val(value['tipe_project']);
+            $('#nama_edit').val(value['nama_cluster']);
+            $('#tipe_cluster_edit').val(value['tipe_cluster']);
+            $('#area_edit').val(value['area_nama']);
             $('#kota_edit').val(value['kota']);
             $('#kec_edit').val(value['kec']);
             $('#desa_edit').val(value['desa']);
+            $('#olt_edit').val(value['olt']);
+            $('#ll_edit').val(value['longi_lati']);
+            $('#kompetitor_edit').val(value['kompetitor']);
+            $('#jml_rumah_edit').val(value['jumlah_rumah']);
+            $('#daya_edit').val(value['rata_daya']);
+            $('#peminat_edit').val(value['jumlah_peminat']);
+            $('#harga_edit').val(value['harga_iconnet']);
+            $('#internet_edit').val(value['penggunaan_internet']);
+            $('#perangkat_edit').val(value['jml_perangkat']);
+            $('#budget_edit').val(value['alokasi_budget']);
+            $('#minat_edit').val(value['sampling_minat']);
+            $('#harga_edit_2').val(value['harga_iconnet_2']);
+            $('#internet_edit_2').val(value['penggunaan_internet_2']);
+            $('#perangkat2_edit').val(value['jml_perangkat_2']);
+            $('#budget_edit_2').val(value['alokasi_budget_2']);
+            $('#minat_edit_2').val(value['sampling_minat_2']);
+            $('#harga_edit_3').val(value['harga_iconnet_3']);
+            $('#internet_edit_3').val(value['penggunaan_internet_3']);
+            $('#perangkat3_edit').val(value['jml_perangkat_3']);
+            $('#budget_edit_3').val(value['alokasi_budget_3']);
+            $('#minat_edit_3').val(value['sampling_minat_3']);
+            $('#fat_edit').val(value['jumlah_fat']);
+            $('#daftar_fat_edit').val(value['daftar_fat']);
+            $('#ket_id').val(value['ket']);
+            $('#roi_edit').val(value['nilai_roi']);
+            $('#score_edit').val(value['score']);
+            $('#drawing_edit').val(value['status_drawing']);
+            $('#maps_edit').val(value['maps']);
+            $('#ploating_edit').val(value['jml_fat_ploating']);
+            $('#home_pass_edit').val(value['home_pass']);
+            $('#no_pa_edit').val(value['no_pa']);
+            $('#stts_bangun_edit').val(value['status_pembangunan']);
+            $('#datepicker-icon_edit').val(value['plan_pembangunan']);
             $('#editModal').modal('show');
           });
         }
