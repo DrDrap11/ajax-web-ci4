@@ -29,6 +29,9 @@ class Data_model extends Model
     {
         
         $builder = $this->db->table($this->table);
+        $builder->select('*, sh2.sh_jenis AS sh_jenis2, sn2.sn_jenis AS sn_jenis2, sb2.sb_jenis AS sb_jenis2, 
+                            sm2.sm_jenis AS sm_jenis2, sh3.sh_jenis AS sh_jenis3, sn3.sn_jenis AS sn_jenis3, 
+                            sb3.sb_jenis AS sb_jenis3, sm3.sm_jenis AS sm_jenis3');
         $builder->join('tipe_project', 'tipe_project.tp_id = data.tipe_project', 'LEFT');
         $builder->join('tipe_cluster', 'tipe_cluster.tc_id = data.tipe_cluster', 'LEFT');
         $builder->join('villages', 'villages.id_desa = data.kelurahan', 'LEFT');
@@ -38,7 +41,19 @@ class Data_model extends Model
         $builder->join('olt', 'olt.olt_id = data.olt', 'LEFT');      
         $builder->join('rata_daya', 'rata_daya.rd_id = data.rata_daya', 'LEFT');
         $builder->join('status_drawing', 'status_drawing.sd_id = data.status_drawing', 'LEFT');
-        $builder->join('status_pembangunan', 'status_pembangunan.sp_id = data.status_pembangunan', 'LEFT');      
+        $builder->join('status_pembangunan', 'status_pembangunan.sp_id = data.status_pembangunan', 'LEFT');
+        $builder->join('survey_harga sh', 'sh.sh_id = data.harga_iconnet', 'LEFT');
+        $builder->join('survey_net sn', 'sn.sn_id = data.penggunaan_internet', 'LEFT');
+        $builder->join('survey_budget sb', 'sb.sb_id = data.alokasi_budget', 'LEFT');
+        $builder->join('survey_minat sm', 'sm.sm_id = data.sampling_minat', 'LEFT');
+        $builder->join('survey_harga sh2', 'sh2.sh_id = data.harga_iconnet_2', 'LEFT');
+        $builder->join('survey_net sn2', 'sn2.sn_id = data.penggunaan_internet_2', 'LEFT');
+        $builder->join('survey_budget sb2', 'sb2.sb_id = data.alokasi_budget_2', 'LEFT');
+        $builder->join('survey_minat sm2', 'sm2.sm_id = data.sampling_minat_2', 'LEFT');
+        $builder->join('survey_harga sh3', 'sh3.sh_id = data.harga_iconnet_3', 'LEFT');
+        $builder->join('survey_net sn3', 'sn3.sn_id = data.penggunaan_internet_3', 'LEFT');     
+        $builder->join('survey_budget sb3', 'sb3.sb_id = data.alokasi_budget_3', 'LEFT');
+        $builder->join('survey_minat sm3', 'sm3.sm_id = data.sampling_minat_3', 'LEFT');
         $query = $builder->getWhere(['id' => $id]);
         return $query->getRow();
     }
