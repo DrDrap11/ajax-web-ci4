@@ -389,46 +389,44 @@ class Data extends Controller
     public function update()
     {
         $validation = \Config\Services::validation();
-        $model = new Employee_model;
+        $model = new Data_model;
 
-        $this->validate([
-            'nama_karyawan' => [
-                'rules' => 'required|max_length[50]',
-                'errors' => [
-                    'required' => 'Nama Karyawan is required'
-                ]
-            ],
-            'usia' => [
-                'rules' => 'required|integer|greater_than_equal_to[10]|less_than_equal_to[100]',
-                'errors' => [
-                    'required' => 'Usia is required'
-                ]
-            ],
-            'status_vaksin_1' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Status Vaksin 1 is required'
-                ]
-            ],
-            'status_vaksin_2' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Status Vaksin 2 is required'
-                ]
-            ]
-        ]);
+        // $this->validate([
+        //     'nama_karyawan' => [
+        //         'rules' => 'required|max_length[50]',
+        //         'errors' => [
+        //             'required' => 'Nama Karyawan is required'
+        //         ]
+        //     ],
+        //     'usia' => [
+        //         'rules' => 'required|integer|greater_than_equal_to[10]|less_than_equal_to[100]',
+        //         'errors' => [
+        //             'required' => 'Usia is required'
+        //         ]
+        //     ],
+        //     'status_vaksin_1' => [
+        //         'rules' => 'required',
+        //         'errors' => [
+        //             'required' => 'Status Vaksin 1 is required'
+        //         ]
+        //     ],
+        //     'status_vaksin_2' => [
+        //         'rules' => 'required',
+        //         'errors' => [
+        //             'required' => 'Status Vaksin 2 is required'
+        //         ]
+        //     ]
+        // ]);
 
-        if ($validation->run() == FALSE) {
-            $errors = $validation->getErrors();
-            echo json_encode(['code' => 0, 'error' => $errors]);
-        } else {
+        // if ($validation->run() == FALSE) {
+        //     $errors = $validation->getErrors();
+        //     echo json_encode(['code' => 0, 'error' => $errors]);
+        // } else {
             $id = $this->request->getPost("edit_id");
             $data = [
-                'nama_karyawan' => $this->request->getPost('nama_karyawan'),
-                'usia'         => $this->request->getPost('usia'),
-                'status_vaksin_1'  => $this->request->getPost('status_vaksin_1'),
-                'status_vaksin_2'  => $this->request->getPost('status_vaksin_2'),
-                'alamat'              => $this->request->getPost('alamat')
+                'tipe_project' => $this->request->getPost('tipe_project'),
+                'nama_cluster' => $this->request->getPost('nama_cluster'),
+                'perizinan' => $this->request->getPost('izin')
             ];
             $update = $model->update($id, $data);
 
@@ -439,7 +437,7 @@ class Data extends Controller
                 $output = ['status' => 'Data gagal diupdate'];
                 return $this->response->setJSON($output);
             }
-        }
+        // }
     }
 
 

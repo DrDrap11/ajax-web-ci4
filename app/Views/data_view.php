@@ -858,16 +858,17 @@
           <div class="row">
             <div class="col-lg-12 mb-2">
               <h2>Informasi Cluster</h2>
+              <input type="hidden" id="edit_id">
                 <div class="form-group">
                   <label for="tp_project" class="col-form-label">Tipe Project</label>
                     <div class="row">
                       <div class="col-lg-6 ">
-                         <input type="text" class="form-control tp_project" id="tipe_project_edit" name="tp_project" readonly>
+                         <input type="text" class="form-control tp_project" id="tp_edit" name="tp_project" readonly>
                          <span id="error_nama" class="text-danger"></span>
                          <span class="text-danger error-text tp_project_error"></span>
                       </div>
                       <div class="col-lg-6 ">
-                        <select class="form-control form-select" id="sel_tp_project_edit" name="tp_project">
+                        <select class="form-control form-select" id="sel_tp_edit" name="tp_project">
                           <option style="color:#cbd5e1;" value="">---Pilih Tipe Project---</option>
                             <?php foreach($tipe_project as $tp){?>
                           <option value="<?php echo $tp->tp_id;?>"><?php echo $tp->tp_jenis;?></option>"
@@ -885,12 +886,12 @@
                   <label for="tipe_cluster" class="col-form-label">Tipe Cluster</label>
                   <div class="row">
                     <div class="col-lg-6 ">
-                      <input type="text" class="form-control tipe_cluster" id="tipe_cluster_edit" name="tipe_cluster" readonly>
+                      <input type="text" class="form-control tipe_cluster" id="tc_edit" name="tipe_cluster" readonly>
                       <span id="error_nama" class="text-danger"></span>
                       <span class="text-danger error-text tipe_cluster_error"></span>
                     </div>
                     <div class="col-lg-6 ">
-                      <select class="form-control form-select" name="tipe_cluster">
+                      <select class="form-control form-select" id="sel_tc_edit" name="tipe_cluster">
                         <option value="">---Pilih Tipe Cluster---</option>
                           <?php foreach($tipe_cluster as $tc){?>
                         <option value="<?php echo $tc->tc_id;?>"><?php echo $tc->tc_jenis;?></option>"
@@ -908,7 +909,7 @@
                       <span class="text-danger error-text area_error"></span>
                     </div>
                     <div class="col-lg-6 ">
-                      <select class="form-control form-select" id="sel_area" name="area">
+                      <select class="form-control form-select" id="sel_area_edit" name="area">
                         <option value="">---Pilih Area---</option>
                           <?php foreach($area as $areas){?>
                         <option value="<?php echo $areas->id_area;?>"><?php echo $areas->area_nama;?></option>"
@@ -971,7 +972,7 @@
                       <span class="text-danger error-text olt_error"></span>
                     </div>
                     <div class="col-lg-6 ">
-                      <select class="form-control form-select" name="olt">
+                      <select class="form-control form-select" id="sel_olt_edit" name="olt">
                         <option value="">---Pilih OLT---</option>
                           <?php foreach($olt as $olts){?>
                         <option value="<?php echo $olts->olt_id;?>"><?php echo $olts->olt_nama;?></option>"
@@ -1161,7 +1162,7 @@
                       <span class="text-danger error-text daya_error"></span>
                     </div>
                     <div class="col-lg-6 ">
-                      <select class="form-control form-select" name="daya">
+                      <select class="form-control form-select" id="sel_daya_edit" name="daya">
                         <option value="">---Pilih Rata-rata Daya---</option>
                           <?php foreach($daya as $rd){?>
                         <option value="<?php echo $rd->rd_id;?>"><?php echo $rd->rd_jenis;?></option>"
@@ -1309,7 +1310,7 @@
                       <span class="text-danger error-text harga_error"></span>
                     </div>
                     <div class="col-lg-6 ">
-                      <select class="form-control form-select" name="harga">
+                      <select class="form-control form-select" id="sel_harga_edit" name="harga">
                         <option value="">---Pilih Harga ICONNET Menurut Warga---</option>
                           <?php foreach($survey_harga as $sh){?>
                         <option value="<?php echo $sh->sh_id;?>"><?php echo $sh->sh_jenis;?></option>"
@@ -1322,12 +1323,12 @@
                     <label for="internet" class="col-form-label">Penggunaan Internet</label>
                     <div class="row">
                       <div class="col-lg-6 ">
-                        <input type="text" class="form-control internet" id="internet_edit" name="internet" readonly>
+                        <input type="text" class="form-control internet" id="inet_edit" name="internet" readonly>
                         <span id="error_nama" class="text-danger"></span>
                         <span class="text-danger error-text internet_error"></span>
                       </div>
                       <div class="col-lg-6 ">
-                        <select class="form-control form-select" name="internet">
+                        <select class="form-control form-select" id="sel_inet_edit" name="internet">
                           <option value="">---Pilih Penggunaan Internet---</option>
                             <?php foreach($survey_net as $sn){?>
                           <option value="<?php echo $sn->sn_id;?>"><?php echo $sn->sn_jenis;?></option>"
@@ -1350,7 +1351,7 @@
                         <span class="text-danger error-text budget_error"></span>
                       </div>
                       <div class="col-lg-6 ">
-                        <select class="form-control form-select" name="budget">
+                        <select class="form-control form-select" id="sel_budget_edit" name="budget">
                           <option value="">---Pilih Alokasi Budget---</option>
                             <?php foreach($survey_budget as $sb){?>
                           <option value="<?php echo $sb->sb_id;?>"><?php echo $sb->sb_jenis;?></option>"
@@ -1382,12 +1383,12 @@
                     <label for="harga" class="col-form-label">Harga ICONNET Menurut Warga</label>
                     <div class="row">
                       <div class="col-lg-6 ">
-                        <input type="text" class="form-control harga" id="harga_edit_2" name="harga" readonly>
+                        <input type="text" class="form-control harga" id="harga_edit2" name="harga" readonly>
                         <span id="error_nama" class="text-danger"></span>
                         <span class="text-danger error-text harga_error"></span>
                       </div>
                       <div class="col-lg-6 ">
-                        <select class="form-control form-select" name="harga">
+                        <select class="form-control form-select" id="sel_harga_edit2" name="harga">
                           <option value="">---Pilih Harga ICONNET Menurut Warga---</option>
                             <?php foreach($survey_harga as $sh){?>
                           <option value="<?php echo $sh->sh_id;?>"><?php echo $sh->sh_jenis;?></option>"
@@ -1400,12 +1401,12 @@
                     <label for="internet" class="col-form-label">Penggunaan Internet</label>
                     <div class="row">
                       <div class="col-lg-6 ">
-                        <input type="text" class="form-control internet" id="internet_edit_2" name="internet" readonly>
+                        <input type="text" class="form-control internet" id="inet_edit2" name="internet" readonly>
                         <span id="error_nama" class="text-danger"></span>
                         <span class="text-danger error-text internet_error"></span>
                       </div>
                       <div class="col-lg-6 ">
-                        <select class="form-control form-select" name="internet">
+                        <select class="form-control form-select" id="sel_inet_edit2" name="internet">
                           <option value="">---Pilih Penggunaan Internet---</option>
                             <?php foreach($survey_net as $sn){?>
                           <option value="<?php echo $sn->sn_id;?>"><?php echo $sn->sn_jenis;?></option>"
@@ -1416,19 +1417,19 @@
                 </div>
                 <div class="form-group">
                     <label for="perangkat" class="col-form-label">Jumlah Perangkat / Rumah</label>
-                    <input type="number" class="form-control" id="perangkat2_edit" name="perangkat2" min="0" max="1000">
+                    <input type="number" class="form-control" id="perangkat_edit_2" name="perangkat2" min="0" max="1000">
                     <span class="text-danger error-text perangkat_error"></span>
                 </div>
                 <div class="form-group">
                     <label for="budget" class="col-form-label">Alokasi Budget untuk Internet</label>
                     <div class="row">
                       <div class="col-lg-6 ">
-                        <input type="text" class="form-control budget" id="budget_edit_2" name="budget" readonly>
+                        <input type="text" class="form-control budget" id="budget_edit2" name="budget" readonly>
                         <span id="error_nama" class="text-danger"></span>
                         <span class="text-danger error-text budget_error"></span>
                       </div>
                       <div class="col-lg-6 ">
-                        <select class="form-control form-select" name="budget">
+                        <select class="form-control form-select" id="sel_budget_edit2" name="budget">
                           <option value="">---Pilih Alokasi Budget---</option>
                             <?php foreach($survey_budget as $sb){?>
                           <option value="<?php echo $sb->sb_id;?>"><?php echo $sb->sb_jenis;?></option>"
@@ -1441,12 +1442,12 @@
                     <label for="minat" class="col-form-label">Sampling Minat</label>
                     <div class="row">
                       <div class="col-lg-6 ">
-                        <input type="text" class="form-control minat" id="minat_edit_2" name="minat" readonly>
+                        <input type="text" class="form-control minat" id="minat_edit2" name="minat" readonly>
                         <span id="error_nama" class="text-danger"></span>
                         <span class="text-danger error-text minat_error"></span>
                       </div>
                       <div class="col-lg-6 ">
-                        <select class="form-control form-select" name="minat">
+                        <select class="form-control form-select" id="sel_minat_edit2" name="minat">
                           <option value="">---Pilih Sampling Minat---</option>
                             <?php foreach($survey_minat as $sm){?>
                           <option value="<?php echo $sm->sm_id;?>"><?php echo $sm->sm_jenis;?></option>"
@@ -1460,12 +1461,12 @@
                     <label for="harga" class="col-form-label">Harga ICONNET Menurut Warga</label>
                     <div class="row">
                       <div class="col-lg-6 ">
-                        <input type="text" class="form-control harga" id="harga_edit_3" name="harga" readonly>
+                        <input type="text" class="form-control harga" id="harga_edit3" name="harga" readonly>
                         <span id="error_nama" class="text-danger"></span>
                         <span class="text-danger error-text harga_error"></span>
                       </div>
                       <div class="col-lg-6 ">
-                        <select class="form-control form-select" name="harga">
+                        <select class="form-control form-select" id="sel_harga_edit3" name="harga">
                           <option value="">---Pilih Harga ICONNET Menurut Warga---</option>
                             <?php foreach($survey_harga as $sh){?>
                           <option value="<?php echo $sh->sh_id;?>"><?php echo $sh->sh_jenis;?></option>"
@@ -1478,12 +1479,12 @@
                     <label for="internet" class="col-form-label">Penggunaan Internet</label>
                     <div class="row">
                       <div class="col-lg-6 ">
-                        <input type="text" class="form-control internet" id="internet_edit_3" name="internet" readonly>
+                        <input type="text" class="form-control internet" id="internet_edit3" name="internet" readonly>
                         <span id="error_nama" class="text-danger"></span>
                         <span class="text-danger error-text internet_error"></span>
                       </div>
                       <div class="col-lg-6 ">
-                        <select class="form-control form-select" name="internet">
+                        <select class="form-control form-select" id="sel_inet_edit3" name="internet">
                           <option value="">---Pilih Penggunaan Internet---</option>
                             <?php foreach($survey_net as $sn){?>
                           <option value="<?php echo $sn->sn_id;?>"><?php echo $sn->sn_jenis;?></option>"
@@ -1494,19 +1495,19 @@
                 </div>
                 <div class="form-group">
                     <label for="perangkat" class="col-form-label">Jumlah Perangkat / Rumah</label>
-                    <input type="number" class="form-control" id="perangkat3_edit" name="perangkat3" min="0" max="1000">
+                    <input type="number" class="form-control" id="perangkat_edit3" name="perangkat3" min="0" max="1000">
                     <span class="text-danger error-text perangkat_error"></span>
                 </div>
                 <div class="form-group">
                     <label for="budget" class="col-form-label">Alokasi Budget untuk Internet</label>
                     <div class="row">
                       <div class="col-lg-6 ">
-                        <input type="text" class="form-control budget" id="budget_edit_3" name="budget" readonly>
+                        <input type="text" class="form-control budget" id="budget_edit3" name="budget" readonly>
                         <span id="error_nama" class="text-danger"></span>
                         <span class="text-danger error-text budget_error"></span>
                       </div>
                       <div class="col-lg-6 ">
-                        <select class="form-control form-select" name="budget">
+                        <select class="form-control form-select" id="sel_budget_edit3" name="budget">
                           <option value="">---Pilih Alokasi Budget---</option>
                             <?php foreach($survey_budget as $sb){?>
                           <option value="<?php echo $sb->sb_id;?>"><?php echo $sb->sb_jenis;?></option>"
@@ -1519,12 +1520,12 @@
                     <label for="minat" class="col-form-label">Sampling Minat</label>
                     <div class="row">
                       <div class="col-lg-6 ">
-                        <input type="text" class="form-control minat" id="minat_edit_3" name="minat" readonly>
+                        <input type="text" class="form-control minat" id="minat_edit3" name="minat" readonly>
                         <span id="error_nama" class="text-danger"></span>
                         <span class="text-danger error-text minat_error"></span>
                       </div>
                       <div class="col-lg-6 ">
-                        <select class="form-control form-select" name="minat">
+                        <select class="form-control form-select" id="sel_minat_edit3" name="minat">
                           <option value="">---Pilih Sampling Minat---</option>
                             <?php foreach($survey_minat as $sm){?>
                           <option value="<?php echo $sm->sm_id;?>"><?php echo $sm->sm_jenis;?></option>"
@@ -1546,7 +1547,7 @@
                 </div>
                 <div class="form-group">
                     <label for="ket" class="col-form-label">Keterangan</label>
-                    <textarea name="ket" id="ket_id" cols="57" rows="4"></textarea>
+                    <textarea name="ket" id="ket_edit" cols="57" rows="4"></textarea>
                     <span class="text-danger error-text ket_error"></span>
                 </div>
                 <h2 class="pt-4">Penilaian</h2>
@@ -1596,12 +1597,12 @@
                     <label for="drawing" class="col-form-label">Status Drawing</label>
                     <div class="row">
                       <div class="col-lg-6 ">
-                        <input type="text" class="form-control drawing" id="drawing_edit" name="drawing" readonly>
+                        <input type="text" class="form-control drawing" id="draw_edit" name="drawing" readonly>
                         <span id="error_nama" class="text-danger"></span>
                         <span class="text-danger error-text drawing_error"></span>
                       </div>
                       <div class="col-lg-6 ">
-                        <select class="form-control form-select" name="drawing">
+                        <select class="form-control form-select" id="sel_draw_edit" name="drawing">
                           <option value="">---Pilih Status Drawing---</option>
                             <?php foreach($status_drawing as $sd){?>
                           <option value="<?php echo $sd->sd_id;?>"><?php echo $sd->sd_jenis;?></option>"
@@ -1679,7 +1680,7 @@
                         <span class="text-danger error-text stts_pembangunan_error"></span>
                       </div>
                       <div class="col-lg-6 ">
-                        <select class="form-control form-select" name="stts_pembangunan">
+                        <select class="form-control form-select" id="sel_stts_bangun_edit" name="stts_pembangunan">
                           <option value="">---Pilih Status Pembangunan---</option>
                             <?php foreach($status_pembangunan as $sp){?>
                           <option value="<?php echo $sp->sp_id;?>"><?php echo $sp->sp_jenis;?></option>"
@@ -1939,9 +1940,9 @@
             // $('#sel_prov_edit').find('option').not(':first').remove();
             
             $('#edit_id').val(value['id']);
-            $('#tipe_project_edit').val(value['tp_jenis']);
+            $('#tp_edit').val(value['tp_jenis']);
             $('#nama_edit').val(value['nama_cluster']);
-            $('#tipe_cluster_edit').val(value['tc_jenis']);
+            $('#tc_edit').val(value['tc_jenis']);
             $('#area_edit').val(value['area_nama']);
             $('#kota_edit').val(value['kota']);
             $('#kec_edit').val(value['kec']);
@@ -1998,20 +1999,20 @@
             }
             $('#peminat_edit').val(value['jumlah_peminat']);
             $('#harga_edit').val(value['sh_jenis']);
-            $('#internet_edit').val(value['sn_jenis']);
+            $('#inet_edit').val(value['sn_jenis']);
             $('#perangkat_edit').val(value['jml_perangkat']);
             $('#budget_edit').val(value['sb_jenis']);
             $('#minat_edit').val(value['sm_jenis']);
-            $('#harga_edit_2').val(value['sh_jenis2']);
-            $('#internet_edit_2').val(value['sn_jenis2']);
-            $('#perangkat2_edit').val(value['jml_perangkat_2']);
-            $('#budget_edit_2').val(value['sb_jenis2']);
-            $('#minat_edit_2').val(value['sm_jenis2']);
-            $('#harga_edit_3').val(value['sh_jenis3']);
-            $('#internet_edit_3').val(value['sn_jenis3']);
-            $('#perangkat3_edit').val(value['jml_perangkat_3']);
-            $('#budget_edit_3').val(value['sb_jenis3']);
-            $('#minat_edit_3').val(value['sm_jenis3']);
+            $('#harga_edit2').val(value['sh_jenis2']);
+            $('#inet_edit2').val(value['sn_jenis2']);
+            $('#perangkat_edit2').val(value['jml_perangkat_2']);
+            $('#budget_edit2').val(value['sb_jenis2']);
+            $('#minat_edit2').val(value['sm_jenis2']);
+            $('#harga_edit3').val(value['sh_jenis3']);
+            $('#inet_edit3').val(value['sn_jenis3']);
+            $('#perangkat_edit3').val(value['jml_perangkat_3']);
+            $('#budget_edit3').val(value['sb_jenis3']);
+            $('#minat_edit3').val(value['sm_jenis3']);
             $('#fat_edit').val(value['jumlah_fat']);
             $('#daftar_fat_edit').val(value['daftar_fat']);
             $('#ket_id').val(value['ket']);
@@ -2022,7 +2023,7 @@
             } else if(layak == 0){
               $('input[name=layak_edit][value=0]').prop('checked', 'checked'); 
             }
-            $('#drawing_edit').val(value['sd_jenis']);
+            $('#draw_edit').val(value['sd_jenis']);
             if(approv == 1) {
               $('input[name=approval_edit][value=1]').prop('checked', 'checked');
             } else if(approv == 0){
@@ -2105,40 +2106,65 @@
 
     $(document).on('click', '.btn-update', function(e) {
       e.preventDefault();
-      // var id = $(this).attr('data-id');
-      // var prov = $('#sel_prov_edit').val();
-      // if (prov != "") {
-        var data1 = {
-          'edit_id': $('#edit_id').val(),
-          'nama_karyawan': $('#nama_karyawan_edit').val(),
-          'usia': $('#usia_edit').val(),
-          'status_vaksin_1': $('#status_vaksin_1_edit').val(),
-          'status_vaksin_2': $('#status_vaksin_2_edit').val(),
-          'alamat' : $('#sel_desa_edit').val()
-        };
-      // } else {
-      //   var data = {
-      //     'edit_id': $('#edit_id').val(),
-      //     'nama_karyawan': $('#nama_karyawan_edit').val(),
-      //     'usia': $('#usia_edit').val(),
-      //     'status_vaksin_1': $('#status_vaksin_1_edit').val(),
-      //     'status_vaksin_2': $('#status_vaksin_2_edit').val(),
-      //     'desa' : $('#desa_edit').val(),
-      //   }
-      // }
-      var data2 = {
-        'edit_id': $('#edit_id').val(),
-        'nama_karyawan': $('#nama_karyawan_edit').val(),
-        'usia': $('#usia_edit').val(),
-        'status_vaksin_1': $('#status_vaksin_1_edit').val(),
-        'status_vaksin_2': $('#status_vaksin_2_edit').val(),
-        'alamat' : $('#alamat').val(),
-      };
-      var id_kota = $('#sel_desa_edit').val();
+      
       $.ajax({
         method: "post",
         url: "data/update",
-        data: (id_kota != "") ? data1 : data2,
+        // data: (id_kota != "") ? data1 : data2,
+        data: {
+          'edit_id': $('#edit_id').val(),
+          'tipe_project': ($('#sel_tp_edit').val() != "") ? $('#sel_tp_edit').val() : $('#tp_edit').val(),
+          'nama_cluster': $('#nama_edit').val(),
+          'tipe_cluster': ($('#sel_tc_edit').val() != "") ? $('#sel_tc_edit').val() : $('#tc_edit').val(),
+          'area': ($('#sel_area_edit').val() != "") ? $('#sel_area_edit').val() : $('#area_edit').val(),
+          'kota': ($('#sel_kota_edit').val() != "") ? $('#sel_kota_edit').val() : $('#kota_edit').val(),
+          'kec': ($('#sel_kec_edit').val() != "") ? $('#sel_kec_edit').val() : $('#kec_edit').val(),
+          'desa': ($('#sel_desa_edit').val() != "") ? $('#sel_desa_edit').val() : $('#desa_edit').val(),
+          'olt': ($('#sel_olt_edit').val() != "") ? $('#sel_olt_edit').val() : $('#olt_edit').val(),
+          'longi_lati': $('#ll_edit').val(),
+          'izin': $("input[name='izin_edit']:checked").val(),
+          'kompetitor': $('#kompetitor_edit').val(),
+          'lokal_operator': $("input[name='operator_edit']:checked").val(),
+          'tiang_listrik': $("input[name='tiang_edit']:checked").val(),
+          'jumlah_rumah': $('#jml_rumah_edit').val(),
+          'rumah_kosong': $("input[name='rmh_kosong_edit']:checked").val(),
+          'fasil_umum': $("input[name='fasil_edit']:checked").val(),
+          'rata_daya': ($('#sel_daya_edit').val() != "") ? $('#sel_daya_edit').val() : $('#daya_edit').val(),
+          'anak_kecil': $("input[name='anak_edit']:checked").val(),
+          'kendaraan': $("input[name='kendaraan_edit']:checked").val(),
+          'ac': $("input[name='ac_edit']:checked").val(),
+          'internet_bisnis': $("input[name='bisnis_edit']:checked").val(),
+          'jumlah_peminat': $('#peminat_edit').val(),
+          'harga_iconnet': ($('#sel_harga_edit').val() != "") ? $('#sel_harga_edit').val() : $('#harga_edit').val(),
+          'penggunaan_internet': ($('#sel_inet_edit').val() != "") ? $('#sel_inet_edit').val() : $('#inet_edit').val(),
+          'jml_perangkat': $('#perangkat_edit').val(),
+          'alokasi_budget': ($('#sel_budget_edit').val() != "") ? $('#sel_budget_edit').val() : $('#budget_edit').val(),
+          'jumlah_peminat': ($('#sel_minat_edit').val() != "") ? $('#sel_minat_edit').val() : $('#minat_edit').val(),
+          'harga_iconnet_2': ($('#sel_harga_edit2').val() != "") ? $('#sel_harga_edit2').val() : $('#harga_edit2').val(),
+          'penggunaan_internet_2': ($('#sel_inet_edit2').val() != "") ? $('#sel_inet_edit2').val() : $('#inet_edit2').val(),
+          'jml_perangkat_2': $('#perangkat_edit2').val(),
+          'alokasi_budget_2': ($('#sel_budget_edit2').val() != "") ? $('#sel_budget_edit2').val() : $('#budget_edit2').val(),
+          'jumlah_peminat_2': ($('#sel_minat_edit2').val() != "") ? $('#sel_minat_edit2').val() : $('#minat_edit2').val(),
+          'harga_iconnet_3': ($('#sel_harga_edit3').val() != "") ? $('#sel_harga_edit3').val() : $('#harga_edit3').val(),
+          'penggunaan_internet_3': ($('#sel_inet_edit3').val() != "") ? $('#sel_inet_edit3').val() : $('#inet_edit3').val(),
+          'jml_perangkat_3': $('#perangkat_edit3').val(),
+          'alokasi_budget_3': ($('#sel_budget_edit3').val() != "") ? $('#sel_budget_edit3').val() : $('#budget_edit3').val(),
+          'jumlah_peminat_3': ($('#sel_minat_edit3').val() != "") ? $('#sel_minat_edit3').val() : $('#minat_edit3').val(),
+          'jumlah_fat': $('#fat_edit').val(),
+          'daftar_fat': $('#daftar_fat_edit').val(),
+          'ket': $('#ket_edit').val(),
+          'nilai_roi': $('#roi_edit').val(),
+          'score': $('#score_edit').val(),
+          'kelayakan': $("input[name='layak_edit']:checked").val(),
+          'status_drawing': ($('#sel_draw_edit').val() != "") ? $('#sel_draw_edit').val() : $('#draw_edit').val(),
+          'maps': $('#maps_edit').val(),
+          'jml_fat_ploating': $('#ploating_edit').val(),
+          'home_pass': $('#home_pass_edit').val(),
+          'approval': $("input[name='approval_edit']:checked").val(),
+          'no_pa': $('#no_pa_edit').val(),
+          'status_pembangunan': ($('#sel_stts_bangun_edit').val() != "") ? $('#sel_stts_bangun_edit').val() : $('#stts_bangun_edit').val(),
+          'plan_pembangunan': $('#datepicker-icon_edit').val(),
+        },
         success: function(response) {
           if (response.status == "Data berhasil diupdate") {
             $('#editModal').modal('hide');
