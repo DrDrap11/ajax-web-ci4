@@ -987,11 +987,11 @@
               </div>
               <h2 class="pt-4">Survey Secara Umum</h2>
               <div class="form-group">
-                  <label for="izin" class="col-form-label">Perizinan</label>
+                  <label for="izin_edit" class="col-form-label">Perizinan</label>
                   <div class="row">
                   <div class="col-lg-6 ">
                     <label class="form-selectgroup-item flex-fill">
-                      <input type="radio" name="izin" id="izin1" value="1" class="form-selectgroup-input" >
+                      <input type="radio" name="izin_edit" id="izin_edit1" value="1" class="form-selectgroup-input" >
                       <div class="form-selectgroup-label d-flex align-items-center">
                         <div class="me-4">
                           <span class="form-selectgroup-check"></span>
@@ -1004,7 +1004,7 @@
                   </div>
                   <div class="col-lg-6 ">
                     <label class="form-selectgroup-item flex-fill">
-                      <input type="radio" name="izin" id="izin2" value="0" class="form-selectgroup-input">
+                      <input type="radio" name="izin_edit" id="izin_edit2" value="0" class="form-selectgroup-input">
                       <div class="form-selectgroup-label d-flex align-items-center">
                         <div class="me-4">
                           <span class="form-selectgroup-check"></span>
@@ -1023,11 +1023,11 @@
                   <span class="text-danger error-text kompetitor_error"></span>
               </div>
               <div class="form-group">
-                <label for="operator" class="col-form-label">Lokal Operator</label>
+                <label for="operator_edit" class="col-form-label">Lokal Operator</label>
                 <div class="row">
                   <div class="col-lg-6 ">
                     <label class="form-selectgroup-item flex-fill">
-                      <input type="radio" name="operator" id="operator1" value="1" class="form-selectgroup-input" >
+                      <input type="radio" name="operator_edit" id="operator_edit1" value="1" class="form-selectgroup-input" >
                       <div class="form-selectgroup-label d-flex align-items-center">
                         <div class="me-4">
                           <span class="form-selectgroup-check"></span>
@@ -1040,7 +1040,7 @@
                   </div>
                   <div class="col-lg-6 ">
                     <label class="form-selectgroup-item flex-fill">
-                      <input type="radio" name="operator" id="operator2" value="0" class="form-selectgroup-input">
+                      <input type="radio" name="operator_edit" id="operator_edit2" value="0" class="form-selectgroup-input">
                       <div class="form-selectgroup-label d-flex align-items-center">
                         <div class="me-4">
                           <span class="form-selectgroup-check"></span>
@@ -1054,11 +1054,11 @@
                 </div>
               </div>
               <div class="form-group">
-                <label for="operator" class="col-form-label">Tiang Listrik</label>
+                <label for="tiang_edit" class="col-form-label">Tiang Listrik</label>
                 <div class="row">
                   <div class="col-lg-6  ">
                     <label class="form-selectgroup-item flex-fill">
-                      <input type="radio" name="tiang" id="tiang1" value="1" class="form-selectgroup-input" >
+                      <input type="radio" name="tiang_edit" id="tiang_edit1" value="1" class="form-selectgroup-input" >
                       <div class="form-selectgroup-label d-flex align-items-center">
                         <div class="me-4">
                           <span class="form-selectgroup-check"></span>
@@ -1071,7 +1071,7 @@
                   </div>
                   <div class="col-lg-6  ">
                     <label class="form-selectgroup-item flex-fill">
-                      <input type="radio" name="tiang" id="tiang2" value="0" class="form-selectgroup-input">
+                      <input type="radio" name="tiang_edit" id="tiang_edit2" value="0" class="form-selectgroup-input">
                       <div class="form-selectgroup-label d-flex align-items-center">
                         <div class="me-4">
                           <span class="form-selectgroup-check"></span>
@@ -1090,11 +1090,11 @@
                   <span class="text-danger error-text jml_rumah_error"></span>
               </div>
               <div class="form-group">
-                  <label for="rmh_kosong" class="col-form-label">Rumah Kosong</label>
+                  <label for="rmh_kosong_edit" class="col-form-label">Rumah Kosong</label>
                   <div class="row">
                   <div class="col-lg-6">
                     <label class="form-selectgroup-item flex-fill">
-                      <input type="radio" name="rmh_kosong" id="rmh_kosong1" value="1" class="form-selectgroup-input" >
+                      <input type="radio" name="rmh_kosong_edit" id="rmh_kosong_edit1" value="1" class="form-selectgroup-input" >
                       <div class="form-selectgroup-label d-flex align-items-center">
                         <div class="me-4">
                           <span class="form-selectgroup-check"></span>
@@ -1107,7 +1107,7 @@
                   </div>
                   <div class="col-lg-6 ">
                     <label class="form-selectgroup-item flex-fill">
-                      <input type="radio" name="rmh_kosong" id="rmh_kosong2" value="0" class="form-selectgroup-input">
+                      <input type="radio" name="rmh_kosong_edit" id="rmh_kosong_edit2" value="0" class="form-selectgroup-input">
                       <div class="form-selectgroup-label d-flex align-items-center">
                         <div class="me-4">
                           <span class="form-selectgroup-check"></span>
@@ -1122,11 +1122,11 @@
               </div>
               <!-- Fasilitas umum -->
               <div class="form-group">
-                <label for="fasil" class="col-form-label">Fasilitas Umum</label>
+                <label for="fasil_edit" class="col-form-label">Fasilitas Umum</label>
                 <div class="row">
                   <div class="col-lg-6">
                     <label class="form-selectgroup-item flex-fill">
-                      <input type="radio" name="fasil" id="fasil1" value="1" class="form-selectgroup-input" >
+                      <input type="radio" name="fasil_edit" id="fasil_edit1" value="1" class="form-selectgroup-input" >
                       <div class="form-selectgroup-label d-flex align-items-center">
                         <div class="me-4">
                           <span class="form-selectgroup-check"></span>
@@ -1139,7 +1139,7 @@
                   </div>
                   <div class="col-lg-6 ">
                     <label class="form-selectgroup-item flex-fill">
-                      <input type="radio" name="fasil" id="fasil2" value="0" class="form-selectgroup-input">
+                      <input type="radio" name="fasil_edit" id="fasil_edit2" value="0" class="form-selectgroup-input">
                       <div class="form-selectgroup-label d-flex align-items-center">
                         <div class="me-4">
                           <span class="form-selectgroup-check"></span>
@@ -1171,11 +1171,11 @@
                   </div>
               </div>
               <div class="form-group">
-                  <label for="anak" class="col-form-label">Anak Kecil</label>
+                  <label for="anak_edit" class="col-form-label">Anak Kecil</label>
                   <div class="row">
                     <div class="col-lg-6">
                       <label class="form-selectgroup-item flex-fill">
-                        <input type="radio" name="anak" id="anak1" value="1" class="form-selectgroup-input" >
+                        <input type="radio" name="anak_edit" id="anak_edit1" value="1" class="form-selectgroup-input" >
                         <div class="form-selectgroup-label d-flex align-items-center">
                           <div class="me-4">
                             <span class="form-selectgroup-check"></span>
@@ -1188,7 +1188,7 @@
                     </div>
                     <div class="col-lg-6">
                       <label class="form-selectgroup-item flex-fill">
-                        <input type="radio" name="anak" id="anak2" value="0" class="form-selectgroup-input">
+                        <input type="radio" name="anak_edit" id="anak_edit2" value="0" class="form-selectgroup-input">
                         <div class="form-selectgroup-label d-flex align-items-center">
                           <div class="me-4">
                             <span class="form-selectgroup-check"></span>
@@ -1202,11 +1202,11 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="kendaraan" class="col-form-label">Kendaraan</label>
+                  <label for="kendaraan_edit" class="col-form-label">Kendaraan</label>
                   <div class="row">
                     <div class="col-lg-6 ">
                       <label class="form-selectgroup-item flex-fill">
-                        <input type="radio" name="kendaraan" id="kendaraan1" value="1" class="form-selectgroup-input" >
+                        <input type="radio" name="kendaraan_edit" id="kendaraan_edit1" value="1" class="form-selectgroup-input" >
                         <div class="form-selectgroup-label d-flex align-items-center">
                           <div class="me-4">
                             <span class="form-selectgroup-check"></span>
@@ -1219,7 +1219,7 @@
                     </div>
                     <div class="col-lg-6 ">
                       <label class="form-selectgroup-item flex-fill">
-                        <input type="radio" name="kendaraan" id="kendaraan2" value="0" class="form-selectgroup-input">
+                        <input type="radio" name="kendaraan_edit" id="kendaraan_edit2" value="0" class="form-selectgroup-input">
                         <div class="form-selectgroup-label d-flex align-items-center">
                           <div class="me-4">
                             <span class="form-selectgroup-check"></span>
@@ -1233,11 +1233,11 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="AC" class="col-form-label">Air Conditioner</label>
+                  <label for="AC_edit" class="col-form-label">Air Conditioner</label>
                   <div class="row">
                     <div class="col-lg-6 ">
                       <label class="form-selectgroup-item flex-fill">
-                        <input type="radio" name="ac" id="ac1" value="1" class="form-selectgroup-input" >
+                        <input type="radio" name="ac_edit" id="ac_edit1" value="1" class="form-selectgroup-input" >
                         <div class="form-selectgroup-label d-flex align-items-center">
                           <div class="me-4">
                             <span class="form-selectgroup-check"></span>
@@ -1250,7 +1250,7 @@
                     </div>
                     <div class="col-lg-6 ">
                       <label class="form-selectgroup-item flex-fill">
-                        <input type="radio" name="ac" id="ac2" value="0" class="form-selectgroup-input">
+                        <input type="radio" name="ac_edit" id="ac_edit2" value="0" class="form-selectgroup-input">
                         <div class="form-selectgroup-label d-flex align-items-center">
                           <div class="me-4">
                             <span class="form-selectgroup-check"></span>
@@ -1264,11 +1264,11 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="bisnis" class="col-form-label">Penggunaan Internet Untuk Bisnis</label>
+                  <label for="bisnis_edit" class="col-form-label">Penggunaan Internet Untuk Bisnis</label>
                   <div class="row">
                     <div class="col-lg-6 ">
                       <label class="form-selectgroup-item flex-fill">
-                        <input type="radio" name="bisnis" id="bisnis1" value="1" class="form-selectgroup-input" >
+                        <input type="radio" name="bisnis_edit" id="bisnis_edit1" value="1" class="form-selectgroup-input" >
                         <div class="form-selectgroup-label d-flex align-items-center">
                           <div class="me-4">
                             <span class="form-selectgroup-check"></span>
@@ -1281,7 +1281,7 @@
                     </div>
                     <div class="col-lg-6 ">
                       <label class="form-selectgroup-item flex-fill">
-                        <input type="radio" name="bisnis" id="bisnis2" value="0" class="form-selectgroup-input">
+                        <input type="radio" name="bisnis_edit" id="bisnis_edit2" value="0" class="form-selectgroup-input">
                         <div class="form-selectgroup-label d-flex align-items-center">
                           <div class="me-4">
                             <span class="form-selectgroup-check"></span>
@@ -1561,11 +1561,11 @@
                     <span class="text-danger error-text score_error"></span>
                 </div>
                 <div class="form-group">
-                  <label for="layak" class="col-form-label">Kelayakan</label>
+                  <label for="layak_edit" class="col-form-label">Kelayakan</label>
                   <div class="row">
                     <div class="col-lg-6 ">
                       <label class="form-selectgroup-item flex-fill">
-                        <input type="radio" name="layak" id="layak1" value="1" class="form-selectgroup-input" >
+                        <input type="radio" name="layak_edit" id="layak_edit1" value="1" class="form-selectgroup-input" >
                         <div class="form-selectgroup-label d-flex align-items-center">
                           <div class="me-4">
                             <span class="form-selectgroup-check"></span>
@@ -1578,7 +1578,7 @@
                     </div>
                     <div class="col-lg-6 ">
                       <label class="form-selectgroup-item flex-fill">
-                        <input type="radio" name="layak" id="layak2" value="0" class="form-selectgroup-input">
+                        <input type="radio" name="layak_edit" id="layak_edit2" value="0" class="form-selectgroup-input">
                         <div class="form-selectgroup-label d-flex align-items-center">
                           <div class="me-4">
                             <span class="form-selectgroup-check"></span>
@@ -1626,11 +1626,11 @@
                     <span class="text-danger error-text home_pass_error"></span>
                 </div>
                 <div class="form-group">
-                  <label for="approval" class="col-form-label">Approval Pembangunan</label>
+                  <label for="approval_edit" class="col-form-label">Approval Pembangunan</label>
                   <div class="row">
                     <div class="col-lg-6 ">
                       <label class="form-selectgroup-item flex-fill">
-                        <input type="radio" name="approval" id="approval1" value="1" class="form-selectgroup-input" >
+                        <input type="radio" name="approval_edit" id="approval_edit1" value="1" class="form-selectgroup-input" >
                         <div class="form-selectgroup-label d-flex align-items-center">
                           <div class="me-4">
                             <span class="form-selectgroup-check"></span>
@@ -1643,7 +1643,7 @@
                     </div>
                     <div class="col-lg-6 ">
                       <label class="form-selectgroup-item flex-fill">
-                        <input type="radio" name="approval" id="approval2" value="0" class="form-selectgroup-input">
+                        <input type="radio" name="approval_edit" id="approval_edit2" value="0" class="form-selectgroup-input">
                         <div class="form-selectgroup-label d-flex align-items-center">
                           <div class="me-4">
                             <span class="form-selectgroup-check"></span>
@@ -1919,24 +1919,83 @@
         },
         success: function(response) {
           $.each(response, function(key, value) {
+            var izin      = value['perizinan'];
+            var operator  = value['lokal_operator'];
+            var tiang     = value['tiang_listrik'];
+            var kosong    = value['rumah_kosong'];
+            var fasil     = value['fasil_umum'];
+            var anak      = value['anak_kecil'];
+            var kendaraan = value['kendaraan'];
+            var ac        = value['ac'];
+            var bisnis    = value['internet_bisnis'];
+            var layak     = value['kelayakan'];
+            var approv    = value['approval'];
+
+
+
             $('#sel_kec_edit').find('option').not(':first').remove();
             $('#sel_kota_edit').find('option').not(':first').remove();
             $('#sel_desa_edit').find('option').not(':first').remove();
             // $('#sel_prov_edit').find('option').not(':first').remove();
             
             $('#edit_id').val(value['id']);
-            $('#tipe_project_edit').val(value['tipe_project']);
+            $('#tipe_project_edit').val(value['tp_jenis']);
             $('#nama_edit').val(value['nama_cluster']);
-            $('#tipe_cluster_edit').val(value['tipe_cluster']);
+            $('#tipe_cluster_edit').val(value['tc_jenis']);
             $('#area_edit').val(value['area_nama']);
             $('#kota_edit').val(value['kota']);
             $('#kec_edit').val(value['kec']);
             $('#desa_edit').val(value['desa']);
-            $('#olt_edit').val(value['olt']);
+            $('#olt_edit').val(value['olt_nama']);
             $('#ll_edit').val(value['longi_lati']);
+            if(izin == 1) {
+              $('input[name=izin_edit][value=1]').prop('checked', 'checked');
+            } else if(izin == 0){
+              $('input[name=izin_edit][value=0]').prop('checked', 'checked'); 
+            }
             $('#kompetitor_edit').val(value['kompetitor']);
+            if(operator == 1) {
+              $('input[name=operator_edit][value=1]').prop('checked', 'checked');
+            } else if(operator == 0){
+              $('input[name=operator_edit][value=0]').prop('checked', 'checked'); 
+            }
+            if(tiang == 1) {
+              $('input[name=tiang_edit][value=1]').prop('checked', 'checked');
+            } else if(tiang == 0){
+              $('input[name=tiang_edit][value=0]').prop('checked', 'checked'); 
+            }
             $('#jml_rumah_edit').val(value['jumlah_rumah']);
-            $('#daya_edit').val(value['rata_daya']);
+            if(kosong == 1) {
+              $('input[name=rmh_kosong_edit][value=1]').prop('checked', 'checked');
+            } else if(kosong == 0){
+              $('input[name=rmh_kosong_edit][value=0]').prop('checked', 'checked'); 
+            }
+            if(fasil == 1) {
+              $('input[name=fasil_edit][value=1]').prop('checked', 'checked');
+            } else if(fasil == 0){
+              $('input[name=fasil_edit][value=0]').prop('checked', 'checked'); 
+            }
+            $('#daya_edit').val(value['rd_jenis']);
+            if(anak == 1) {
+              $('input[name=anak_edit][value=1]').prop('checked', 'checked');
+            } else if(anak == 0){
+              $('input[name=anak_edit][value=0]').prop('checked', 'checked'); 
+            }
+            if(kendaraan == 1) {
+              $('input[name=kendaraan_edit][value=1]').prop('checked', 'checked');
+            } else if(kendaraan == 0){
+              $('input[name=kendaraan_edit][value=0]').prop('checked', 'checked'); 
+            }
+            if(ac == 1) {
+              $('input[name=ac_edit][value=1]').prop('checked', 'checked');
+            } else if(ac == 0){
+              $('input[name=ac_edit][value=0]').prop('checked', 'checked'); 
+            }
+            if(bisnis == 1) {
+              $('input[name=bisnis_edit][value=1]').prop('checked', 'checked');
+            } else if(bisnis == 0){
+              $('input[name=bisnis_edit][value=0]').prop('checked', 'checked'); 
+            }
             $('#peminat_edit').val(value['jumlah_peminat']);
             $('#harga_edit').val(value['harga_iconnet']);
             $('#internet_edit').val(value['penggunaan_internet']);
@@ -1958,12 +2017,22 @@
             $('#ket_id').val(value['ket']);
             $('#roi_edit').val(value['nilai_roi']);
             $('#score_edit').val(value['score']);
-            $('#drawing_edit').val(value['status_drawing']);
+            if(layak == 1) {
+              $('input[name=layak_edit][value=1]').prop('checked', 'checked');
+            } else if(layak == 0){
+              $('input[name=layak_edit][value=0]').prop('checked', 'checked'); 
+            }
+            $('#drawing_edit').val(value['sd_jenis']);
+            if(approv == 1) {
+              $('input[name=approval_edit][value=1]').prop('checked', 'checked');
+            } else if(approv == 0){
+              $('input[name=approval_edit][value=0]').prop('checked', 'checked'); 
+            }
             $('#maps_edit').val(value['maps']);
             $('#ploating_edit').val(value['jml_fat_ploating']);
             $('#home_pass_edit').val(value['home_pass']);
             $('#no_pa_edit').val(value['no_pa']);
-            $('#stts_bangun_edit').val(value['status_pembangunan']);
+            $('#stts_bangun_edit').val(value['sp_jenis']);
             $('#datepicker-icon_edit').val(value['plan_pembangunan']);
             $('#editModal').modal('show');
           });
@@ -1975,7 +2044,7 @@
             var prov = $(this).val(); //id prov dari data
         // AJAX request
             $.ajax({
-                url:'employee/getKota',
+                url:'data/getKota',
                 method: 'post',
                 data: {prov: prov},
                 dataType: 'json',
@@ -1996,7 +2065,7 @@
             var kota = $(this).val();
             // AJAX request
             $.ajax({
-                url:'employee/getKecamatan',
+                url:'data/getKecamatan',
                 method: 'post',
                 data: {kota: kota},
                 dataType: 'json',
@@ -2017,7 +2086,7 @@
             var kec = $(this).val();
             // AJAX request
             $.ajax({
-                url:'employee/getDesa',
+                url:'data/getDesa',
                 method: 'post',
                 data: {kec: kec},
                 dataType: 'json',
@@ -2068,7 +2137,7 @@
       var id_kota = $('#sel_desa_edit').val();
       $.ajax({
         method: "post",
-        url: "employee/update",
+        url: "data/update",
         data: (id_kota != "") ? data1 : data2,
         success: function(response) {
           if (response.status == "Data berhasil diupdate") {

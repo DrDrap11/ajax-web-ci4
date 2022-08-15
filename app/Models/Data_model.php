@@ -29,10 +29,16 @@ class Data_model extends Model
     {
         
         $builder = $this->db->table($this->table);
+        $builder->join('tipe_project', 'tipe_project.tp_id = data.tipe_project', 'LEFT');
+        $builder->join('tipe_cluster', 'tipe_cluster.tc_id = data.tipe_cluster', 'LEFT');
         $builder->join('villages', 'villages.id_desa = data.kelurahan', 'LEFT');
         $builder->join('districts', 'districts.id_kec = villages.district_id', 'LEFT');
         $builder->join('regencies', 'regencies.id_kota = districts.regency_id', 'LEFT');
         $builder->join('area', 'area.id_area = regencies.area_id', 'LEFT');
+        $builder->join('olt', 'olt.olt_id = data.olt', 'LEFT');      
+        $builder->join('rata_daya', 'rata_daya.rd_id = data.rata_daya', 'LEFT');
+        $builder->join('status_drawing', 'status_drawing.sd_id = data.status_drawing', 'LEFT');
+        $builder->join('status_pembangunan', 'status_pembangunan.sp_id = data.status_pembangunan', 'LEFT');      
         $query = $builder->getWhere(['id' => $id]);
         return $query->getRow();
     }
