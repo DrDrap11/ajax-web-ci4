@@ -860,7 +860,7 @@
               <h2>Informasi Cluster</h2>
               <input type="hidden" id="edit_id">
                 <div class="form-group">
-                  <label for="tp_project" class="col-form-label">Tipe Project</label>
+                  <label for="tp_project" class="col-form-label">Tipe Project <span style="color:red">*</span></label>
                     <div class="row">
                       <div class="col-lg-6 ">
                         <input type="hidden" id="tp_id">
@@ -884,7 +884,7 @@
                     <span class="text-danger error-text nama"></span>
                 </div>
                 <div class="form-group">
-                  <label for="tipe_cluster" class="col-form-label">Tipe Cluster</label>
+                  <label for="tipe_cluster" class="col-form-label">Tipe Cluster <span style="color:red">*</span></label>
                   <div class="row">
                     <div class="col-lg-6 ">
                     <input type="hidden" id="tc_id">
@@ -903,7 +903,7 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="area" class="col-form-label">Area</label>
+                  <label for="area" class="col-form-label">Area <span style="color:red">*</span></label>
                   <div class="row">
                     <div class="col-lg-6 ">
                       <input type="text" class="form-control area" id="area_edit" name="area" readonly>
@@ -921,7 +921,7 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="kota" class="col-form-label">Kabupaten/Kota</label>
+                  <label for="kota" class="col-form-label">Kabupaten/Kota <span style="color:red">*</span></label>
                   <div class="row">
                     <div class="col-lg-6 ">
                       <input type="text" class="form-control kota" id="kota_edit" name="kota" readonly>
@@ -936,7 +936,7 @@
                   </div>
                 </div> 
                 <div class="form-group">
-                  <label for="kec" class="col-form-label">Kecamatan</label>
+                  <label for="kec" class="col-form-label">Kecamatan <span style="color:red">*</span></label>
                   <div class="row">
                     <div class="col-lg-6 ">
                       <input type="text" class="form-control kec" id="kec_edit" name="kec" readonly>
@@ -951,7 +951,7 @@
                   </div>
                </div>
               <div class="form-group">
-                  <label for="desa" class="col-form-label">Desa/Kelurahan</label>
+                  <label for="desa" class="col-form-label">Desa/Kelurahan <span style="color:red">*</span></label>
                   <div class="row">
                     <div class="col-lg-6 ">
                       <input type="hidden" id="desa_id">
@@ -967,7 +967,7 @@
                   </div>
               </div>
               <div class="form-group">
-                  <label for="olt" class="col-form-label">OLT</label>
+                  <label for="olt" class="col-form-label">OLT <span style="color:red">*</span></label>
                   <div class="row">
                     <div class="col-lg-6 ">
                       <input type="hidden" id="olt_id">
@@ -1158,7 +1158,7 @@
                 </div>
               </div>
               <div class="form-group">
-                  <label for="daya" class="col-form-label">Rata-rata Daya</label>
+                  <label for="daya" class="col-form-label">Rata-rata Daya <span style="color:red">*</span></label>
                   <div class="row">
                     <div class="col-lg-6 ">
                       <input type="hidden" id="daya_id">
@@ -1307,7 +1307,7 @@
                 </div>
                 <h2 class="pt-4">Survey Sampling Warga 1</h2>
                 <div class="form-group">
-                    <label for="harga" class="col-form-label">Harga ICONNET Menurut Warga</label>
+                    <label for="harga" class="col-form-label">Harga ICONNET Menurut Warga <span style="color:red">*</span></label>
                     <div class="row">
                     <div class="col-lg-6 ">
                       <input type="hidden" id="harga1_id">
@@ -1326,7 +1326,7 @@
                   </div>
                 </div>
                 <div class="form-group">
-                    <label for="internet" class="col-form-label">Penggunaan Internet</label>
+                    <label for="internet" class="col-form-label">Penggunaan Internet <span style="color:red">*</span></label>
                     <div class="row">
                       <div class="col-lg-6 ">
                         <input type="hidden" id="inet1_id">
@@ -1350,7 +1350,7 @@
                     <span class="text-danger error-text perangkat_error"></span>
                 </div>
                 <div class="form-group">
-                    <label for="budget" class="col-form-label">Alokasi Budget untuk Internet</label>
+                    <label for="budget" class="col-form-label">Alokasi Budget untuk Internet <span style="color:red">*</span></label>
                     <div class="row">
                       <div class="col-lg-6 ">
                         <input type="hidden" id="budget1_id">
@@ -1369,7 +1369,7 @@
                     </div>    
                 </div>
                 <div class="form-group">
-                    <label for="minat" class="col-form-label">Sampling Minat</label>
+                    <label for="minat" class="col-form-label">Sampling Minat <span style="color:red">*</span></label>
                     <div class="row">
                       <div class="col-lg-6 ">
                         <input type="hidden" id="minat1_id">
@@ -1389,7 +1389,7 @@
                 </div>
                 <h2 class="pt-4">Survey Sampling Warga 2</h2>
                 <div class="form-group">
-                    <label for="harga" class="col-form-label">Harga ICONNET Menurut Warga</label>
+                    <label for="harga" class="col-form-label">Harga ICONNET Menurut Warga <span style="color:red">*</span></label>
                     <div class="row">
                       <div class="col-lg-6 ">
                         <input type="hidden" id="harga2_id">
@@ -1408,7 +1408,7 @@
                     </div>    
                 </div>
                 <div class="form-group">
-                    <label for="internet" class="col-form-label">Penggunaan Internet</label>
+                    <label for="internet" class="col-form-label">Penggunaan Internet <span style="color:red">*</span></label>
                     <div class="row">
                       <div class="col-lg-6 ">
                         <input type="hidden" id="inet2_id">
@@ -1432,7 +1432,7 @@
                     <span class="text-danger error-text perangkat_error"></span>
                 </div>
                 <div class="form-group">
-                    <label for="budget" class="col-form-label">Alokasi Budget untuk Internet</label>
+                    <label for="budget" class="col-form-label">Alokasi Budget untuk Internet <span style="color:red">*</span></label>
                     <div class="row">
                       <div class="col-lg-6 ">
                         <input type="hidden" id="budget2_id">
@@ -1451,7 +1451,7 @@
                     </div>     
                 </div>
                 <div class="form-group">
-                    <label for="minat" class="col-form-label">Sampling Minat</label>
+                    <label for="minat" class="col-form-label">Sampling Minat <span style="color:red">*</span></label>
                     <div class="row">
                       <div class="col-lg-6 ">
                         <input type="hidden" id="minat2_id">
@@ -1471,7 +1471,7 @@
                 </div>
                 <h2 class="pt-4">Survey Sampling Warga 3</h2>
                 <div class="form-group">
-                    <label for="harga" class="col-form-label">Harga ICONNET Menurut Warga</label>
+                    <label for="harga" class="col-form-label">Harga ICONNET Menurut Warga <span style="color:red">*</span></label>
                     <div class="row">
                       <div class="col-lg-6 ">
                         <input type="hidden" id="harga3_id">
@@ -1490,11 +1490,11 @@
                     </div>  
                 </div>
                 <div class="form-group">
-                    <label for="internet" class="col-form-label">Penggunaan Internet</label>
+                    <label for="internet" class="col-form-label">Penggunaan Internet <span style="color:red">*</span></label>
                     <div class="row">
                       <div class="col-lg-6 ">
                         <input type="hidden" id="inet3_id">
-                        <input type="text" class="form-control internet" id="internet_edit3" name="internet" readonly>
+                        <input type="text" class="form-control internet" id="inet_edit3" name="internet" readonly>
                         <span id="error_nama" class="text-danger"></span>
                         <span class="text-danger error-text internet_error"></span>
                       </div>
@@ -1514,7 +1514,7 @@
                     <span class="text-danger error-text perangkat_error"></span>
                 </div>
                 <div class="form-group">
-                    <label for="budget" class="col-form-label">Alokasi Budget untuk Internet</label>
+                    <label for="budget" class="col-form-label">Alokasi Budget untuk Internet <span style="color:red">*</span></label>
                     <div class="row">
                       <div class="col-lg-6 ">
                         <input type="hidden" id="budget3_id">
@@ -1533,7 +1533,7 @@
                     </div>  
                 </div>
                 <div class="form-group">
-                    <label for="minat" class="col-form-label">Sampling Minat</label>
+                    <label for="minat" class="col-form-label">Sampling Minat <span style="color:red">*</span></label>
                     <div class="row">
                       <div class="col-lg-6 ">
                         <input type="hidden" id="minat3_id">
@@ -1611,7 +1611,7 @@
                 </div>
                 <h2 class="pt-4">Pembangunan</h2>
                 <div class="form-group">
-                    <label for="drawing" class="col-form-label">Status Drawing</label>
+                    <label for="drawing" class="col-form-label">Status Drawing <span style="color:red">*</span></label>
                     <div class="row">
                       <div class="col-lg-6 ">
                         <input type="hidden" id="draw_id">
@@ -1678,7 +1678,7 @@
                 <div class="form-group">
                   <label for="planbangun_edit" class="col-form-label">Plan Pembangunan</label>
                   <div class="input-icon mb-2">
-                    <input class="form-control"  name="planbangun_edit" placeholder="Select a date" id="datepicker-icon_edit" value="2022-06-20"/>
+                    <input class="form-control"  name="planbangun_edit" placeholder="Select a date" id="datepicker-icon-edit" value="2022-06-20"/>
                     <span class="input-icon-addon"><!-- Download SVG icon from http://tabler-icons.io/i/calendar -->
                       <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="4" y="5" width="16" height="16" rx="2" /><line x1="16" y1="3" x2="16" y2="7" /><line x1="8" y1="3" x2="8" y2="7" /><line x1="4" y1="11" x2="20" y2="11" /><line x1="11" y1="15" x2="12" y2="15" /><line x1="12" y1="15" x2="12" y2="18" /></svg>
                     </span>
@@ -1690,7 +1690,7 @@
                     <span class="text-danger error-text no_pa_error"></span>
                 </div>
                 <div class="form-group">
-                    <label for="stts_pembangunan" class="col-form-label">Status Pembangunan</label>
+                    <label for="stts_pembangunan" class="col-form-label">Status Pembangunan <span style="color:red">*</span></label>
                     <div class="row">
                       <div class="col-lg-6 ">
                         <input type="hidden" id="stts_bangun_id">
@@ -1710,6 +1710,7 @@
                 </div>   
             </div> 
           </div> 
+          <p><span style="color:red">*</span><i>kosongkan jika tidak ingin diubah</i></p>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn me-auto" data-bs-dismiss="modal">Close</button>
@@ -1740,6 +1741,18 @@
   document.addEventListener("DOMContentLoaded", function () {
     window.Litepicker && (new Litepicker({
     element: document.getElementById('datepicker-icon'),
+    buttonText: {
+      previousMonth: `<!-- Download SVG icon from http://tabler-icons.io/i/chevron-left -->
+  <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="15 6 9 12 15 18" /></svg>`,
+      nextMonth: `<!-- Download SVG icon from http://tabler-icons.io/i/chevron-right -->
+  <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="9 6 15 12 9 18" /></svg>`,
+    },
+    }));
+  });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    window.Litepicker && (new Litepicker({
+    element: document.getElementById('datepicker-icon-edit'),
     buttonText: {
       previousMonth: `<!-- Download SVG icon from http://tabler-icons.io/i/chevron-left -->
   <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="15 6 9 12 15 18" /></svg>`,
@@ -2201,7 +2214,7 @@
           'approval': $("input[name='approval_edit']:checked").val(),
           'no_pa': $('#no_pa_edit').val(),
           'status_pembangunan': ($('#sel_stts_bangun_edit').val() != "") ? $('#sel_stts_bangun_edit').val() : $('#stts_bangun_id').val(),
-          'plan_pembangunan': $('#datepicker-icon_edit').val(),
+          'plan_pembangunan': $('#datepicker-icon-edit').val(),
         },
         success: function(response) {
           if (response.status == "Data berhasil diupdate") {
