@@ -2041,13 +2041,13 @@
       });
       
       // setelah pilih provinsi
-      $('#sel_prov_edit').change(function(){
-            var prov = $(this).val(); //id prov dari data
+      $('#sel_area_edit').change(function(){
+            var area = $(this).val(); //id prov dari data
         // AJAX request
             $.ajax({
                 url:'data/getKota',
                 method: 'post',
-                data: {prov: prov},
+                data: {area: area},
                 dataType: 'json',
                 success: function(response){
                 // Remove options 
@@ -2139,17 +2139,17 @@
           'penggunaan_internet': ($('#sel_inet_edit').val() != "") ? $('#sel_inet_edit').val() : $('#inet_edit').val(),
           'jml_perangkat': $('#perangkat_edit').val(),
           'alokasi_budget': ($('#sel_budget_edit').val() != "") ? $('#sel_budget_edit').val() : $('#budget_edit').val(),
-          'jumlah_peminat': ($('#sel_minat_edit').val() != "") ? $('#sel_minat_edit').val() : $('#minat_edit').val(),
+          'sampling_minat': ($('#sel_minat_edit').val() != "") ? $('#sel_minat_edit').val() : $('#minat_edit').val(),
           'harga_iconnet_2': ($('#sel_harga_edit2').val() != "") ? $('#sel_harga_edit2').val() : $('#harga_edit2').val(),
           'penggunaan_internet_2': ($('#sel_inet_edit2').val() != "") ? $('#sel_inet_edit2').val() : $('#inet_edit2').val(),
           'jml_perangkat_2': $('#perangkat_edit2').val(),
           'alokasi_budget_2': ($('#sel_budget_edit2').val() != "") ? $('#sel_budget_edit2').val() : $('#budget_edit2').val(),
-          'jumlah_peminat_2': ($('#sel_minat_edit2').val() != "") ? $('#sel_minat_edit2').val() : $('#minat_edit2').val(),
+          'sampling_minat_2': ($('#sel_minat_edit2').val() != "") ? $('#sel_minat_edit2').val() : $('#minat_edit2').val(),
           'harga_iconnet_3': ($('#sel_harga_edit3').val() != "") ? $('#sel_harga_edit3').val() : $('#harga_edit3').val(),
           'penggunaan_internet_3': ($('#sel_inet_edit3').val() != "") ? $('#sel_inet_edit3').val() : $('#inet_edit3').val(),
           'jml_perangkat_3': $('#perangkat_edit3').val(),
           'alokasi_budget_3': ($('#sel_budget_edit3').val() != "") ? $('#sel_budget_edit3').val() : $('#budget_edit3').val(),
-          'jumlah_peminat_3': ($('#sel_minat_edit3').val() != "") ? $('#sel_minat_edit3').val() : $('#minat_edit3').val(),
+          'sampling_minat_3': ($('#sel_minat_edit3').val() != "") ? $('#sel_minat_edit3').val() : $('#minat_edit3').val(),
           'jumlah_fat': $('#fat_edit').val(),
           'daftar_fat': $('#daftar_fat_edit').val(),
           'ket': $('#ket_edit').val(),
@@ -2171,6 +2171,7 @@
             // $('#tableData').html("");
             // display();
             $('#tabel').DataTable().ajax.reload(null, false);
+            $('#editModal')[0].reset();
 
             swal.fire("Berhasil", response.status, "success");
           } else {
