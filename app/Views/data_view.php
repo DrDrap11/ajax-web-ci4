@@ -854,7 +854,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
         <div class="modal-body">
-         <form action="" method="post" id="add-employee-form" autocomplete="off">
+         <form action="" method="post" id="edit-data-form" autocomplete="off">
           <div class="row">
             <div class="col-lg-12 mb-2">
               <h2>Informasi Cluster</h2>
@@ -863,13 +863,14 @@
                   <label for="tp_project" class="col-form-label">Tipe Project</label>
                     <div class="row">
                       <div class="col-lg-6 ">
-                         <input type="text" class="form-control tp_project" id="tp_edit" name="tp_project" readonly>
-                         <span id="error_nama" class="text-danger"></span>
-                         <span class="text-danger error-text tp_project_error"></span>
+                        <input type="hidden" id="tp_id">
+                        <input type="text" class="form-control tp_project" id="tp_edit" name="tp_project" readonly>
+                        <span id="error_nama" class="text-danger"></span>
+                        <span class="text-danger error-text tp_project_error"></span>
                       </div>
                       <div class="col-lg-6 ">
                         <select class="form-control form-select" id="sel_tp_edit" name="tp_project">
-                          <option style="color:#cbd5e1;" value="">---Pilih Tipe Project---</option>
+                          <option value="">---Pilih Tipe Project---</option>
                             <?php foreach($tipe_project as $tp){?>
                           <option value="<?php echo $tp->tp_id;?>"><?php echo $tp->tp_jenis;?></option>"
                             <?php }?>
@@ -886,6 +887,7 @@
                   <label for="tipe_cluster" class="col-form-label">Tipe Cluster</label>
                   <div class="row">
                     <div class="col-lg-6 ">
+                    <input type="hidden" id="tc_id">
                       <input type="text" class="form-control tipe_cluster" id="tc_edit" name="tipe_cluster" readonly>
                       <span id="error_nama" class="text-danger"></span>
                       <span class="text-danger error-text tipe_cluster_error"></span>
@@ -952,6 +954,7 @@
                   <label for="desa" class="col-form-label">Desa/Kelurahan</label>
                   <div class="row">
                     <div class="col-lg-6 ">
+                      <input type="hidden" id="desa_id">
                       <input type="text" class="form-control desa" id="desa_edit" name="desa" readonly>
                       <span id="error_nama" class="text-danger"></span>
                       <span class="text-danger error-text desa_error"></span>
@@ -967,6 +970,7 @@
                   <label for="olt" class="col-form-label">OLT</label>
                   <div class="row">
                     <div class="col-lg-6 ">
+                      <input type="hidden" id="olt_id">
                       <input type="text" class="form-control olt" id="olt_edit" name="olt" readonly>
                       <span id="error_nama" class="text-danger"></span>
                       <span class="text-danger error-text olt_error"></span>
@@ -1157,6 +1161,7 @@
                   <label for="daya" class="col-form-label">Rata-rata Daya</label>
                   <div class="row">
                     <div class="col-lg-6 ">
+                      <input type="hidden" id="daya_id">
                       <input type="text" class="form-control daya" id="daya_edit" name="daya" readonly>
                       <span id="error_nama" class="text-danger"></span>
                       <span class="text-danger error-text daya_error"></span>
@@ -1305,6 +1310,7 @@
                     <label for="harga" class="col-form-label">Harga ICONNET Menurut Warga</label>
                     <div class="row">
                     <div class="col-lg-6 ">
+                      <input type="hidden" id="harga1_id">
                       <input type="text" class="form-control harga" id="harga_edit" name="harga" readonly>
                       <span id="error_nama" class="text-danger"></span>
                       <span class="text-danger error-text harga_error"></span>
@@ -1323,6 +1329,7 @@
                     <label for="internet" class="col-form-label">Penggunaan Internet</label>
                     <div class="row">
                       <div class="col-lg-6 ">
+                        <input type="hidden" id="inet1_id">
                         <input type="text" class="form-control internet" id="inet_edit" name="internet" readonly>
                         <span id="error_nama" class="text-danger"></span>
                         <span class="text-danger error-text internet_error"></span>
@@ -1346,6 +1353,7 @@
                     <label for="budget" class="col-form-label">Alokasi Budget untuk Internet</label>
                     <div class="row">
                       <div class="col-lg-6 ">
+                        <input type="hidden" id="budget1_id">
                         <input type="text" class="form-control budget" id="budget_edit" name="budget" readonly>
                         <span id="error_nama" class="text-danger"></span>
                         <span class="text-danger error-text budget_error"></span>
@@ -1364,6 +1372,7 @@
                     <label for="minat" class="col-form-label">Sampling Minat</label>
                     <div class="row">
                       <div class="col-lg-6 ">
+                        <input type="hidden" id="minat1_id">
                         <input type="text" class="form-control minat" id="minat_edit" name="minat" readonly>
                         <span id="error_nama" class="text-danger"></span>
                         <span class="text-danger error-text minat_error"></span>
@@ -1383,6 +1392,7 @@
                     <label for="harga" class="col-form-label">Harga ICONNET Menurut Warga</label>
                     <div class="row">
                       <div class="col-lg-6 ">
+                        <input type="hidden" id="harga2_id">
                         <input type="text" class="form-control harga" id="harga_edit2" name="harga" readonly>
                         <span id="error_nama" class="text-danger"></span>
                         <span class="text-danger error-text harga_error"></span>
@@ -1401,6 +1411,7 @@
                     <label for="internet" class="col-form-label">Penggunaan Internet</label>
                     <div class="row">
                       <div class="col-lg-6 ">
+                        <input type="hidden" id="inet2_id">
                         <input type="text" class="form-control internet" id="inet_edit2" name="internet" readonly>
                         <span id="error_nama" class="text-danger"></span>
                         <span class="text-danger error-text internet_error"></span>
@@ -1424,6 +1435,7 @@
                     <label for="budget" class="col-form-label">Alokasi Budget untuk Internet</label>
                     <div class="row">
                       <div class="col-lg-6 ">
+                        <input type="hidden" id="budget2_id">
                         <input type="text" class="form-control budget" id="budget_edit2" name="budget" readonly>
                         <span id="error_nama" class="text-danger"></span>
                         <span class="text-danger error-text budget_error"></span>
@@ -1442,6 +1454,7 @@
                     <label for="minat" class="col-form-label">Sampling Minat</label>
                     <div class="row">
                       <div class="col-lg-6 ">
+                        <input type="hidden" id="minat2_id">
                         <input type="text" class="form-control minat" id="minat_edit2" name="minat" readonly>
                         <span id="error_nama" class="text-danger"></span>
                         <span class="text-danger error-text minat_error"></span>
@@ -1461,6 +1474,7 @@
                     <label for="harga" class="col-form-label">Harga ICONNET Menurut Warga</label>
                     <div class="row">
                       <div class="col-lg-6 ">
+                        <input type="hidden" id="harga3_id">
                         <input type="text" class="form-control harga" id="harga_edit3" name="harga" readonly>
                         <span id="error_nama" class="text-danger"></span>
                         <span class="text-danger error-text harga_error"></span>
@@ -1479,6 +1493,7 @@
                     <label for="internet" class="col-form-label">Penggunaan Internet</label>
                     <div class="row">
                       <div class="col-lg-6 ">
+                        <input type="hidden" id="inet3_id">
                         <input type="text" class="form-control internet" id="internet_edit3" name="internet" readonly>
                         <span id="error_nama" class="text-danger"></span>
                         <span class="text-danger error-text internet_error"></span>
@@ -1502,6 +1517,7 @@
                     <label for="budget" class="col-form-label">Alokasi Budget untuk Internet</label>
                     <div class="row">
                       <div class="col-lg-6 ">
+                        <input type="hidden" id="budget3_id">
                         <input type="text" class="form-control budget" id="budget_edit3" name="budget" readonly>
                         <span id="error_nama" class="text-danger"></span>
                         <span class="text-danger error-text budget_error"></span>
@@ -1520,6 +1536,7 @@
                     <label for="minat" class="col-form-label">Sampling Minat</label>
                     <div class="row">
                       <div class="col-lg-6 ">
+                        <input type="hidden" id="minat3_id">
                         <input type="text" class="form-control minat" id="minat_edit3" name="minat" readonly>
                         <span id="error_nama" class="text-danger"></span>
                         <span class="text-danger error-text minat_error"></span>
@@ -1597,6 +1614,7 @@
                     <label for="drawing" class="col-form-label">Status Drawing</label>
                     <div class="row">
                       <div class="col-lg-6 ">
+                        <input type="hidden" id="draw_id">
                         <input type="text" class="form-control drawing" id="draw_edit" name="drawing" readonly>
                         <span id="error_nama" class="text-danger"></span>
                         <span class="text-danger error-text drawing_error"></span>
@@ -1675,6 +1693,7 @@
                     <label for="stts_pembangunan" class="col-form-label">Status Pembangunan</label>
                     <div class="row">
                       <div class="col-lg-6 ">
+                        <input type="hidden" id="stts_bangun_id">
                         <input type="text" class="form-control stts_pembangunan" id="stts_bangun_edit" name="stts_pembangunan" readonly>
                         <span id="error_nama" class="text-danger"></span>
                         <span class="text-danger error-text stts_pembangunan_error"></span>
@@ -1884,7 +1903,7 @@
       ],
       stateSave: true,
       info: true,
-      "iDisplayLength": 5,
+      "iDisplayLength": 10,
       "pageLength": 5,
       "aLengthMenu": [
         [10, 25, 50, -1],
@@ -1932,14 +1951,33 @@
             var layak     = value['kelayakan'];
             var approv    = value['approval'];
 
-
-
-            $('#sel_kec_edit').find('option').not(':first').remove();
-            $('#sel_kota_edit').find('option').not(':first').remove();
-            $('#sel_desa_edit').find('option').not(':first').remove();
+            // $('#sel_kec_edit').find('option').not(':first').remove();
+            // $('#sel_kota_edit').find('option').not(':first').remove();
+            // $('#sel_desa_edit').find('option').not(':first').remove();
             // $('#sel_prov_edit').find('option').not(':first').remove();
+
+            $('select').find('option:selected').prop('selected', false);
             
             $('#edit_id').val(value['id']);
+            $('#tp_id').val(value['tipe_project']);
+            $('#tc_id').val(value['tipe_cluster']);
+            $('#desa_id').val(value['kelurahan']);
+            $('#olt_id').val(value['olt']);
+            $('#daya_id').val(value['rata_daya']);
+            $('#harga1_id').val(value['harga_iconnet']);
+            $('#inet1_id').val(value['penggunaan_internet']);
+            $('#budget1_id').val(value['alokasi_budget']);
+            $('#minat1_id').val(value['sampling_minat']);
+            $('#harga2_id').val(value['harga_iconnet_2']);
+            $('#inet2_id').val(value['penggunaan_internet_2']);
+            $('#budget2_id').val(value['alokasi_budget_2']);
+            $('#minat2_id').val(value['sampling_minat_2']);
+            $('#harga3_id').val(value['harga_iconnet_3']);
+            $('#inet3_id').val(value['penggunaan_internet_3']);
+            $('#budget3_id').val(value['alokasi_budget_3']);
+            $('#minat3_id').val(value['sampling_minat_3']);
+            $('#draw_id').val(value['status_drawing']);
+            $('#stts_bangun_id').val(value['status_pembangunan']);
             $('#tp_edit').val(value['tp_jenis']);
             $('#nama_edit').val(value['nama_cluster']);
             $('#tc_edit').val(value['tc_jenis']);
@@ -2113,14 +2151,14 @@
         // data: (id_kota != "") ? data1 : data2,
         data: {
           'edit_id': $('#edit_id').val(),
-          'tipe_project': ($('#sel_tp_edit').val() != "") ? $('#sel_tp_edit').val() : $('#tp_edit').val(),
+          'tipe_project': ($('#sel_tp_edit').val() != "") ? $('#sel_tp_edit').val() : $('#tp_id').val(),
           'nama_cluster': $('#nama_edit').val(),
-          'tipe_cluster': ($('#sel_tc_edit').val() != "") ? $('#sel_tc_edit').val() : $('#tc_edit').val(),
-          'area': ($('#sel_area_edit').val() != "") ? $('#sel_area_edit').val() : $('#area_edit').val(),
-          'kota': ($('#sel_kota_edit').val() != "") ? $('#sel_kota_edit').val() : $('#kota_edit').val(),
-          'kec': ($('#sel_kec_edit').val() != "") ? $('#sel_kec_edit').val() : $('#kec_edit').val(),
-          'desa': ($('#sel_desa_edit').val() != "") ? $('#sel_desa_edit').val() : $('#desa_edit').val(),
-          'olt': ($('#sel_olt_edit').val() != "") ? $('#sel_olt_edit').val() : $('#olt_edit').val(),
+          'tipe_cluster': ($('#sel_tc_edit').val() != "") ? $('#sel_tc_edit').val() : $('#tc_id').val(),
+          // 'area': ($('#sel_area_edit').val() != "") ? $('#sel_area_edit').val() : $('#area_edit').val(),
+          // 'kota': ($('#sel_kota_edit').val() != "") ? $('#sel_kota_edit').val() : $('#kota_edit').val(),
+          // 'kec': ($('#sel_kec_edit').val() != "") ? $('#sel_kec_edit').val() : $('#kec_edit').val(),
+          'desa': ($('#sel_desa_edit').val() != "") ? $('#sel_desa_edit').val() : $('#desa_id').val(),
+          'olt': ($('#sel_olt_edit').val() != "") ? $('#sel_olt_edit').val() : $('#olt_id').val(),
           'longi_lati': $('#ll_edit').val(),
           'izin': $("input[name='izin_edit']:checked").val(),
           'kompetitor': $('#kompetitor_edit').val(),
@@ -2129,40 +2167,40 @@
           'jumlah_rumah': $('#jml_rumah_edit').val(),
           'rumah_kosong': $("input[name='rmh_kosong_edit']:checked").val(),
           'fasil_umum': $("input[name='fasil_edit']:checked").val(),
-          'rata_daya': ($('#sel_daya_edit').val() != "") ? $('#sel_daya_edit').val() : $('#daya_edit').val(),
+          'rata_daya': ($('#sel_daya_edit').val() != "") ? $('#sel_daya_edit').val() : $('#daya_id').val(),
           'anak_kecil': $("input[name='anak_edit']:checked").val(),
           'kendaraan': $("input[name='kendaraan_edit']:checked").val(),
           'ac': $("input[name='ac_edit']:checked").val(),
           'internet_bisnis': $("input[name='bisnis_edit']:checked").val(),
           'jumlah_peminat': $('#peminat_edit').val(),
-          'harga_iconnet': ($('#sel_harga_edit').val() != "") ? $('#sel_harga_edit').val() : $('#harga_edit').val(),
-          'penggunaan_internet': ($('#sel_inet_edit').val() != "") ? $('#sel_inet_edit').val() : $('#inet_edit').val(),
+          'harga_iconnet': ($('#sel_harga_edit').val() != "") ? $('#sel_harga_edit').val() : $('#harga1_id').val(),
+          'penggunaan_internet': ($('#sel_inet_edit').val() != "") ? $('#sel_inet_edit').val() : $('#inet1_id').val(),
           'jml_perangkat': $('#perangkat_edit').val(),
-          'alokasi_budget': ($('#sel_budget_edit').val() != "") ? $('#sel_budget_edit').val() : $('#budget_edit').val(),
-          'sampling_minat': ($('#sel_minat_edit').val() != "") ? $('#sel_minat_edit').val() : $('#minat_edit').val(),
-          'harga_iconnet_2': ($('#sel_harga_edit2').val() != "") ? $('#sel_harga_edit2').val() : $('#harga_edit2').val(),
-          'penggunaan_internet_2': ($('#sel_inet_edit2').val() != "") ? $('#sel_inet_edit2').val() : $('#inet_edit2').val(),
+          'alokasi_budget': ($('#sel_budget_edit').val() != "") ? $('#sel_budget_edit').val() : $('#budget1_id').val(),
+          'sampling_minat': ($('#sel_minat_edit').val() != "") ? $('#sel_minat_edit').val() : $('#minat1_id').val(),
+          'harga_iconnet_2': ($('#sel_harga_edit2').val() != "") ? $('#sel_harga_edit2').val() : $('#harga2_id').val(),
+          'penggunaan_internet_2': ($('#sel_inet_edit2').val() != "") ? $('#sel_inet_edit2').val() : $('#inet2_id').val(),
           'jml_perangkat_2': $('#perangkat_edit2').val(),
-          'alokasi_budget_2': ($('#sel_budget_edit2').val() != "") ? $('#sel_budget_edit2').val() : $('#budget_edit2').val(),
-          'sampling_minat_2': ($('#sel_minat_edit2').val() != "") ? $('#sel_minat_edit2').val() : $('#minat_edit2').val(),
-          'harga_iconnet_3': ($('#sel_harga_edit3').val() != "") ? $('#sel_harga_edit3').val() : $('#harga_edit3').val(),
-          'penggunaan_internet_3': ($('#sel_inet_edit3').val() != "") ? $('#sel_inet_edit3').val() : $('#inet_edit3').val(),
+          'alokasi_budget_2': ($('#sel_budget_edit2').val() != "") ? $('#sel_budget_edit2').val() : $('#budget2_id').val(),
+          'sampling_minat_2': ($('#sel_minat_edit2').val() != "") ? $('#sel_minat_edit2').val() : $('#minat2_id').val(),
+          'harga_iconnet_3': ($('#sel_harga_edit3').val() != "") ? $('#sel_harga_edit3').val() : $('#harga3_id').val(),
+          'penggunaan_internet_3': ($('#sel_inet_edit3').val() != "") ? $('#sel_inet_edit3').val() : $('#inet3_id').val(),
           'jml_perangkat_3': $('#perangkat_edit3').val(),
-          'alokasi_budget_3': ($('#sel_budget_edit3').val() != "") ? $('#sel_budget_edit3').val() : $('#budget_edit3').val(),
-          'sampling_minat_3': ($('#sel_minat_edit3').val() != "") ? $('#sel_minat_edit3').val() : $('#minat_edit3').val(),
+          'alokasi_budget_3': ($('#sel_budget_edit3').val() != "") ? $('#sel_budget_edit3').val() : $('#budget3_id').val(),
+          'sampling_minat_3': ($('#sel_minat_edit3').val() != "") ? $('#sel_minat_edit3').val() : $('#minat3_id').val(),
           'jumlah_fat': $('#fat_edit').val(),
           'daftar_fat': $('#daftar_fat_edit').val(),
           'ket': $('#ket_edit').val(),
           'nilai_roi': $('#roi_edit').val(),
           'score': $('#score_edit').val(),
           'kelayakan': $("input[name='layak_edit']:checked").val(),
-          'status_drawing': ($('#sel_draw_edit').val() != "") ? $('#sel_draw_edit').val() : $('#draw_edit').val(),
+          'status_drawing': ($('#sel_draw_edit').val() != "") ? $('#sel_draw_edit').val() : $('#draw_id').val(),
           'maps': $('#maps_edit').val(),
           'jml_fat_ploating': $('#ploating_edit').val(),
           'home_pass': $('#home_pass_edit').val(),
           'approval': $("input[name='approval_edit']:checked").val(),
           'no_pa': $('#no_pa_edit').val(),
-          'status_pembangunan': ($('#sel_stts_bangun_edit').val() != "") ? $('#sel_stts_bangun_edit').val() : $('#stts_bangun_edit').val(),
+          'status_pembangunan': ($('#sel_stts_bangun_edit').val() != "") ? $('#sel_stts_bangun_edit').val() : $('#stts_bangun_id').val(),
           'plan_pembangunan': $('#datepicker-icon_edit').val(),
         },
         success: function(response) {
