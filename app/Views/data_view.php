@@ -1378,7 +1378,7 @@
                         <span class="text-danger error-text minat_error"></span>
                       </div>
                       <div class="col-lg-6 ">
-                        <select class="form-control form-select" name="minat">
+                        <select class="form-control form-select" id="sel_minat_edit" name="minat">
                           <option value="">---Pilih Sampling Minat---</option>
                             <?php foreach($survey_minat as $sm){?>
                           <option value="<?php echo $sm->sm_id;?>"><?php echo $sm->sm_jenis;?></option>"

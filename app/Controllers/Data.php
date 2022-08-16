@@ -434,6 +434,8 @@ class Data extends Controller
                 'kompetitor' => $this->request->getPost('kompetitor'),
                 'lokal_operator' => $this->request->getPost('lokal_operator'),
                 'tiang_listrik' => $this->request->getPost('tiang_listrik'),
+                'jumlah_rumah' => $this->request->getPost('jumlah_rumah'),
+                'rumah_kosong' => $this->request->getPost('rumah_kosong'),
                 'fasil_umum' => $this->request->getPost('fasil_umum'),
                 'rata_daya' => $this->request->getPost('rata_daya'),
                 'anak_kecil' => $this->request->getPost('anak_kecil'),
@@ -464,11 +466,11 @@ class Data extends Controller
                 'kelayakan' => $this->request->getPost('kelayakan'),
                 'status_drawing' => $this->request->getPost('status_drawing'),
                 'maps' => $this->request->getPost('maps'),
-                'jumlah_fat_ploating' => $this->request->getPost('jumlah_fat_ploating'),
+                'jml_fat_ploating' => $this->request->getPost('jml_fat_ploating'),
                 'home_pass' => $this->request->getPost('home_pass'),
                 'approval' => $this->request->getPost('approval'),
                 'no_pa' => $this->request->getPost('no_pa'),
-                'status_pembangunan' => $this->request->getPost('jumlah_fat'),
+                'status_pembangunan' => $this->request->getPost('status_pembangunan'),
                 'plan_pembangunan' => $this->request->getPost('plan_pembangunan')
 
             ];
