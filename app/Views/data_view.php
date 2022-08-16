@@ -1428,7 +1428,7 @@
                 </div>
                 <div class="form-group">
                     <label for="perangkat" class="col-form-label">Jumlah Perangkat / Rumah</label>
-                    <input type="number" class="form-control" id="perangkat_edit_2" name="perangkat2" min="0" max="1000">
+                    <input type="number" class="form-control" id="perangkat_edit2" name="perangkat2" min="0" max="1000">
                     <span class="text-danger error-text perangkat_error"></span>
                 </div>
                 <div class="form-group">
