@@ -1,7 +1,7 @@
 <div class="container-fluid pt-5">
     <div class="text-right">
-        <a id="tambah" href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Tambah Data</a>
-        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#importModal">Import Data</a>
+        <a id="tambah" href="#" class="btn btn-primary mb-2 me-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Tambah Data</a>
+        <a href="#" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#importModal">Import Data</a>
     </div>
     <div class="card">
         <div class="card-header bg-primary text-white">
@@ -1917,7 +1917,7 @@
       stateSave: true,
       info: true,
       "iDisplayLength": 10,
-      "pageLength": 5,
+      "pageLength": 10,
       "aLengthMenu": [
         [10, 25, 50, -1],
         [10, 25, 50, "All"]
