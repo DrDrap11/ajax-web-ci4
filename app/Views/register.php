@@ -38,7 +38,7 @@
       <div class="container-tight py-4">
         <div class="text-center mb-4">
           <a href="#" style="font-family: Aclonica; font-size: 23px; color: #206bc4; text-decoration: none">
-            <i class="ti ti-ghost"></i> B O O O ! !
+          <img src="/Assets/img/iconnet.png" alt="iconnet">
           </a>
         </div>
         <?php if(isset($validation)):?>
@@ -79,7 +79,7 @@
           </div>
         </form>
         <div class="text-center text-muted mt-3">
-          Belum Punya Akun? <a href="/login" tabindex="-1">Login</a>
+          Sudah Punya Akun? <a href="/login" tabindex="-1">Login</a>
         </div>
       </div>
     </div>

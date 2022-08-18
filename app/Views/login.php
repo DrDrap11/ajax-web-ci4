@@ -43,7 +43,7 @@
       <div class="container-tight py-4">
       <div class="text-center mb-4">
           <a href="#" style="font-family: Aclonica; font-size: 23px; color: #206bc4; text-decoration: none">
-          <img src="/Assets/img/iconnet.png" alt="B O O O ! !">
+          <img src="/Assets/img/iconnet.png" alt="iconnet">
             <!-- <i class="ti ti-ghost"></i> B O O O ! ! -->
           </a>
         </div>
