@@ -488,78 +488,7 @@ class Data extends Controller
 
 
     //----------------------- Import csv -----------------------//
-    public function importCsvToDb()
-    {
-        $input = $this->validate([
-            'file' => 'uploaded[file]|max_size[file,8024]|ext_in[file,csv],'
-        ]);
-        if (!$input) {
-            $data['validation'] = $this->validator;
-            return view('index', $data); 
-        }else{
-            if($file = $this->request->getFile('file')) {
-            if ($file->isValid() && ! $file->hasMoved()) {
-                $newName = $file->getRandomName();
-                $file->move('../public/csvfile', $newName);
-                $file = fopen("../public/csvfile/".$newName,"r");
-                $i = 0;
-                $numberOfFields = 6;
-                $csvArr = array();
-                
-                while (($filedata = fgetcsv($file, 1000, ",")) !== FALSE) {
-                    $num = count($filedata);
-                    if($i > 0 && $num == $numberOfFields){ 
-                        
-                        // $csvArr[$i]['No.'] = $filedata[0];
-                        // $csvArr[$i]['Nama Kayawan'] = $filedata[1];
-                        // $csvArr[$i]['Usia'] = $filedata[2];
-                        // $csvArr[$i]['Status Vaksin 1'] = $filedata[3];
-                        // $csvArr[$i]['Status Vaksin 2'] = $filedata[4];
-                        // $csvArr[$i]['Aksi'] = $filedata[5];
-
-                        // $csvArr[$i]['id' || 'No'] = $filedata[0];
-                        // $csvArr[$i]['nama_karyawan' || 'Nama Karyawan'] = $filedata[1];
-                        // $csvArr[$i]['usia' || 'Usia'] = $filedata[2];
-                        // $csvArr[$i]['status_vaksin_1' || 'Status Vaksin 1'] = $filedata[3];
-                        // $csvArr[$i]['status_vaksin_2' || 'Status Vaksin 2'] = $filedata[4];
-                        // $csvArr[$i]['aksi' || 'Aksi'] = $filedata[5];
-
-                        $csvArr[$i]['id'] = $filedata[0];
-                        $csvArr[$i]['nama_karyawan'] = $filedata[1];
-                        $csvArr[$i]['usia'] = $filedata[2];
-                        $csvArr[$i]['status_vaksin_1'] = $filedata[3];
-                        $csvArr[$i]['status_vaksin_2'] = $filedata[4];
-                        $csvArr[$i]['aksi'] = $filedata[5];
-                    }
-                    $i++;
-                }
-                fclose($file);
-                $count = 0;
-                foreach($csvArr as $userdata){
-                    $employee = new Employee_model();
-                    $findRecord = $employee->where('id', $userdata['id'])->countAllResults();
-                    if($findRecord == 0){
-                        if($employee->insert($userdata)){
-                            $count++;
-                        }
-                    }
-                }
-                session()->setFlashdata('message', $count.' rows successfully added.');
-                session()->setFlashdata('alert-class', 'alert-success');
-            }
-            else{
-                session()->setFlashdata('message', 'CSV file coud not be imported.');
-                session()->setFlashdata('alert-class', 'alert-danger');
-            }
-            }else{
-            session()->setFlashdata('message', 'CSV file coud not be imported.');
-            session()->setFlashdata('alert-class', 'alert-danger');
-            }
-        }
-        return redirect()->route('/');         
-    }
-
-    public function uploadData()
+    public function importData()
     {
         $session = session();
         //$user_id['user_id'] = $session->get('user_id');
@@ -615,17 +544,18 @@ class Data extends Controller
                             "sampling_minat_3" => $data[35],
                             "jumlah_fat" => $data[36],
                             "daftar_fat" => $data[37],
-                            "nilai_roi" => $data[38],
-                            "score" => $data[39],
-                            "kelayakan" => $data[40],
-                            "status_drawing" => $data[41],
-                            "maps" => $data[42],
-                            "jml_fat_ploating" => $data[43],
-                            "home_pass" => $data[44],
-                            "approval" => $data[45],
-                            "no_pa" => $data[46],
-                            "status_pembangunan" => $data[47],
-                            "plan_pembangunan" => $data[48],
+                            "ket" => $data[38],
+                            "nilai_roi" => $data[39],
+                            "score" => $data[40],
+                            "kelayakan" => $data[41],
+                            "status_drawing" => $data[42],
+                            "maps" => $data[43],
+                            "jml_fat_ploating" => $data[44],
+                            "home_pass" => $data[45],
+                            "approval" => $data[46],
+                            "no_pa" => $data[47],
+                            "status_pembangunan" => $data[48],
+                            "plan_pembangunan" => $data[49],
                             "user_id" => $user_id,
                         );
                     }
@@ -636,8 +566,8 @@ class Data extends Controller
                 $builder->insertBatch($datas);
                 $session = session();
                 $session->setFlashdata("success", "Data saved successfully");
-                return redirect()->to(base_url('/'));
+                return redirect()->to(base_url('/data'));
             }
         }
-    return redirect()->route('/');    }
+    return redirect()->route('/data');    }
 }
