@@ -56,7 +56,7 @@ $routes->group("admin", ["filter" => "auth"], function ($routes) {
 
 // Impor route
 $routes->post('import-csv', 'Employee::importCsvToDb');
-$routes->post('/employee', 'Employee::uploadEmployee');
+$routes->post('/import', 'Data::uploadData');
 
 /*
  * --------------------------------------------------------------------

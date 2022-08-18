@@ -148,7 +148,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <form class="form-horizontal" enctype="multipart/form-data" method="post" action="<?= site_url('/employee') ?>">
+                <form class="form-horizontal" enctype="multipart/form-data" method="post" action="<?= site_url('data/uploadData') ?>">
                     <h5 class="modal-title" id="exampleModalLabel">Import CSV</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>

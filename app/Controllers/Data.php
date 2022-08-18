@@ -559,13 +559,13 @@ class Data extends Controller
         return redirect()->route('/');         
     }
 
-    public function uploadEmployee()
+    public function uploadData()
     {
         if ($this->request->getMethod() == "post") {
 
             $file = $this->request->getFile("file");
             $file_name = $file->getTempName();
-            $employee = array();
+            $datas = array();
             $csv_data = array_map('str_getcsv', file($file_name));
 
             if (count($csv_data) > 0) {
@@ -574,18 +574,61 @@ class Data extends Controller
 
                 foreach ($csv_data as $data) {
                     if ($index > 0) {
-                        $employee[] = array(
-                            "nama_karyawan" => $data[1],
-                            "usia" => $data[2],
-                            "status_vaksin_1" => $data[3],
-                            "status_vaksin_2" => $data[4],
+                        $datas[] = array(
+                            "tipe_project" => $data[2],
+                            "nama_cluster" => $data[3],
+                            "tipe_cluster" => $data[4],
+                            "kelurahan" => $data[5],
+                            "olt" => $data[6],
+                            "longi_lati" => $data[7],
+                            // "perizinan" => $data[8],
+                            // "kompetitor" => $data[9],
+                            // "lokal_operator" => $data[10],
+                            // "tiang_listrik" => $data[11],
+                            // "jumlah_rumah" => $data[12],
+                            // "rumah_kosong" => $data[13],
+                            // "fasil_umum" => $data[14],
+                            // "rata_daya" => $data[15],
+                            // "anak_kecil" => $data[16],
+                            // "kendaraan" => $data[17],
+                            // "ac" => $data[18],
+                            // "internet_bisnis" => $data[19],
+                            // "jumlah_peminat" => $data[20],
+                            // "harga_iconnet" => $data[21],
+                            // "penggunaan_internet" => $data[22],
+                            // "jml_perangkat" => $data[23],
+                            // "alokasi_budget" => $data[24],
+                            // "sampling_minat" => $data[25],
+                            // "harga_iconnet_2" => $data[26],
+                            // "penggunaan_internet_2" => $data[27],
+                            // "jml_perangat_2" => $data[28],
+                            // "alokasi_budget_2" => $data[29],
+                            // "sampling_minat_2" => $data[30],
+                            // "harga_iconnet_3" => $data[31],
+                            // "penggunaan_internet_3" => $data[32],
+                            // "jml_perangat_3" => $data[33],
+                            // "alokasi_budget_3" => $data[34],
+                            // "sampling_minat_3" => $data[35],
+                            // "jumlah_fat" => $data[36],
+                            // "daftar_fat" => $data[37],
+                            // "nilai_roi" => $data[38],
+                            // "score" => $data[39],
+                            // "kelayakan" => $data[40],
+                            // "status_drawing" => $data[41],
+                            // "maps" => $data[42],
+                            // "jml_fat_ploating" => $data[43],
+                            // "home_pass" => $data[44],
+                            // "approval" => $data[45],
+                            // "no_pa" => $data[46],
+                            // "status_pembangunan" => $data[47],
+                            // "plan_pembangunan" => $data[48],
                         );
                     }
                     $index++;
                 }
 
-                $builder = $this->db->table('employees');
-                $builder->insertBatch($employee);
+                $builder = $this->db->table('data');
+                $builder->insertBatch($datas);
                 $session = session();
                 $session->setFlashdata("success", "Data saved successfully");
                 return redirect()->to(base_url('/'));
