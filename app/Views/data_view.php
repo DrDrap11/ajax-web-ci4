@@ -780,7 +780,7 @@
                 <div class="row">
                   <div class="col-lg-6 ">
                     <label class="form-selectgroup-item flex-fill">
-                      <input type="radio" name="approval" id="approval1" value="1" class="form-selectgroup-input" >
+                      <input type="radio" name="approval" id="approval1" value="2" class="form-selectgroup-input" >
                       <div class="form-selectgroup-label d-flex align-items-center">
                         <div class="me-4">
                           <span class="form-selectgroup-check"></span>
@@ -793,7 +793,7 @@
                   </div>
                   <div class="col-lg-6 ">
                     <label class="form-selectgroup-item flex-fill">
-                      <input type="radio" name="approval" id="approval2" value="0" class="form-selectgroup-input">
+                      <input type="radio" name="approval" id="approval2" value="1" class="form-selectgroup-input">
                       <div class="form-selectgroup-label d-flex align-items-center">
                         <div class="me-4">
                           <span class="form-selectgroup-check"></span>
@@ -805,7 +805,7 @@
                     </label>
                   </div>
                 </div>
-                <input type="hidden" name="approval" value="2">
+                <input type="hidden" name="approval" value="0">
               </div>
               <div class="form-group">
                 <label for="planbangun" class="col-form-label">Plan Pembangunan</label>
@@ -2222,7 +2222,7 @@
             // $('#tableData').html("");
             // display();
             $('#tabel').DataTable().ajax.reload(null, false);
-            $('#editModal')[0].reset();
+            // $('#editModal')[0].reset();
 
             swal.fire("Berhasil", response.status, "success");
           } else {
