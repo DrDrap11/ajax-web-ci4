@@ -274,7 +274,7 @@ class Data extends Controller
                 "dt" => 0,
                 "formatter" => function ($d, $row) {
                     return "<div class='btn-group'>
-                                  <a class='btn btn-success btn-edit kota' data-id='" . $row['id'] . "' data-bs-toggle='modal' data-bs-target='#editModal' id='updateBtn' style='margin-right: 10px'><i class='ti ti-edit'></i></a>
+                                  <a class='btn btn-warning btn-edit kota' data-id='" . $row['id'] . "' data-bs-toggle='modal' data-bs-target='#editModal' id='updateBtn' style='margin-right: 10px'><i class='ti ti-edit'></i></a>
                                   <button class='btn btn btn-danger' data-id='" . $row['id'] . "' id='deleteDataBtn'> <i class='ti ti-trash'></i></button>
                              </div>";
                 }
