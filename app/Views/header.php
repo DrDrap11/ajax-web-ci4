@@ -27,6 +27,8 @@
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
   <link rel="stylesheet" href="https://unpkg.com/@tabler/icons@latest/iconfont/tabler-icons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 
   <style>
     .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current{
@@ -116,7 +118,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
-          <a href="./employee" style="font-family: Aclonica; font-size: 23px; color: #206bc4; text-decoration: none;">
+          <a href="./data" style="font-family: Aclonica; font-size: 23px; color: #206bc4; text-decoration: none;">
             ICONPLUS
           </a>
         </h1>
@@ -146,7 +148,7 @@
             </a>
             <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
               <!-- <a href="#" class="dropdown-item">Set status</a> -->
-              <!-- <a href="#" class="dropdown-item">Profile & account</a> -->
+              <a href="/profile" class="dropdown-item">Profile & account</a>
               <!-- <a href="#" class="dropdown-item">Feedback</a> -->
               <!-- <div class="dropdown-divider"></div> -->
               <!-- <a href="#" class="dropdown-item">Settings</a> -->
