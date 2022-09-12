@@ -93,7 +93,11 @@
       color: red;
     } */
 
-    .buttons-html5 {
+    .btn-group>.btn:not(:last-child):not(.dropdown-toggle) {
+      border-radius: 4px;
+    }
+    
+    /* .buttons-html5 {
       float: left;
       margin-left: 20px;
       padding: 2px 15px;
@@ -101,11 +105,11 @@
       color: white;
       border: #467fd0 1px solid;
       border-radius: 5px;
-    }
+    } */
 
-    .buttons-html5:nth-child(2) {
+    /* .buttons-html5:nth-child(2) {
       margin-left: 5px;
-    }
+    } */
   </style>
 
 </head>

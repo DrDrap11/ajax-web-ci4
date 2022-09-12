@@ -1,7 +1,7 @@
 <div class="container-fluid pt-5">
-    <div class="text-right">
-        <a id="tambah" href="#" class="btn btn-primary mb-2 me-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Tambah Data</a>
-        <a href="#" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#importModal">Import Data</a>
+    <div id="tombol" class="btn-group">
+        <button id="tambah" class="btn btn-primary mb-2 me-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Tambah Data</button>
+        <button id="import" class="btn btn-primary mb-2 me-2" data-bs-toggle="modal" data-bs-target="#importModal">Import Data</button>
     </div>
     <div class="card">
         <div class="card-header bg-primary text-white">
@@ -1889,29 +1889,29 @@
       "processing": true,
       "serverSide": true,
       "ajax": "getAllData",
-      "dom": "lBfrtp",
-      buttons: [
-        // {
-          // extend: "collection",
-          // text: "Export",
-          // buttons: [
-            {
-              extend: 'csv',
-              text: "Export CSV",
-              // exportOptions: {
-              //   columns: [0,1,2,3,4,5,6,7,8,9]
-              // },
-            },
-            {
-              extend: 'excel',
-              text: "Export Excel",
-              // exportOptions: {
-              //   columns: [0,1,2,3,4,5,6,7,8]
-              // },
-            }
-          // ]
-        // }
-      ],
+      "dom": "lfrtp",
+      // buttons: [
+      //   // {
+      //     // extend: "collection",
+      //     // text: "Export",
+      //     // buttons: [
+      //       {
+      //         extend: 'csv',
+      //         text: "Export CSV",
+      //         // exportOptions: {
+      //         //   columns: [0,1,2,3,4,5,6,7,8,9]
+      //         // },
+      //       },
+      //       {
+      //         extend: 'excel',
+      //         text: "Export Excel",
+      //         // exportOptions: {
+      //         //   columns: [0,1,2,3,4,5,6,7,8]
+      //         // },
+      //       }
+      //     // ]
+      //   // }
+      // ],
       stateSave: true,
       info: true,
       "iDisplayLength": 10,
@@ -1929,6 +1929,32 @@
       }]
     });
     // table.column( 9 ).visible( false );
+
+    var buttonCSV = new $.fn.dataTable.Buttons(table, {
+      buttons: [
+        {
+          extend: 'csv',
+          text: "Export CSV",
+          className: 'btn btn-primary mb-2 me-2',
+          // exportOptions: {
+          //   columns: [0,1,2,3,4,5,6,7,8,9]
+          // },
+        }
+      ]
+    }).container().appendTo($('#tombol'));
+    
+    var buttonExcel = new $.fn.dataTable.Buttons(table, {
+      buttons: [
+        {
+          extend: 'excel',
+          text: "Export Excel",
+          className: 'btn btn-primary mb-2 me-2',
+          // exportOptions: {
+          //   columns: [0,1,2,3,4,5,6,7,8]
+          // },
+        }
+      ]
+    }).container().appendTo($('#tombol'));
 
     // Filter event handler
     $(table.table().container()).on('keyup', 'thead:nth-child(2) input', function() {
