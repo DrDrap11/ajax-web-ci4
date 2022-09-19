@@ -63,7 +63,8 @@
                   <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle toggle-password"></span>
                 </span>              
               </div>
-              <div class="mb-3">
+            </div>
+            <div class="mb-3">
               <label for="InputForConfPassword" class="form-label">Konfirmasi Password</label>
               <div class="input-group input-group-flat">
                 <input type="password" name="confpassword" class="form-control" id="InputForConfPassword" placeholder="Konfirmasi Password"  autocomplete="off">

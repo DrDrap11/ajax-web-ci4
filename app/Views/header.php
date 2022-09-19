@@ -44,7 +44,7 @@
       background: rgba(76, 175, 80, 0); 
       background: -webkit-linear-gradient(white 0%, white 0%, white 0%);
       background: -moz-linear-gradient(white 0%, white 0%, white 0%);
-      background: -ms-linear-gradient(white 0%, white 0%, white 0%%);
+      background: -ms-linear-gradient(white 0%, white 0%, white 0%);
       background: -o-linear-gradient(white 0%, white 0%, white 0%);
       background: linear-gradient(to white 0%, white 0%, white 0%);
     }
@@ -126,6 +126,32 @@
             ICONPLUS
           </a>
         </h1>
+        <div class="collapse navbar-collapse" id="navbar-menu">
+            <div class="d-flex flex-column flex-md-row flex-fill align-items-stretch align-items-md-center">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="/data" >
+                    <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
+                      <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="5 12 3 12 12 3 21 12 19 12" /><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" /><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" /></svg>
+                    </span>
+                    <span class="nav-link-title">
+                      Data Survey
+                    </span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/olt" >
+                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="12 4 4 8 12 12 20 8 12 4" /><polyline points="4 12 12 16 20 12" /><polyline points="4 16 12 20 20 16" /></svg>
+                    </span>                    
+                    <span class="nav-link-title">
+                      OLT
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
         <div class="navbar-nav flex-row order-md-last">
           <a href="?theme=dark" class="nav-link px-0 hide-theme-dark" title="Enable dark mode" data-bs-toggle="tooltip" data-bs-placement="bottom">
             <!-- Download SVG icon from http://tabler-icons.io/i/moon -->
@@ -159,6 +185,7 @@
               <a href="http://localhost:8080/login/logout" class="dropdown-item">Logout</a>
             </div>
           </div>
+          
         </div>
       </div>
     </header>

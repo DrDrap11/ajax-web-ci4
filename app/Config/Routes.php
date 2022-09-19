@@ -49,6 +49,14 @@ $routes->set404Override();
  $routes->post('updateEmployee','Employee::updateEmployee',['as'=>'update.employee']);
  $routes->post('deleteData','Data::deleteData',['as'=>'delete.data']);
 
+ //Halaman daftar OLT
+ $routes->get('/olt', 'Olt::index',['filter' => 'auth']);
+ $routes->get('/AllOlt', 'Olt::getAllOlt',['filter' => 'auth']);
+ $routes->post('addOlt','Olt::addOlt',['as'=>'add.olt']);
+ $routes->post('deleteOlt','Olt::deleteOlt',['as'=>'delete.olt']);
+
+
+
  // Admin routes
 $routes->group("admin", ["filter" => "auth"], function ($routes) {
     $routes->get("/", "AdminController::index");
