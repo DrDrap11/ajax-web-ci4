@@ -82,19 +82,6 @@ class Olt extends Controller
         );
     }
 
-    //menampilkan data ke modal edit berdasarkan id 
-    // public function getEmployeeInfo()
-    // {
-    //     $employeeModel = new \App\Models\Employee_model();
-    //     $employeeId = $this->request->getPost('id');
-    //     $info = $employeeModel->find($employeeId);
-    //     if ($info) {
-    //         echo json_encode(['code' => 1, 'msg' => '', 'results' => $info]);
-    //     } else {
-    //         echo json_encode(['code' => 0, 'msg' => 'No results found', 'results' => null]);
-    //     }
-    // }
-
     public function deleteOlt()
     {
         $dataModel = new \App\Models\Olt_model();

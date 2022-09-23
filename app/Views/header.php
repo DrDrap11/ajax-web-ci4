@@ -29,6 +29,8 @@
   <link rel="stylesheet" href="https://unpkg.com/@tabler/icons@latest/iconfont/tabler-icons.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+  <link rel="shortcut icon" type="image/x-icon" href="/Assets/img/just_logo.jpg">
+
 
   <style>
     .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current{
@@ -123,7 +125,7 @@
         </button>
         <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
           <a href="./data" style="font-family: Aclonica; font-size: 23px; color: #206bc4; text-decoration: none;">
-            ICONPLUS
+            <img src="/Assets/img/rismon.png" alt="RISMON" width="110" height="32">
           </a>
         </h1>
         <div class="collapse navbar-collapse" id="navbar-menu">
