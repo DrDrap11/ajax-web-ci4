@@ -85,17 +85,37 @@ class Data extends Controller
             // );
             // $nameprov = $wilayahModel->getnamaprov($prov);
         $session = session();
-        //$user_id['user_id'] = $session->get('user_id');
+        // $user_id['user_id'] = $session->get('user_id');
         $user_id = $_SESSION['user_id'];
-        //$user_id = $_SESSION['user_id'];
         //$autoload['libraries'] = array('session');
-
-        //Insert data into db
+        $score = 0;
+        if( $this->request->getPost('izin') == 1)$score += 3;
+        if( $this->request->getPost('kompetitor') == 0)$score += 20;	
+        if( $this->request->getPost('kompetitor') == 1)$score += 10;		
+        if( $this->request->getPost('tiang') == 1)$score += 10;		
+        if( $this->request->getPost('operator') == 0)$score += 5;		
+        if( $this->request->getPost('jml_rumah') == 10)$score += 5;
+        if( $this->request->getPost('rmh_kosong') == 1)$score += 5;
+        if( $this->request->getPost('fasil') == 1)$score += 5;
+        if( $this->request->getPost('daya') == 2)$score += 5;
+        if( $this->request->getPost('daya') == 4 ||  $this->request->getPost('daya') == 10 ||  $this->request->getPost('daya') == 16)$score += 3;
+        if( $this->request->getPost('anak') == 1)$score += 4;
+        if( $this->request->getPost('kendaraan') == 1)$score += 9;
+        if( $this->request->getPost('ac') == 1)$score += 4;
+        if( $this->request->getPost('sampling_minat') == 1 || $this->request->getPost('sampling_minat_2') == 1 || $this->request->getPost('sampling_minat_3') == 1 ) $score += 20;
+        if( $this->request->getPost('bisnis') == 1)$score += 5;
+        
+    
+        if($score > 60){
+            $kelayakan = 1;
+        }else{
+            $kelayakan = 0;
+        }
 
         $array = [
             'user_id'   => $user_id,
         ];
-            //Insert data into db
+            
         $data = [
             'tipe_project'          => $this->request->getPost('tp_project'),
             'nama_cluster'          => $this->request->getPost('nama'),
@@ -135,8 +155,10 @@ class Data extends Controller
             'daftar_fat'            => $this->request->getPost('daftar_fat'),
             'ket'                   => $this->request->getPost('ket'),
             'nilai_roi'             => $this->request->getPost('roi'),
-            'score'                 => $this->request->getPost('score'),
-            'kelayakan'             => $this->request->getPost('layak'),
+            // 'score'                 => $this->request->getPost('score'),
+            // 'kelayakan'             => $this->request->getPost('layak'),
+            'score'                 => $score,
+            'kelayakan'             => $kelayakan,
             'status_drawing'        => $this->request->getPost('drawing'),
             'maps'                  => $this->request->getPost('maps'),
             'jml_fat_ploating'      => $this->request->getPost('ploating'),
@@ -145,7 +167,6 @@ class Data extends Controller
             'no_pa'                 => $this->request->getPost('no_pa'),
             'status_pembangunan'    => $this->request->getPost('stts_pembangunan'),
             'plan_pembangunan'      => $this->request->getPost('planbangun'),
-            
         ];
         
         $builder->set($array);
@@ -155,7 +176,7 @@ class Data extends Controller
         if ($query) {
             echo json_encode(['code' => 1, 'msg' => $user_id]);
         } else {
-            echo json_encode(['code' => 0, 'msg' => 'Data karyawan gagal ditambahkan']);
+            echo json_encode(['code' => 0, 'msg' => $score]);
         }
         
     }

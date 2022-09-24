@@ -713,12 +713,12 @@
                   <input type="number" class="form-control" id="roi" name="roi" step="0.1" min="0" max="100">
                   <span class="text-danger error-text roi_error"></span>
               </div>
-              <div class="form-group">
+              <!-- <div class="form-group">
                   <label for="score" class="col-form-label">Score</label>
                   <input type="number" class="form-control" id="score" name="score" min="0" max="100">
                   <span class="text-danger error-text score_error"></span>
-              </div>
-              <div class="form-group">
+              </div> -->
+              <!-- <div class="form-group">
                 <label for="layak" class="col-form-label">Kelayakan</label>
                 <div class="row">
                   <div class="col-lg-6 ">
@@ -748,7 +748,7 @@
                     </label>
                   </div>
                 </div>
-              </div>
+              </div> -->
               <h2 class="pt-4">Pembangunan</h2>
               <div class="form-group">
                   <label for="drawing" class="col-form-label">Status Drawing</label>
@@ -761,9 +761,9 @@
                   <span class="text-danger error-text drawing_error"></span>
               </div>
               <div class="form-group">
-                  <label for="score" class="col-form-label">Link Maps</label>
+                  <label for="maps" class="col-form-label">Link Maps</label>
                   <input type="text" class="form-control" id="maps" name="maps">
-                  <span class="text-danger error-text score_error"></span>
+                  <span class="text-danger error-text maps_error"></span>
               </div>
               <div class="form-group">
                   <label for="ploating" class="col-form-label">Jumlah FAT Ploating</label>
@@ -1570,12 +1570,12 @@
                     <input type="number" class="form-control" id="roi_edit" name="roi" step="0.1" min="0" max="100">
                     <span class="text-danger error-text roi_error"></span>
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="score" class="col-form-label">Score</label>
                     <input type="number" class="form-control" id="score_edit" name="score" min="0" max="100">
                     <span class="text-danger error-text score_error"></span>
-                </div>
-                <div class="form-group">
+                </div> -->
+                <!-- <div class="form-group">
                   <label for="layak_edit" class="col-form-label">Kelayakan</label>
                   <div class="row">
                     <div class="col-lg-6 ">
@@ -1605,7 +1605,7 @@
                       </label>
                     </div>
                   </div>
-                </div>
+                </div> -->
                 <h2 class="pt-4">Pembangunan</h2>
                 <div class="form-group">
                     <label for="drawing" class="col-form-label">Status Drawing <span style="color:red">*</span></label>
@@ -1627,9 +1627,9 @@
                     </div>  
                 </div>
                 <div class="form-group">
-                    <label for="score" class="col-form-label">Link Maps</label>
+                    <label for="maps" class="col-form-label">Link Maps</label>
                     <input type="text" class="form-control" id="maps_edit" name="maps">
-                    <span class="text-danger error-text score_error"></span>
+                    <span class="text-danger error-text maps_error"></span>
                 </div>
                 <div class="form-group">
                     <label for="ploating" class="col-form-label">Jumlah FAT Ploating</label>
