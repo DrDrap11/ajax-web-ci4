@@ -34,6 +34,7 @@
 <!-- Specific Page Vendor -->
 <!-- <script src="Assets/vendor/pnotify/pnotify.custom.js"></script> -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.17.2/dist/sweetalert2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.1/js/standalone/selectize.js"></script>
 
 
 </body>

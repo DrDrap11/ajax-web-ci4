@@ -1,6 +1,6 @@
 /*!
-* Tabler v1.0.0-beta5 (https://tabler.io)
-* @version 1.0.0-beta5
+* Tabler v1.0.0-beta12 (https://tabler.io)
+* @version 1.0.0-beta12
 * @link https://tabler.io
 * Copyright 2018-2022 The Tabler Authors
 * Copyright 2018-2022 codecalm.net Paweł Kuna
@@ -371,8 +371,8 @@
   background-image: url("../img/payments/worldpay-dark.svg"); }
 
 .payment-xs {
-  width: 2.083325rem;
-  height: 1.25rem; }
+  width: 2.49999rem;
+  height: 1.5rem; }
 
 .payment-sm {
   width: 3.33332rem;

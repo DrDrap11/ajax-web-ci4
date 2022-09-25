@@ -1,6 +1,6 @@
 <div class="container-fluid pt-5">
     <div id="tombol" class="btn-group">
-        <button id="tambah" class="btn btn-primary mb-2 me-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Tambah Data</button>
+        <button id="tambah" class="btn btn-primary mb-2 me-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Tambah</button>
         <button id="import" class="btn btn-outline-primary mb-2 me-2" data-bs-toggle="modal" data-bs-target="#importModal">Import Data</button>
     </div>
     <div class="card">
@@ -127,16 +127,6 @@
                   </tr>
                 </thead>
 
-                    <!-- <tfoot>
-                        <tr>
-                            <th>No.</th>
-                            <th>Nama Karyawan</th>
-                            <th>Usia</th>
-                            <th>Status Vaksin 1</th>
-                            <th>Status Vaksin 2</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </tfoot> -->
                 </table>
             </div>
         </div>
@@ -183,8 +173,8 @@
               <h2>Informasi Cluster</h2>
               <div class="form-group">
                 <label for="tp_project" class="col-form-label">Tipe Project</label>
-                <select class="form-control form-select" id="sel_tp_project" name="tp_project">
-                  <option style="color:#cbd5e1;" value="">---Pilih Tipe Project---</option>
+                <select class="form-select" id="tp_project" placeholder="Pilih Tipe Project" name="tp_project">
+                <option value="">---Pilih Tipe Project---</option>
                     <?php foreach($tipe_project as $tp){?>
                   <option value="<?php echo $tp->tp_id;?>"><?php echo $tp->tp_jenis;?></option>"
                     <?php }?>
@@ -207,7 +197,7 @@
               </div>
               <div class="form-group">
                   <label for="area" class="col-form-label">Area</label>
-                  <select class="form-control form-select" id="sel_area" name="area">
+                  <select class="form-control form-select" id="sel_area" placeholder="Pilih Area" name="area">
                     <option value="">---Pilih Area---</option>
                       <?php foreach($area as $areas){?>
                     <option value="<?php echo $areas->id_area;?>"><?php echo $areas->area_nama;?></option>"
@@ -216,8 +206,7 @@
               </div>
               <div class="form-group">
                   <label for="kota" class="col-form-label">Kabupaten/Kota</label>
-                  <select class="form-control form-select" id="sel_kota" name="kota">
-                    <option value="">---Pilih Kabupaten/Kota---</option>
+                  <select class="form-select sel-kota" id="sel_kota" placeholder="Pilih Kabupaten/Kota" name="kota">
                   </select>
               </div>                        
               <div class="form-group">
@@ -234,8 +223,8 @@
               </div>
               <div class="form-group">
                   <label for="olt" class="col-form-label">OLT</label>
-                  <select class="form-control form-select" name="olt">
-                    <option value="">---Pilih OLT---</option>
+                  <select type="text" class="form-select" id="sel_olt" placeholder="Pilih OLT" value="">
+                  <option value="">---Pilih OLT---</option>
                       <?php foreach($olt as $olts){?>
                     <option value="<?php echo $olts->olt_id;?>"><?php echo $olts->olt_nama;?></option>"
                       <?php }?>
@@ -713,12 +702,12 @@
                   <input type="number" class="form-control" id="roi" name="roi" step="0.1" min="0" max="100">
                   <span class="text-danger error-text roi_error"></span>
               </div>
-              <!-- <div class="form-group">
+              <div class="form-group">
                   <label for="score" class="col-form-label">Score</label>
                   <input type="number" class="form-control" id="score" name="score" min="0" max="100">
                   <span class="text-danger error-text score_error"></span>
-              </div> -->
-              <!-- <div class="form-group">
+              </div>
+              <div class="form-group">
                 <label for="layak" class="col-form-label">Kelayakan</label>
                 <div class="row">
                   <div class="col-lg-6 ">
@@ -748,7 +737,7 @@
                     </label>
                   </div>
                 </div>
-              </div> -->
+              </div>
               <h2 class="pt-4">Pembangunan</h2>
               <div class="form-group">
                   <label for="drawing" class="col-form-label">Status Drawing</label>
@@ -761,9 +750,9 @@
                   <span class="text-danger error-text drawing_error"></span>
               </div>
               <div class="form-group">
-                  <label for="maps" class="col-form-label">Link Maps</label>
+                  <label for="score" class="col-form-label">Link Maps</label>
                   <input type="text" class="form-control" id="maps" name="maps">
-                  <span class="text-danger error-text maps_error"></span>
+                  <span class="text-danger error-text score_error"></span>
               </div>
               <div class="form-group">
                   <label for="ploating" class="col-form-label">Jumlah FAT Ploating</label>
@@ -908,7 +897,7 @@
                       <span class="text-danger error-text area_error"></span>
                     </div>
                     <div class="col-lg-6 ">
-                      <select class="form-control form-select" id="sel_area_edit" name="area">
+                      <select class="form-control form-select" id="sel_area_edit" placeholder="" name="area">
                         <option value="">---Pilih Area---</option>
                           <?php foreach($area as $areas){?>
                         <option value="<?php echo $areas->id_area;?>"><?php echo $areas->area_nama;?></option>"
@@ -1570,12 +1559,12 @@
                     <input type="number" class="form-control" id="roi_edit" name="roi" step="0.1" min="0" max="100">
                     <span class="text-danger error-text roi_error"></span>
                 </div>
-                <!-- <div class="form-group">
+                <div class="form-group">
                     <label for="score" class="col-form-label">Score</label>
                     <input type="number" class="form-control" id="score_edit" name="score" min="0" max="100">
                     <span class="text-danger error-text score_error"></span>
-                </div> -->
-                <!-- <div class="form-group">
+                </div>
+                <div class="form-group">
                   <label for="layak_edit" class="col-form-label">Kelayakan</label>
                   <div class="row">
                     <div class="col-lg-6 ">
@@ -1605,7 +1594,7 @@
                       </label>
                     </div>
                   </div>
-                </div> -->
+                </div>
                 <h2 class="pt-4">Pembangunan</h2>
                 <div class="form-group">
                     <label for="drawing" class="col-form-label">Status Drawing <span style="color:red">*</span></label>
@@ -1627,9 +1616,9 @@
                     </div>  
                 </div>
                 <div class="form-group">
-                    <label for="maps" class="col-form-label">Link Maps</label>
+                    <label for="score" class="col-form-label">Link Maps</label>
                     <input type="text" class="form-control" id="maps_edit" name="maps">
-                    <span class="text-danger error-text maps_error"></span>
+                    <span class="text-danger error-text score_error"></span>
                 </div>
                 <div class="form-group">
                     <label for="ploating" class="col-form-label">Jumlah FAT Ploating</label>
@@ -1759,11 +1748,139 @@
   // @formatter:on
 </script>
 
+<!-- SEARCH DROPDOWN -->
+<script src="Assets/js/tom-select/tom-select.base.min.js" defer></script>
+<script>
+  // @formatter:off
+  //select area form tambah
+  document.addEventListener("DOMContentLoaded", function () {
+    var el;
+    window.TomSelect && (new TomSelect(el = document.getElementById('sel_area'), {
+      copyClassesToDropdown: false,
+      dropdownClass: 'dropdown-menu ts-dropdown',
+      optionClass:'dropdown-item',
+      controlInput: '<input>',
+      render:{
+        item: function(data,escape) {
+          if( data.customProperties ){
+            return '<div><span class="dropdown-item-indicator">' + data.customProperties + '</span>' + escape(data.text) + '</div>';
+          }
+          return '<div>' + escape(data.text) + '</div>';
+        },
+        option: function(data,escape){
+          if( data.customProperties ){
+            return '<div><span class="dropdown-item-indicator">' + data.customProperties + '</span>' + escape(data.text) + '</div>';
+          }
+          return '<div>' + escape(data.text) + '</div>';
+        },
+      },
+    }));
+  });
+  
+  //select area form tambah
+  document.addEventListener("DOMContentLoaded", function () {
+    var el;
+    window.TomSelect && (new TomSelect(el = document.getElementById('sel_area_edit'), {
+      copyClassesToDropdown: false,
+      dropdownClass: 'dropdown-menu ts-dropdown',
+      optionClass:'dropdown-item',
+      controlInput: '<input>',
+      render:{
+        item: function(data,escape) {
+          if( data.customProperties ){
+            return '<div><span class="dropdown-item-indicator">' + data.customProperties + '</span>' + escape(data.text) + '</div>';
+          }
+          return '<div>' + escape(data.text) + '</div>';
+        },
+        option: function(data,escape){
+          if( data.customProperties ){
+            return '<div><span class="dropdown-item-indicator">' + data.customProperties + '</span>' + escape(data.text) + '</div>';
+          }
+          return '<div>' + escape(data.text) + '</div>';
+        },
+      },
+    }));
+  });
+  // document.addEventListener("DOMContentLoaded", function () {
+  //   var el;
+  //   window.TomSelect && (new TomSelect(el = document.getElementById('sel_kota'), {
+  //     copyClassesToDropdown: false,
+  //     dropdownClass: 'dropdown-menu ts-dropdown',
+  //     optionClass:'dropdown-item',
+  //     controlInput: '<input>',
+  //     render:{
+  //       item: function(data,escape) {
+  //         if( data.customProperties ){
+  //           return '<div><span class="dropdown-item-indicator">' + data.customProperties + '</span>' + escape(data.text) + '</div>';
+  //         }
+  //         return '<div>' + escape(data.text) + '</div>';
+  //       },
+  //       option: function(data,escape){
+  //         if( data.customProperties ){
+  //           return '<div><span class="dropdown-item-indicator">' + data.customProperties + '</span>' + escape(data.text) + '</div>';
+  //         }
+  //         return '<div>' + escape(data.text) + '</div>';
+  //       },
+  //     },
+  //   }));
+  // });
+  // select olt form tambah
+  document.addEventListener("DOMContentLoaded", function () {
+    var el;
+    window.TomSelect && (new TomSelect(el = document.getElementById('sel_olt'), {
+      copyClassesToDropdown: false,
+      dropdownClass: 'dropdown-menu ts-dropdown',
+      optionClass:'dropdown-item',
+      controlInput: '<input>',
+      render:{
+        item: function(data,escape) {
+          if( data.customProperties ){
+            return '<div><span class="dropdown-item-indicator">' + data.customProperties + '</span>' + escape(data.text) + '</div>';
+          }
+          return '<div>' + escape(data.text) + '</div>';
+        },
+        option: function(data,escape){
+          if( data.customProperties ){
+            return '<div><span class="dropdown-item-indicator">' + data.customProperties + '</span>' + escape(data.text) + '</div>';
+          }
+          return '<div>' + escape(data.text) + '</div>';
+        },
+      },
+    }));
+  });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    var el;
+    window.TomSelect && (new TomSelect(el = document.getElementById('sel_olt_edit'), {
+      copyClassesToDropdown: false,
+      dropdownClass: 'dropdown-menu ts-dropdown',
+      optionClass:'dropdown-item',
+      controlInput: '<input>',
+      render:{
+        item: function(data,escape) {
+          if( data.customProperties ){
+            return '<div><span class="dropdown-item-indicator">' + data.customProperties + '</span>' + escape(data.text) + '</div>';
+          }
+          return '<div>' + escape(data.text) + '</div>';
+        },
+        option: function(data,escape){
+          if( data.customProperties ){
+            return '<div><span class="dropdown-item-indicator">' + data.customProperties + '</span>' + escape(data.text) + '</div>';
+          }
+          return '<div>' + escape(data.text) + '</div>';
+        },
+      },
+    }));
+  });
+  // @formatter:on
+</script>
+
 <script>
   $(document).ready(function() {
 
     $('#add-data-form').submit(function(e) {
       e.preventDefault();
+      // $('.form-select').select2();
       var form = this;
       $.ajax({
         url: $(form).attr('action'),
@@ -1887,28 +2004,7 @@
       "serverSide": true,
       "ajax": "getAllData",
       "dom": "lfrtp",
-      // buttons: [
-      //   // {
-      //     // extend: "collection",
-      //     // text: "Export",
-      //     // buttons: [
-      //       {
-      //         extend: 'csv',
-      //         text: "Export CSV",
-      //         // exportOptions: {
-      //         //   columns: [0,1,2,3,4,5,6,7,8,9]
-      //         // },
-      //       },
-      //       {
-      //         extend: 'excel',
-      //         text: "Export Excel",
-      //         // exportOptions: {
-      //         //   columns: [0,1,2,3,4,5,6,7,8]
-      //         // },
-      //       }
-      //     // ]
-      //   // }
-      // ],
+      
       stateSave: true,
       info: true,
       "iDisplayLength": 10,
@@ -2182,15 +2278,11 @@
       $.ajax({
         method: "post",
         url: "data/update",
-        // data: (id_kota != "") ? data1 : data2,
         data: {
           'edit_id': $('#edit_id').val(),
           'tipe_project': ($('#sel_tp_edit').val() != "") ? $('#sel_tp_edit').val() : $('#tp_id').val(),
           'nama_cluster': $('#nama_edit').val(),
           'tipe_cluster': ($('#sel_tc_edit').val() != "") ? $('#sel_tc_edit').val() : $('#tc_id').val(),
-          // 'area': ($('#sel_area_edit').val() != "") ? $('#sel_area_edit').val() : $('#area_edit').val(),
-          // 'kota': ($('#sel_kota_edit').val() != "") ? $('#sel_kota_edit').val() : $('#kota_edit').val(),
-          // 'kec': ($('#sel_kec_edit').val() != "") ? $('#sel_kec_edit').val() : $('#kec_edit').val(),
           'desa': ($('#sel_desa_edit').val() != "") ? $('#sel_desa_edit').val() : $('#desa_id').val(),
           'olt': ($('#sel_olt_edit').val() != "") ? $('#sel_olt_edit').val() : $('#olt_id').val(),
           'longi_lati': $('#ll_edit').val(),
@@ -2240,10 +2332,7 @@
         success: function(response) {
           if (response.status == "Data berhasil diupdate") {
             $('#editModal').modal('hide');
-            // $('#tableData').html("");
-            // display();
             $('#tabel').DataTable().ajax.reload(null, false);
-            // $('#editModal')[0].reset();
 
             swal.fire("Berhasil", response.status, "success");
           } else {
@@ -2292,7 +2381,6 @@
 
     $(document).on('click', '.btn-ubah', function(e) {
       e.preventDefault();
-      // var id = $(this).attr('data-id');
       var data = {
         'edit_user': $('#edit_prof').val(),
         'user_name': $('#name').val(),
@@ -2305,9 +2393,7 @@
         data: data,
         success: function(response) {
           if (response.status == "Data berhasil diupdate") {
-            // $('#editModal').modal('hide');
-            // $('#tableData').html("");
-            // display();
+           
             $('#tabel').DataTable().ajax.reload(null, false);
 
             swal.fire("Berhasil", "profil berhasil diubah", "success");

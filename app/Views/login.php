@@ -12,7 +12,7 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>ICONNET</title>
+    <title>RISMON</title>
     <!-- CSS files -->
     <link href="/Assets/css/tabler.min.css" rel="stylesheet"/>
     <link href="/Assets/css/tabler-flags.min.css" rel="stylesheet"/>
@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="https://unpkg.com/@tabler/icons@latest/iconfont/tabler-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/Assets/img/logo.png">
 
 
     <style>
