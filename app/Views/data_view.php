@@ -1,7 +1,7 @@
 <div class="container-fluid pt-5">
     <div id="tombol" class="btn-group">
         <button id="tambah" class="btn btn-primary mb-2 me-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Tambah</button>
-        <button id="import" class="btn btn-outline-primary mb-2 me-2" data-bs-toggle="modal" data-bs-target="#importModal">Import Data</button>
+        <button id="import" class="btn btn-outline-primary mb-2 me-2" data-bs-toggle="modal" data-bs-target="#importModal">Import</button>
     </div>
     <div class="card">
         <div class="card-header bg-primary text-white">
@@ -1665,7 +1665,7 @@
                 <div class="form-group">
                   <label for="planbangun_edit" class="col-form-label">Plan Pembangunan</label>
                   <div class="input-icon mb-2">
-                    <input type="date" class="form-control form-select" id="planbangun_edit" name="planbangun_edit" placeholder="Pilih Tanggal"/>
+                    <input type="date" class="form-control" id="planbangun_edit" name="planbangun_edit" placeholder="Pilih Tanggal"/>
                     
                   </div>
                 </div>
@@ -2123,11 +2123,11 @@
               $('input[name=bisnis_edit][value=0]').prop('checked', 'checked'); 
             }
             $('#peminat_edit').val(value['jumlah_peminat']);
-            $('#harga_edit').val(value['sh_jenis']);
-            $('#inet_edit').val(value['sn_jenis']);
+            $('#harga_edit').val(value['sh_jenis1']);
+            $('#inet_edit').val(value['sn_jenis1']);
             $('#perangkat_edit').val(value['jml_perangkat']);
-            $('#budget_edit').val(value['sb_jenis']);
-            $('#minat_edit').val(value['sm_jenis']);
+            $('#budget_edit').val(value['sb_jenis1']);
+            $('#minat_edit').val(value['sm_jenis1']);
             $('#harga_edit2').val(value['sh_jenis2']);
             $('#inet_edit2').val(value['sn_jenis2']);
             $('#perangkat_edit2').val(value['jml_perangkat_2']);

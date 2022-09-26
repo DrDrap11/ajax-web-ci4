@@ -29,9 +29,10 @@ class Data_model extends Model
     {
         
         $builder = $this->db->table($this->table);
-        $builder->select('*, sh2.sh_jenis AS sh_jenis2, sn2.sn_jenis AS sn_jenis2, sb2.sb_jenis AS sb_jenis2, 
-                            sm2.sm_jenis AS sm_jenis2, sh3.sh_jenis AS sh_jenis3, sn3.sn_jenis AS sn_jenis3, 
-                            sb3.sb_jenis AS sb_jenis3, sm3.sm_jenis AS sm_jenis3');
+        $builder->select('*, sh.sh_jenis AS sh_jenis1, sn.sn_jenis AS sn_jenis1, sb.sb_jenis AS sb_jenis1, 
+                            sm.sm_jenis AS sm_jenis1, sh2.sh_jenis AS sh_jenis2, sn2.sn_jenis AS sn_jenis2, 
+                            sb2.sb_jenis AS sb_jenis2, sm2.sm_jenis AS sm_jenis2, sh3.sh_jenis AS sh_jenis3, 
+                            sn3.sn_jenis AS sn_jenis3, sb3.sb_jenis AS sb_jenis3, sm3.sm_jenis AS sm_jenis3');
         $builder->join('tipe_project', 'tipe_project.tp_id = data.tipe_project', 'LEFT');
         $builder->join('tipe_cluster', 'tipe_cluster.tc_id = data.tipe_cluster', 'LEFT');
         $builder->join('villages', 'villages.id_desa = data.kelurahan', 'LEFT');
