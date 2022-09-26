@@ -261,7 +261,7 @@ class Data extends Controller
             data.ac, IF(data.ac = 1, 'Ada', 'Tidak Ada') AS airc,
             data.internet_bisnis, IF(data.internet_bisnis = 1, 'Ada', 'Tidak Ada') AS ib,
             data.kelayakan, IF(data.kelayakan = 1, 'Layak', 'Tidak Layak') AS layak,
-            data.approval, IF(data.approval = 2, 'Setuju', IF(data.approval = 1, 'Tidak Setuju', '')) AS approv
+            data.approval, IF(data.approval = 1, 'Setuju', 'Tidak Setuju') AS approv
             FROM data
             LEFT JOIN villages ON villages.id_desa = data.kelurahan
             LEFT JOIN districts ON districts.id_kec = villages.district_id
@@ -443,6 +443,29 @@ class Data extends Controller
         //     $errors = $validation->getErrors();
         //     echo json_encode(['code' => 0, 'error' => $errors]);
         // } else {
+        $score = 0;
+        if( $this->request->getPost('izin') == 1)$score += 3;
+        if( $this->request->getPost('kompetitor') == 0)$score += 20;	
+        if( $this->request->getPost('kompetitor') == 1)$score += 10;		
+        if( $this->request->getPost('tiang_listrik') == 1)$score += 10;		
+        if( $this->request->getPost('operator') == 0)$score += 5;		
+        if( $this->request->getPost('jumlah_rumah') == 10)$score += 5;
+        if( $this->request->getPost('rumah_kosong') == 1)$score += 5;
+        if( $this->request->getPost('fasil_umum') == 1)$score += 5;
+        if( $this->request->getPost('rata_daya') == 2)$score += 5;
+        if( $this->request->getPost('rata_daya') == 4 ||  $this->request->getPost('rata_daya') == 10 ||  $this->request->getPost('rata_daya') == 16)$score += 3;
+        if( $this->request->getPost('anak_kecil') == 1)$score += 4;
+        if( $this->request->getPost('kendaraan') == 1)$score += 9;
+        if( $this->request->getPost('ac') == 1)$score += 4;
+        if( $this->request->getPost('sampling_minat') == 1 || $this->request->getPost('sampling_minat_2') == 1 || $this->request->getPost('sampling_minat_3') == 1 ) $score += 20;
+        if( $this->request->getPost('internet_bisnis') == 1)$score += 5;
+        
+    
+        if($score > 60){
+            $kelayakan = 1;
+        }else{
+            $kelayakan = 0;
+        }
             $id = $this->request->getPost("edit_id");
             $data = [
                 'tipe_project'          => $this->request->getPost('tipe_project'),
@@ -483,8 +506,8 @@ class Data extends Controller
                 'daftar_fat'            => $this->request->getPost('daftar_fat'),
                 'ket'                   => $this->request->getPost('ket'),
                 'nilai_roi'             => $this->request->getPost('nilai_roi'),
-                'score'                 => $this->request->getPost('score'),
-                'kelayakan'             => $this->request->getPost('kelayakan'),
+                'score'                 => $score,
+                'kelayakan'             => $kelayakan,
                 'status_drawing'        => $this->request->getPost('status_drawing'),
                 'maps'                  => $this->request->getPost('maps'),
                 'jml_fat_ploating'      => $this->request->getPost('jml_fat_ploating'),

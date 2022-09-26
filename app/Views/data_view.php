@@ -206,8 +206,9 @@
               </div>
               <div class="form-group">
                   <label for="kota" class="col-form-label">Kabupaten/Kota</label>
-                  <select class="form-select sel-kota" id="sel_kota" placeholder="Pilih Kabupaten/Kota" name="kota">
-                  </select>
+                  <select class="form-control form-select sel-kota" id="sel_kota" placeholder="Pilih Kabupaten/Kota" name="kota">
+                    <option value="">---Pilih Kota---</option>
+                </select>
               </div>                        
               <div class="form-group">
                   <label for="kecamatan" class="col-form-label">Kecamatan</label>
@@ -223,7 +224,7 @@
               </div>
               <div class="form-group">
                   <label for="olt" class="col-form-label">OLT</label>
-                  <select type="text" class="form-select" id="sel_olt" placeholder="Pilih OLT" value="">
+                  <select type="text" class="form-select" name="olt" id="sel_olt" placeholder="Pilih OLT" value="">
                   <option value="">---Pilih OLT---</option>
                       <?php foreach($olt as $olts){?>
                     <option value="<?php echo $olts->olt_id;?>"><?php echo $olts->olt_nama;?></option>"
@@ -702,12 +703,12 @@
                   <input type="number" class="form-control" id="roi" name="roi" step="0.1" min="0" max="100">
                   <span class="text-danger error-text roi_error"></span>
               </div>
-              <div class="form-group">
+              <!-- <div class="form-group">
                   <label for="score" class="col-form-label">Score</label>
                   <input type="number" class="form-control" id="score" name="score" min="0" max="100">
                   <span class="text-danger error-text score_error"></span>
-              </div>
-              <div class="form-group">
+              </div> -->
+              <!-- <div class="form-group">
                 <label for="layak" class="col-form-label">Kelayakan</label>
                 <div class="row">
                   <div class="col-lg-6 ">
@@ -737,7 +738,7 @@
                     </label>
                   </div>
                 </div>
-              </div>
+              </div> -->
               <h2 class="pt-4">Pembangunan</h2>
               <div class="form-group">
                   <label for="drawing" class="col-form-label">Status Drawing</label>
@@ -750,9 +751,9 @@
                   <span class="text-danger error-text drawing_error"></span>
               </div>
               <div class="form-group">
-                  <label for="score" class="col-form-label">Link Maps</label>
+                  <label for="maps" class="col-form-label">Link Maps</label>
                   <input type="text" class="form-control" id="maps" name="maps">
-                  <span class="text-danger error-text score_error"></span>
+                  <span class="text-danger error-text maps_error"></span>
               </div>
               <div class="form-group">
                   <label for="ploating" class="col-form-label">Jumlah FAT Ploating</label>
@@ -769,7 +770,7 @@
                 <div class="row">
                   <div class="col-lg-6 ">
                     <label class="form-selectgroup-item flex-fill">
-                      <input type="radio" name="approval" id="approval1" value="2" class="form-selectgroup-input" >
+                      <input type="radio" name="approval" id="approval1" value="1" class="form-selectgroup-input" >
                       <div class="form-selectgroup-label d-flex align-items-center">
                         <div class="me-4">
                           <span class="form-selectgroup-check"></span>
@@ -782,7 +783,7 @@
                   </div>
                   <div class="col-lg-6 ">
                     <label class="form-selectgroup-item flex-fill">
-                      <input type="radio" name="approval" id="approval2" value="1" class="form-selectgroup-input">
+                      <input type="radio" name="approval" id="approval2" value="0" class="form-selectgroup-input">
                       <div class="form-selectgroup-label d-flex align-items-center">
                         <div class="me-4">
                           <span class="form-selectgroup-check"></span>
@@ -794,12 +795,12 @@
                     </label>
                   </div>
                 </div>
-                <input type="hidden" name="approval" value="0">
+                <!-- <input type="hidden" name="approval" value="0"> -->
               </div>
               <div class="form-group">
                 <label for="planbangun" class="col-form-label">Plan Pembangunan</label>
                 <div class="input-icon mb-2">
-                  <input type="date" class="form-control"  name="planbangun" placeholder="Select a date" id="datepicker-icon"/>
+                  <input type="date" class="form-control" id="planbangun" name="planbangun" min="1997-01-01" max="2030-12-31"/>
                 </div>
               </div>
               <div class="form-group">
@@ -1559,12 +1560,12 @@
                     <input type="number" class="form-control" id="roi_edit" name="roi" step="0.1" min="0" max="100">
                     <span class="text-danger error-text roi_error"></span>
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="score" class="col-form-label">Score</label>
                     <input type="number" class="form-control" id="score_edit" name="score" min="0" max="100">
                     <span class="text-danger error-text score_error"></span>
-                </div>
-                <div class="form-group">
+                </div> -->
+                <!-- <div class="form-group">
                   <label for="layak_edit" class="col-form-label">Kelayakan</label>
                   <div class="row">
                     <div class="col-lg-6 ">
@@ -1594,7 +1595,7 @@
                       </label>
                     </div>
                   </div>
-                </div>
+                </div> -->
                 <h2 class="pt-4">Pembangunan</h2>
                 <div class="form-group">
                     <label for="drawing" class="col-form-label">Status Drawing <span style="color:red">*</span></label>
@@ -1616,9 +1617,9 @@
                     </div>  
                 </div>
                 <div class="form-group">
-                    <label for="score" class="col-form-label">Link Maps</label>
+                    <label for="maps" class="col-form-label">Link Maps</label>
                     <input type="text" class="form-control" id="maps_edit" name="maps">
-                    <span class="text-danger error-text score_error"></span>
+                    <span class="text-danger error-text maps_error"></span>
                 </div>
                 <div class="form-group">
                     <label for="ploating" class="col-form-label">Jumlah FAT Ploating</label>
@@ -1664,7 +1665,7 @@
                 <div class="form-group">
                   <label for="planbangun_edit" class="col-form-label">Plan Pembangunan</label>
                   <div class="input-icon mb-2">
-                    <input type="date" class="form-control form-select"  name="planbangun_edit" placeholder="Pilih Tanggal" id="datepicker-icon-edit" readonly/>
+                    <input type="date" class="form-control form-select" id="planbangun_edit" name="planbangun_edit" placeholder="Pilih Tanggal"/>
                     
                   </div>
                 </div>
@@ -2185,7 +2186,7 @@
             $('#daftar_fat_edit').val(value['daftar_fat']);
             $('#ket_id').val(value['ket']);
             $('#roi_edit').val(value['nilai_roi']);
-            $('#score_edit').val(value['score']);
+            // $('#score_edit').val(value['score']);
             if(layak == 1) {
               $('input[name=layak_edit][value=1]').prop('checked', 'checked');
             } else if(layak == 0){
@@ -2202,7 +2203,7 @@
             $('#home_pass_edit').val(value['home_pass']);
             $('#no_pa_edit').val(value['no_pa']);
             $('#stts_bangun_edit').val(value['sp_jenis']);
-            $('#datepicker-icon-edit').val(value['plan_pembangunan']);
+            $('#planbangun_edit').val(value['plan_pembangunan']);
             $('#editModal').modal('show');
           });
         }
@@ -2318,7 +2319,7 @@
           'daftar_fat': $('#daftar_fat_edit').val(),
           'ket': $('#ket_edit').val(),
           'nilai_roi': $('#roi_edit').val(),
-          'score': $('#score_edit').val(),
+          // 'score': $('#score_edit').val(),
           'kelayakan': $("input[name='layak_edit']:checked").val(),
           'status_drawing': ($('#sel_draw_edit').val() != "") ? $('#sel_draw_edit').val() : $('#draw_id').val(),
           'maps': $('#maps_edit').val(),
@@ -2327,7 +2328,7 @@
           'approval': $("input[name='approval_edit']:checked").val(),
           'no_pa': $('#no_pa_edit').val(),
           'status_pembangunan': ($('#sel_stts_bangun_edit').val() != "") ? $('#sel_stts_bangun_edit').val() : $('#stts_bangun_id').val(),
-          'plan_pembangunan': $('#datepicker-icon-edit').val(),
+          'plan_pembangunan': $('#planbangun_edit').val(),
         },
         success: function(response) {
           if (response.status == "Data berhasil diupdate") {

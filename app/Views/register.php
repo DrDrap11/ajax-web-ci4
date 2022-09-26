@@ -12,7 +12,7 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>ICONNET</title>
+    <title>RISMON</title>
     <!-- CSS files -->
     <link href="/Assets/css/tabler.min.css" rel="stylesheet"/>
     <link href="/Assets/css/tabler-flags.min.css" rel="stylesheet"/>
@@ -21,6 +21,7 @@
     <link href="/Assets/css/demo.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://unpkg.com/@tabler/icons@latest/iconfont/tabler-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/Assets/img/logo.png">
     <style>
       .field-icon {
         float: right;
@@ -38,7 +39,7 @@
       <div class="container-tight py-4">
         <div class="text-center mb-4">
           <a href="#" style="font-family: Aclonica; font-size: 23px; color: #206bc4; text-decoration: none">
-          <img src="/Assets/img/rismon_2.png" alt="RISMON">
+          <img src="/Assets/img/rismon_2.png" alt="RISMON" width="231" height="85">
           </a>
         </div>
         <?php if(isset($validation)):?>
