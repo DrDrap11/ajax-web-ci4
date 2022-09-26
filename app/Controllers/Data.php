@@ -34,10 +34,6 @@ class Data extends Controller
         $data['status_drawing'] = $model->get_status_drawing();
         $data['status_pembangunan'] = $model->get_status_pembangunan();
 
-        // $model = new Employee_model;
-        // $data['title']     = 'Data Vaksin Karyawan';
-        // $data['getKaryawan'] = $model->getKaryawan();
-
         echo view('header', $uname);
         echo view('data_view', $data);
         echo view('footer');
@@ -50,61 +46,39 @@ class Data extends Controller
         $db      = \Config\Database::connect();
         $builder = $db->table('data');
 
-        $validation = \Config\Services::validation();
-        // $this->validate([
-        //     'nama_karyawan' => [
-        //         'rules' => 'required|max_length[50]',
-        //         'errors' => [
-        //             'required' => 'Nama Karyawan is required',
-        //             'max_length' => 'Your name is too long'
-        //         ]
-        //     ],
-        //     'usia' => [
-        //         'rules' => 'required|integer|greater_than_equal_to[10]|less_than_equal_to[100]',
-        //         'errors' => [
-        //             'required' => 'Usia is required',
-        //         ]
-        //     ],
-        //     'status_vaksin_1' => [
-        //         'rules' => 'required',
-        //         'errors' => [
-        //             'required' => 'Status Vaksin 1 is required'
-        //         ]
-        //     ],
-        //     'status_vaksin_2' => [
-        //         'rules' => 'required',
-        //         'errors' => [
-        //             'required' => 'Status Vaksin 2 is required'
-        //         ]
-        //     ]
-        // ]);
-
-        
-            // $prov = array(
-            //     'prov' => $this->request->getPost('prov'),
-            // );
-            // $nameprov = $wilayahModel->getnamaprov($prov);
         $session = session();
-        // $user_id['user_id'] = $session->get('user_id');
         $user_id = $_SESSION['user_id'];
-        //$autoload['libraries'] = array('session');
         $score = 0;
         if( $this->request->getPost('izin') == 1)$score += 3;
         if( $this->request->getPost('kompetitor') == 0)$score += 20;	
         if( $this->request->getPost('kompetitor') == 1)$score += 10;		
         if( $this->request->getPost('tiang') == 1)$score += 10;		
         if( $this->request->getPost('operator') == 0)$score += 5;		
-        if( $this->request->getPost('jml_rumah') == 10)$score += 5;
+        if( $this->request->getPost('jml_rumah') >= 100)$score += 5;
+        if( $this->request->getPost('jml_rumah') < 100 && $this->request->getPost('jml_rumah') >= 20)$score += 2;
         if( $this->request->getPost('rmh_kosong') == 1)$score += 5;
         if( $this->request->getPost('fasil') == 1)$score += 5;
-        if( $this->request->getPost('daya') == 2)$score += 5;
-        if( $this->request->getPost('daya') == 4 ||  $this->request->getPost('daya') == 10 ||  $this->request->getPost('daya') == 16)$score += 3;
+        if( $this->request->getPost('daya') == 2 || $this->request->getPost('daya') == 8)$score += 5;
+        if( $this->request->getPost('daya') == 3 || $this->request->getPost('daya') == 9)$score += 3;
         if( $this->request->getPost('anak') == 1)$score += 4;
         if( $this->request->getPost('kendaraan') == 1)$score += 9;
         if( $this->request->getPost('ac') == 1)$score += 4;
-        if( $this->request->getPost('sampling_minat') == 1 || $this->request->getPost('sampling_minat_2') == 1 || $this->request->getPost('sampling_minat_3') == 1 ) $score += 20;
+        if( $this->request->getPost('budget') == 3)$score += 5;
+        if( $this->request->getPost('budget') == 4 || $this->request->getPost('budget') == 5)$score += 10;
+        if( $this->request->getPost('budget2') == 3)$score += 5;
+        if( $this->request->getPost('budget2') == 4 || $this->request->getPost('budget2') == 5)$score += 10;
+        if( $this->request->getPost('budget3') == 3)$score += 5;
+        if( $this->request->getPost('budget3') == 4 || $this->request->getPost('budget3') == 5)$score += 10;
+        if( $this->request->getPost('harga') == 3 || $this->request->getPost('harga') == 4 || $this->request->getPost('harga') == 5)$score += 5;
+        if( $this->request->getPost('harga2') == 3 || $this->request->getPost('harga2') == 4 || $this->request->getPost('harga2') == 5)$score += 5;
+        if( $this->request->getPost('harga3') == 3 || $this->request->getPost('harga3') == 4 || $this->request->getPost('harga3') == 5)$score += 5;
+        if( $this->request->getPost('minat') == 1)$score += 10;
+        if( $this->request->getPost('minat') == 2)$score += 5;
+        if( $this->request->getPost('minat2') == 1)$score += 10;
+        if( $this->request->getPost('minat2') == 2)$score += 5;
+        if( $this->request->getPost('minat3') == 1 )$score += 10;
+        if( $this->request->getPost('minat3') == 2)$score += 5;
         if( $this->request->getPost('bisnis') == 1)$score += 5;
-        
     
         if($score > 60){
             $kelayakan = 1;
@@ -155,8 +129,6 @@ class Data extends Controller
             'daftar_fat'            => $this->request->getPost('daftar_fat'),
             'ket'                   => $this->request->getPost('ket'),
             'nilai_roi'             => $this->request->getPost('roi'),
-            // 'score'                 => $this->request->getPost('score'),
-            // 'kelayakan'             => $this->request->getPost('layak'),
             'score'                 => $score,
             'kelayakan'             => $kelayakan,
             'status_drawing'        => $this->request->getPost('drawing'),
@@ -233,7 +205,6 @@ class Data extends Controller
             "db" => $this->db->database,
         );
 
-        // $table = "employees"; //langsung dr tabel employees
         $table = <<<EOT
         (
             SELECT data.id, data.user_id, data.tipe_project, data.nama_cluster, data.tipe_cluster, data.kelurahan,
@@ -369,19 +340,6 @@ class Data extends Controller
         }
     }
 
-    //menampilkan data ke modal edit berdasarkan id 
-    // public function getEmployeeInfo()
-    // {
-    //     $employeeModel = new \App\Models\Employee_model();
-    //     $employeeId = $this->request->getPost('id');
-    //     $info = $employeeModel->find($employeeId);
-    //     if ($info) {
-    //         echo json_encode(['code' => 1, 'msg' => '', 'results' => $info]);
-    //     } else {
-    //         echo json_encode(['code' => 0, 'msg' => 'No results found', 'results' => null]);
-    //     }
-    // }
-
     public function deleteData()
     {
         $dataModel = new \App\Models\Data_model();
@@ -401,63 +359,43 @@ class Data extends Controller
         $id = $this->request->getPost("edit_id");
 
         $data['data'] = $model->getData($id);
-        // echo json_encode($data);
-        // $data['employee'] = $model->getEmployee($id)->getResult();
         return $this->response->setJSON($data);
-        // var_dump($data);
     }
 
     public function update()
     {
-        $validation = \Config\Services::validation();
         $model = new Data_model;
 
-        // $this->validate([
-        //     'nama_karyawan' => [
-        //         'rules' => 'required|max_length[50]',
-        //         'errors' => [
-        //             'required' => 'Nama Karyawan is required'
-        //         ]
-        //     ],
-        //     'usia' => [
-        //         'rules' => 'required|integer|greater_than_equal_to[10]|less_than_equal_to[100]',
-        //         'errors' => [
-        //             'required' => 'Usia is required'
-        //         ]
-        //     ],
-        //     'status_vaksin_1' => [
-        //         'rules' => 'required',
-        //         'errors' => [
-        //             'required' => 'Status Vaksin 1 is required'
-        //         ]
-        //     ],
-        //     'status_vaksin_2' => [
-        //         'rules' => 'required',
-        //         'errors' => [
-        //             'required' => 'Status Vaksin 2 is required'
-        //         ]
-        //     ]
-        // ]);
-
-        // if ($validation->run() == FALSE) {
-        //     $errors = $validation->getErrors();
-        //     echo json_encode(['code' => 0, 'error' => $errors]);
-        // } else {
         $score = 0;
         if( $this->request->getPost('izin') == 1)$score += 3;
         if( $this->request->getPost('kompetitor') == 0)$score += 20;	
         if( $this->request->getPost('kompetitor') == 1)$score += 10;		
         if( $this->request->getPost('tiang_listrik') == 1)$score += 10;		
-        if( $this->request->getPost('operator') == 0)$score += 5;		
-        if( $this->request->getPost('jumlah_rumah') == 10)$score += 5;
+        if( $this->request->getPost('lokal_operator') == 0)$score += 5;		
+        if( $this->request->getPost('jml_rumah') >= 100)$score += 5;
+        if( $this->request->getPost('jumlah_rumah') < 100 && $this->request->getPost('jumlah_rumah') >= 20)$score += 2;
         if( $this->request->getPost('rumah_kosong') == 1)$score += 5;
         if( $this->request->getPost('fasil_umum') == 1)$score += 5;
-        if( $this->request->getPost('rata_daya') == 2)$score += 5;
-        if( $this->request->getPost('rata_daya') == 4 ||  $this->request->getPost('rata_daya') == 10 ||  $this->request->getPost('rata_daya') == 16)$score += 3;
+        if( $this->request->getPost('rata_daya') == 2 || $this->request->getPost('rata_daya') == 8)$score += 5;
+        if( $this->request->getPost('rata_daya') == 3 || $this->request->getPost('rata_daya') == 9)$score += 3;
         if( $this->request->getPost('anak_kecil') == 1)$score += 4;
         if( $this->request->getPost('kendaraan') == 1)$score += 9;
         if( $this->request->getPost('ac') == 1)$score += 4;
-        if( $this->request->getPost('sampling_minat') == 1 || $this->request->getPost('sampling_minat_2') == 1 || $this->request->getPost('sampling_minat_3') == 1 ) $score += 20;
+        if( $this->request->getPost('alokasi_budget') == 3)$score += 5;
+        if( $this->request->getPost('alokasi_budget') == 4 || $this->request->getPost('alokasi_budget') == 5)$score += 10;
+        if( $this->request->getPost('alokasi_budget_2') == 3)$score += 5;
+        if( $this->request->getPost('alokasi_budget_2') == 4 || $this->request->getPost('alokasi_budget_2') == 5)$score += 10;
+        if( $this->request->getPost('alokasi_budget_3') == 3)$score += 5;
+        if( $this->request->getPost('alokasi_budget_3') == 4 || $this->request->getPost('alokasi_budget_3') == 5)$score += 10;
+        if( $this->request->getPost('harga_iconnet') == 3 || $this->request->getPost('harga_iconnet') == 4 || $this->request->getPost('harga_iconnet') == 5)$score += 5;
+        if( $this->request->getPost('harga_iconnet_2') == 3 || $this->request->getPost('harga_iconnet_2') == 4 || $this->request->getPost('harga_iconnet_2') == 5)$score += 5;
+        if( $this->request->getPost('harga_iconnet_3') == 3 || $this->request->getPost('harga_iconnet_3') == 4 || $this->request->getPost('harga_iconnet_3') == 5)$score += 5;
+        if( $this->request->getPost('sampling_minat') == 1)$score += 10;
+        if( $this->request->getPost('sampling_minat') == 2)$score += 5;
+        if( $this->request->getPost('sampling_minat_2') == 1)$score += 10;
+        if( $this->request->getPost('sampling_minat_2') == 2)$score += 5;
+        if( $this->request->getPost('sampling_minat_3') == 1 )$score += 10;
+        if( $this->request->getPost('sampling_minat_3') == 2)$score += 5;
         if( $this->request->getPost('internet_bisnis') == 1)$score += 5;
         
     
@@ -527,7 +465,6 @@ class Data extends Controller
                 $output = ['status' => 'Data gagal diupdate'];
                 return $this->response->setJSON($output);
             }
-        // }
     }
 
 

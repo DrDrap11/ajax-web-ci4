@@ -338,7 +338,7 @@
               </div>
               <div class="form-group">
                   <label for="jml_rumah" class="col-form-label">Jumlah Rumah</label>
-                  <input type="number" class="form-control" id="jml_rumah" name="jml_rumah" step="50" min="0" max="1000">
+                  <input type="number" class="form-control" id="jml_rumah" name="jml_rumah" min="0" max="1000">
                   <span class="text-danger error-text jml_rumah_error"></span>
               </div>
               <div class="form-group">
@@ -1078,7 +1078,7 @@
               </div>
               <div class="form-group">
                   <label for="jml_rumah" class="col-form-label">Jumlah Rumah</label>
-                  <input type="number" class="form-control" id="jml_rumah_edit" name="jml-rumah" step="50" min="0" max="1000">
+                  <input type="number" class="form-control" id="jml_rumah_edit" name="jml-rumah" min="0" max="1000">
                   <span class="text-danger error-text jml_rumah_error"></span>
               </div>
               <div class="form-group">
@@ -1707,8 +1707,6 @@
 </div>
 </body>
 
-
-
 <!-- DATATABLES SCRIPT -->
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
@@ -1802,30 +1800,6 @@
       },
     }));
   });
-  // document.addEventListener("DOMContentLoaded", function () {
-  //   var el;
-  //   window.TomSelect && (new TomSelect(el = document.getElementById('sel_kota'), {
-  //     copyClassesToDropdown: false,
-  //     dropdownClass: 'dropdown-menu ts-dropdown',
-  //     optionClass:'dropdown-item',
-  //     controlInput: '<input>',
-  //     render:{
-  //       item: function(data,escape) {
-  //         if( data.customProperties ){
-  //           return '<div><span class="dropdown-item-indicator">' + data.customProperties + '</span>' + escape(data.text) + '</div>';
-  //         }
-  //         return '<div>' + escape(data.text) + '</div>';
-  //       },
-  //       option: function(data,escape){
-  //         if( data.customProperties ){
-  //           return '<div><span class="dropdown-item-indicator">' + data.customProperties + '</span>' + escape(data.text) + '</div>';
-  //         }
-  //         return '<div>' + escape(data.text) + '</div>';
-  //       },
-  //     },
-  //   }));
-  // });
-  // select olt form tambah
   document.addEventListener("DOMContentLoaded", function () {
     var el;
     window.TomSelect && (new TomSelect(el = document.getElementById('sel_olt'), {
@@ -1881,7 +1855,6 @@
 
     $('#add-data-form').submit(function(e) {
       e.preventDefault();
-      // $('.form-select').select2();
       var form = this;
       $.ajax({
         url: $(form).attr('action'),
@@ -1994,7 +1967,6 @@
     });
 
     var table = $('#tabel').DataTable({
-      // orderCellsTop: true,
       fixedHeader: false,
       scrollY: "600px",
       'autoWidth': false,
@@ -2014,15 +1986,11 @@
         [10, 25, 50, -1],
         [10, 25, 50, "All"]
       ],
-      // "fnCreatedRow": function(row, data, index) {
-      //   $('td', row).eq(0).html(index + 1);
-      // },
       "columnDefs": [{
         "width": "10%",
         "targets": 0
       }]
     });
-    // table.column( 9 ).visible( false );
 
     var buttonCSV = new $.fn.dataTable.Buttons(table, {
       buttons: [
@@ -2030,9 +1998,6 @@
           extend: 'csv',
           text: "Export CSV",
           className: 'btn btn-outline-primary mb-2 me-2',
-          // exportOptions: {
-          //   columns: [0,1,2,3,4,5,6,7,8,9]
-          // },
         }
       ]
     }).container().appendTo($('#tombol'));
@@ -2043,9 +2008,6 @@
           extend: 'excel',
           text: "Export Excel",
           className: 'btn btn-outline-primary mb-2 me-2',
-          // exportOptions: {
-          //   columns: [0,1,2,3,4,5,6,7,8]
-          // },
         }
       ]
     }).container().appendTo($('#tombol'));
@@ -2060,7 +2022,6 @@
 
     $(document).on('click', '.btn-edit', function(e) {
       e.preventDefault();
-      // var edit_id = $(this).closest('tr').find('.krywn_id').text();
       var edit_id = $(this).attr('data-id');
       $.ajax({
         method: "post",
@@ -2081,11 +2042,6 @@
             var bisnis    = value['internet_bisnis'];
             var layak     = value['kelayakan'];
             var approv    = value['approval'];
-
-            // $('#sel_kec_edit').find('option').not(':first').remove();
-            // $('#sel_kota_edit').find('option').not(':first').remove();
-            // $('#sel_desa_edit').find('option').not(':first').remove();
-            // $('#sel_prov_edit').find('option').not(':first').remove();
 
             $('select').find('option:selected').prop('selected', false);
             
@@ -2187,11 +2143,11 @@
             $('#ket_id').val(value['ket']);
             $('#roi_edit').val(value['nilai_roi']);
             // $('#score_edit').val(value['score']);
-            if(layak == 1) {
-              $('input[name=layak_edit][value=1]').prop('checked', 'checked');
-            } else if(layak == 0){
-              $('input[name=layak_edit][value=0]').prop('checked', 'checked'); 
-            }
+            // if(layak == 1) {
+            //   $('input[name=layak_edit][value=1]').prop('checked', 'checked');
+            // } else if(layak == 0){
+            //   $('input[name=layak_edit][value=0]').prop('checked', 'checked'); 
+            // }
             $('#draw_edit').val(value['sd_jenis']);
             if(approv == 1) {
               $('input[name=approval_edit][value=1]').prop('checked', 'checked');
@@ -2320,7 +2276,7 @@
           'ket': $('#ket_edit').val(),
           'nilai_roi': $('#roi_edit').val(),
           // 'score': $('#score_edit').val(),
-          'kelayakan': $("input[name='layak_edit']:checked").val(),
+          // 'kelayakan': $("input[name='layak_edit']:checked").val(),
           'status_drawing': ($('#sel_draw_edit').val() != "") ? $('#sel_draw_edit').val() : $('#draw_id').val(),
           'maps': $('#maps_edit').val(),
           'jml_fat_ploating': $('#ploating_edit').val(),
@@ -2408,20 +2364,3 @@
 
   });
 </script>
-
-
-
-
-<!-- buat simpan aja -->
-<!-- <div>
-    <form action="base url bala bla bla ?>" method="post" enctype="multipart/form-data">
-        <div class="form-group mb-3">
-            <div class="mb-3">
-                <input type="file" name="file" class="form-control" id="file">
-            </div>
-        </div>
-        <div class="d-grid">
-            <input type="submit" name="submit" value="Upload" class="btn btn-dark" />
-        </div>
-    </form>
-</div> -->
