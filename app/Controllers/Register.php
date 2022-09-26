@@ -33,10 +33,15 @@ class Register extends Controller
                 'user_password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT)
             ];
             $model->save($data);
-            return redirect()->to('/login');
+            // redirect()->to('/login');
+            $output = ['status' => 'Berhasil'];
+            return $this->response->setJSON($output);
         }else{
             $data['validation'] = $this->validator;
-            echo view('register', $data);
+            // echo view('register', $data);
+            redirect()->to('register');
+            $output = ['status' => 'Harus Diisi Semua'];
+            return $this->response->setJSON($output);
         }
          
     }

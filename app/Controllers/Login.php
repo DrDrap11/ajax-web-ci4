@@ -18,7 +18,7 @@ class Login extends Controller
         $email = $this->request->getVar('email');
         $password = $this->request->getVar('password');
         if($email == "" && $password == "") {
-            $output = ['status' => 'Password salah'];
+            $output = ['status' => 'Tidak Boleh Kosong'];
             return $this->response->setJSON($output);
         } else {
             $data = $model->where('user_email', $email)->first();
@@ -38,14 +38,13 @@ class Login extends Controller
                     return $this->response->setJSON($output);
                 }else{
                     redirect()->to('login');
-                    $output = ['status' => 'Password salah'];
+                    $output = ['status' => 'Email/Password Salah'];
                     return $this->response->setJSON($output);
                 }
             }else{
                 redirect()->to('login');
-                $output = ['status' => 'Email tidak terdaftar'];
+                $output = ['status' => 'Email/Password Salah'];
                 return $this->response->setJSON($output);
-                // $session->flashdata('msg', 'Email not Found');
             }
         }
         

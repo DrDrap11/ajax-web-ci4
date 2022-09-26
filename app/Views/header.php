@@ -179,7 +179,7 @@
               <!-- <a href="#" class="dropdown-item">Feedback</a> -->
               <!-- <div class="dropdown-divider"></div> -->
               <!-- <a href="#" class="dropdown-item">Settings</a> -->
-              <a href="http://localhost:8080/login/logout" class="dropdown-item">Logout</a>
+              <a href="/login/logout" class="dropdown-item">Logout</a>
             </div>
           </div>
           

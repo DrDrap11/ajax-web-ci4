@@ -42,7 +42,7 @@
   <body  class=" border-top-wide border-primary d-flex flex-column">
     <div class="page page-center">
       <div class="container-tight py-4">
-      <div class="text-center mb-4">
+        <div class="text-center mb-4">
           <a href="#" style="font-family: Aclonica; font-size: 23px; color: #206bc4; text-decoration: none">
           <img src="/Assets/img/rismon_2.png" alt="RISMON">
             <!-- <i class="ti ti-ghost"></i> B O O O ! ! -->
@@ -80,57 +80,57 @@
     <!-- Libs JS -->
     <!-- Toggle Pass -->
     <script>
-        $(".toggle-password").click(function() {
+      $(".toggle-password").click(function() {
 
-            $(this).toggleClass("fa-eye fa-eye-slash");
-            var input = $($(this).attr("toggle"));
-            if (input.attr("type") == "password") {
-            input.attr("type", "text");
-            } else {
-            input.attr("type", "password");
-            }
-        });
-
-        $(document).ready(function(e) {
-          toastr.options = {
-              'closeButton': false,
-              'debug': false,
-              'newestOnTop': false,
-              'progressBar': true,
-              'positionClass': 'toast-top-right',
-              'preventDuplicates': false,
-              'showDuration': '1000',
-              'hideDuration': '1000',
-              'timeOut': '5000',
-              'extendedTimeOut': '1000',
-              'showEasing': 'swing',
-              'hideEasing': 'linear',
-              'showMethod': 'fadeIn',
-              'hideMethod': 'fadeOut',
+          $(this).toggleClass("fa-eye fa-eye-slash");
+          var input = $($(this).attr("toggle"));
+          if (input.attr("type") == "password") {
+          input.attr("type", "text");
+          } else {
+          input.attr("type", "password");
           }
+      });
 
-          $(document).on('click', '.login', function(e) {
-            e.preventDefault();
-            // var data = {
-            //   'email': $('#InputForEmail').val(),
-            //   'password': $('#InputForPassword').val(),
-            // };
-            $.ajax({
-              method: "post",
-              url: "login/auth",
-              data: $('#form').serialize(),
-              success: function(response) {
-                if (response.status == "Berhasil") {
-                  window.location.href = 'data';
-                } else if (response.status == "Password salah") {
-                  toastr.error(response.status);
-                } else {
-                  toastr.error(response.status);
-                }
+      $(document).ready(function(e) {
+        toastr.options = {
+            'closeButton': false,
+            'debug': false,
+            'newestOnTop': false,
+            'progressBar': true,
+            'positionClass': 'toast-top-right',
+            'preventDuplicates': false,
+            'showDuration': '1000',
+            'hideDuration': '1000',
+            'timeOut': '5000',
+            'extendedTimeOut': '1000',
+            'showEasing': 'swing',
+            'hideEasing': 'linear',
+            'showMethod': 'fadeIn',
+            'hideMethod': 'fadeOut',
+        }
+
+        $(document).on('click', '.login', function(e) {
+          e.preventDefault();
+          // var data = {
+          //   'email': $('#InputForEmail').val(),
+          //   'password': $('#InputForPassword').val(),
+          // };
+          $.ajax({
+            method: "post",
+            url: "login/auth",
+            data: $('#form').serialize(),
+            success: function(response) {
+              if (response.status == "Berhasil") {
+                window.location.href = 'data';
+              } else if (response.status == "Email/Password Salah") {
+                toastr.error(response.status);
+              } else {
+                toastr.error(response.status);
               }
-            });
-            e.preventDefault();
+            }
           });
+          e.preventDefault();
+        });
       });
     </script>
     <!-- Tabler Core -->

@@ -21,6 +21,7 @@
     <link href="/Assets/css/demo.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://unpkg.com/@tabler/icons@latest/iconfont/tabler-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
     <link rel="shortcut icon" type="image/x-icon" href="/Assets/img/logo.png">
     <style>
       .field-icon {
@@ -37,26 +38,23 @@
   <body  class=" border-top-wide border-primary d-flex flex-column">
     <div class="page page-center">
       <div class="container-tight py-4">
-        <div class="text-center mb-4">
+        <div class="text-center mt-5">
           <a href="#" style="font-family: Aclonica; font-size: 23px; color: #206bc4; text-decoration: none">
-          <img src="/Assets/img/rismon_2.png" alt="RISMON" width="231" height="85">
+          <img src="/Assets/img/rismon_2.png" alt="RISMON">
           </a>
         </div>
-        <?php if(isset($validation)):?>
-            <div class="alert alert-danger"><?= $validation->listErrors() ?></div>
-        <?php endif;?>
-        <form class="card card-md" action="/register/save" method="post">
+        <form id="form" class="card card-md" action="/register/save" method="post">
           <div class="card-body">
             <h2 class="card-title text-center mb-4">Buat Akun Baru</h2>
-            <div class="mb-3">
+            <div class="mb-2">
               <label for="InputForName" class="form-label">Nama</label>
               <input type="text" name="name" class="form-control" id="InputForName" value="<?= set_value('name') ?>" placeholder="Masukkan Nama">
             </div>
-            <div class="mb-3">
+            <div class="mb-2">
               <label for="InputForEmail" class="form-label">Email</label>
               <input type="email" name="email" class="form-control" id="InputForEmail" value="<?= set_value('email') ?>" placeholder="Masukkan Email">
             </div>
-            <div class="mb-3">
+            <div class="mb-2">
               <label for="InputForPassword" class="form-label">Password</label>
               <div class="input-group input-group-flat">
                 <input id="password-field" type="password" name="password" class="form-control"  placeholder="Password"  autocomplete="off">
@@ -65,7 +63,7 @@
                 </span>              
               </div>
             </div>
-            <div class="mb-3">
+            <div class="mb-2">
               <label for="InputForConfPassword" class="form-label">Konfirmasi Password</label>
               <div class="input-group input-group-flat">
                 <input type="password" name="confpassword" class="form-control" id="InputForConfPassword" placeholder="Konfirmasi Password"  autocomplete="off">
@@ -76,9 +74,10 @@
             </div>
       
             <div class="form-footer">
-              <button type="submit" class="btn btn-primary w-100">Buat Akun</button>
+              <button type="submit" class="btn btn-primary w-100 reg">Buat Akun</button>
             </div>
           </div>
+          <div class="hr-text">or</div>
         </form>
         <div class="text-center text-muted mt-3">
           Sudah Punya Akun? <a href="/login" tabindex="-1">Login</a>
@@ -88,19 +87,62 @@
     <!-- Libs JS -->
     <!-- Toggle Pass -->
     <script>
-        $(".toggle-password").click(function() {
+      $(".toggle-password").click(function() {
 
-            $(this).toggleClass("fa-eye fa-eye-slash");
-            var input = $($(this).attr("toggle"));
-            if (input.attr("type") == "password") {
-            input.attr("type", "text");
-            } else {
-            input.attr("type", "password");
+          $(this).toggleClass("fa-eye fa-eye-slash");
+          var input = $($(this).attr("toggle"));
+          if (input.attr("type") == "password") {
+          input.attr("type", "text");
+          } else {
+          input.attr("type", "password");
+          }
+      });
+
+      $(document).ready(function(e) {
+        toastr.options = {
+            'closeButton': false,
+            'debug': false,
+            'newestOnTop': false,
+            'progressBar': true,
+            'positionClass': 'toast-top-right',
+            'preventDuplicates': false,
+            'showDuration': '1000',
+            'hideDuration': '1000',
+            'timeOut': '5000',
+            'extendedTimeOut': '1000',
+            'showEasing': 'swing',
+            'hideEasing': 'linear',
+            'showMethod': 'fadeIn',
+            'hideMethod': 'fadeOut',
+        }
+
+        $(document).on('click', '.reg', function(e) {
+          e.preventDefault();
+          // var data = {
+          //   'email': $('#InputForEmail').val(),
+          //   'password': $('#InputForPassword').val(),
+          // };
+          $.ajax({
+            method: "post",
+            url: "register/save",
+            data: $('#form').serialize(),
+            success: function(response) {
+              if (response.status == "Berhasil") {
+                window.location.href = 'login';
+              } else if (response.status == "Harus Diisi Semua") {
+                toastr.error(response.status);
+              } else {
+                toastr.error(response.status);
+              }
             }
+          });
+          e.preventDefault();
         });
+      });
     </script>
     <!-- Tabler Core -->
     <script src="/Assets/js/tabler.min.js"></script>
     <script src="/Assets/js/demo.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
   </body>
 </html>
