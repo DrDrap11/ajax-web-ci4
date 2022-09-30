@@ -1800,6 +1800,7 @@
       },
     }));
   });
+  
   document.addEventListener("DOMContentLoaded", function () {
     var el;
     window.TomSelect && (new TomSelect(el = document.getElementById('sel_olt'), {
@@ -1987,8 +1988,14 @@
         [10, 25, 50, "All"]
       ],
       "columnDefs": [{
-        "width": "10%",
-        "targets": 0
+        // "width": "10%",
+        "targets": 46,
+        render: function (data, type, row, meta) {
+          if (type === 'display') {
+            data = '<a href="' + data + '" target="_blank">' + data + '</a>';
+          }
+          return data;
+        }
       }]
     });
 
