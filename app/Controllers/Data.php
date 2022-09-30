@@ -80,7 +80,7 @@ class Data extends Controller
         if( $this->request->getPost('minat3') == 2)$score += 5;
         if( $this->request->getPost('bisnis') == 1)$score += 5;
     
-        if($score > 60){
+        if($score >= 70){
             $kelayakan = 1;
         }else{
             $kelayakan = 0;
@@ -399,7 +399,7 @@ class Data extends Controller
         if( $this->request->getPost('internet_bisnis') == 1)$score += 5;
         
     
-        if($score > 60){
+        if($score >= 70){
             $kelayakan = 1;
         }else{
             $kelayakan = 0;
