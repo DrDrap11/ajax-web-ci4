@@ -32,17 +32,23 @@
                             <input type="text" class="form-control" name="user_name" id="user_name"
                                 value="<?= $user_name; ?>">
                         </div>
-
-                        <div class="col mb-2">
+                        <div class="mb-2">
                             <label class="form-label">Ganti Kata Sandi<a style="color: red">*</a></label>
-                            <input type="password" class="form-control " name="password1" id="password1">
-                            <span toggle="#password1" class="fa fa-fw fa-eye field-icon toggle toggle-password"></span>
+                            <div class="input-group input-group-flat">
+                                <input type="password" class="form-control " name="password1" id="password1">
+                                <span class="input-group-text">
+                                    <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle toggle-password"></span>
+                                </span>              
+                            </div>
                         </div>
-
-                        <div class="col mb-2">
-                            <label class="form-label">Ulangi Kata Sandi <a style="color: red">*</a></label>
-                            <input type="password" class="form-control" name="user_password" id="password2">
-                            <span toggle="#password2" class="fa fa-fw fa-eye field-icon toggle toggle-password"></span>
+                        <div class="mb-2">
+                            <abel class="form-label">Ulangi Kata Sandi <a style="color: red">*</a></label>
+                            <div class="input-group input-group-flat">
+                                <input type="password" class="form-control " name="user_password" id="password2">
+                                <span class="input-group-text">
+                                    <span toggle="#password2" class="fa fa-fw fa-eye field-icon toggle toggle-password"></span>
+                                </span>
+                            </div>
                         </div>
                     </div>
                     <div class="card-footer">
