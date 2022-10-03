@@ -1992,7 +1992,7 @@
         "targets": 46,
         render: function (data, type, row, meta) {
           if (type === 'display') {
-            data = '<a href="' + data + '" target="_blank">' + data + '</a>';
+            data = '<a href="' + data + '" target="_blank">Link Maps</a>';
           }
           return data;
         }
